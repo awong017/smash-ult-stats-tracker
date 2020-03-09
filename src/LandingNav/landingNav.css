@@ -1,0 +1,30 @@
+.landing-nav {
+    display: fixed;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url("./images/smash-ult-banner.png");
+    background-size: cover;
+    background-position: center center;
+    background-color: black;
+    height: 200px;
+    margin-top: auto;
+    border-bottom: 3px solid red;
+}
+
+.landing-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 10px;
+    margin-top: 0px;
+}
+
+.landing-li {
+    list-style: none;
+    color: white;
+    margin-left: 20px;
+}

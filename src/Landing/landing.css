@@ -1,0 +1,9 @@
+.landing {
+    background-color: black;
+    height: 1000px;
+}
+
+.landing-header {
+    text-align: center;
+    color: white;
+}
