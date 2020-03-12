@@ -2,7 +2,7 @@ import React from 'react';
 import LandingNav from '../LandingNav/landingNav';
 import './landing.css';
 
-function landing() {
+const landing = () => {
     return (
         <div className="landing">
             <LandingNav />

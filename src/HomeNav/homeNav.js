@@ -1,7 +1,7 @@
 import React from 'react';
 import './homeNav.css';
 
-function homeNav() {
+const homeNav = () => {
     return (
         <div className="nav">
             <ul className="home-nav-ul">
