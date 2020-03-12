@@ -1,0 +1,15 @@
+.home-nav-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 10px;
+    margin-top: 0px;
+}
+
+.home-nav-li {
+    list-style: none;
+    color: white;
+    margin-left: 20px;
+    padding-top: 20px;
+}

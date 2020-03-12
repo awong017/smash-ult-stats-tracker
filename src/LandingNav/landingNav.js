@@ -3,10 +3,9 @@ import './landingNav.css';
 
 function landingNav() {
     return (
-        <div className="landing-nav">
-            <ul className="landing-ul">
-                <li className="landing-li">Stats</li>
-                <li className="landing-li">Log Out</li>
+        <div className="nav">
+            <ul className="landing-nav-ul">
+                <li className="landing-nav-li">Login</li>
             </ul>
         </div>
     )
