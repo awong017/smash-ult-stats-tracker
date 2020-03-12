@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Route, withRouter} from 'react-router-dom';
 import Landing from './Landing/landing';
+import Login from './Login/login';
 import './App.css'
 
 const App = () => {
@@ -9,6 +10,7 @@ const App = () => {
     return (
       <>
         <Route exact path="/" component={Landing} />
+        <Route path="/login" component={Login} />
       </>
     );
   }
