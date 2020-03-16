@@ -8,7 +8,7 @@ const landing = () => {
             <LandingNav />
             <h1 className="landing-header">This is the landing page</h1>
         </div>
-    )
-}
+    );
+};
 
 export default landing;
