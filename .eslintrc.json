@@ -5,7 +5,7 @@
         "es6": true,
         "node": true
     },
-    "parser": "babel-eslint",
+    // "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true,
@@ -14,9 +14,7 @@
         "ecmaVersion": 2017,
         "sourceType": "module"
     },
-    "extends": [
-        "plugin:react/recommended"
-    ],
+    "extends": ["plugin:react/recommended"],
     "plugins": ["react", "react-hooks"],
     "rules": {
         "space-before-function-paren": [
