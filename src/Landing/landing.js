@@ -7,6 +7,7 @@ const landing = () => {
         <div className="landing">
             <LandingNav />
             <h1 className="landing-header">This is the landing page</h1>
+            <h2>I am testing this page</h2>
         </div>
     );
 };
