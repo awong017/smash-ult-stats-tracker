@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "homeNav.scss"
+        "stats.scss"
     ],
     "names": [],
-    "file": "homeNav.css"
+    "file": "stats.css"
 }
