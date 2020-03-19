@@ -1,10 +1,12 @@
+@import '../SCSS/_general';
+
 .login {
-    background-color: black;
-    margin-top: 200px;
-    color: white;
+    background-color: $background-color;
+    color: $body-color;
 
     .login-header {
         text-align: center;
+        margin-top: 200px;
     }
 }
 

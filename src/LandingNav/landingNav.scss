@@ -1,3 +1,5 @@
+@import '../SCSS/_general';
+
 .nav {
     position: fixed;
     top: 0;
@@ -11,7 +13,7 @@
         url("./images/smash-ult-banner.png");
     background-size: cover;
     background-position: center center;
-    background-color: black;
+    background-color: $background-color;
     height: 200px;
     width: 100%;
     margin-top: 0px;
@@ -28,18 +30,18 @@
     
     li {
         list-style: none;
-        color: white;
+        color: $link-color;
         margin-left: 20px;
         padding-top: 20px;
     }
 
     a {
         text-decoration: none;
-        color: white;
+        color: $link-color;
 
         &:hover {
             cursor: pointer;
-            text-decoration: underline;
+            color: red;
         }
     }
 }

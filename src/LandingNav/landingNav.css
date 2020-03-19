@@ -44,6 +44,6 @@
 
 .nav a:hover {
   cursor: pointer;
-  text-decoration: underline;
+  color: red;
 }
 /*# sourceMappingURL=landingNav.css.map */

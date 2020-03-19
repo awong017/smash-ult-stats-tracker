@@ -1,9 +1,14 @@
 .landing {
   background-color: black;
+}
+
+.landing h1 {
+  text-align: center;
+  color: white;
   margin-top: 200px;
 }
 
-.landing-header {
+.landing h2 {
   text-align: center;
   color: white;
 }

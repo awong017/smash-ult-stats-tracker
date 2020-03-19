@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,gBAAgB,EAAE,KAAK;EACvB,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;CAKf;;AARD,AAKI,MALE,CAKF,aAAa,CAAC;EACV,UAAU,EAAE,MAAM;CACrB",
+    "mappings": "AAEA,AAAA,MAAM,CAAC;EACH,gBAAgB,ECDD,KAAK;EDEpB,KAAK,ECJI,KAAK;CDUjB;;AARD,AAII,MAJE,CAIF,aAAa,CAAC;EACV,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,KAAK;CACpB",
     "sources": [
-        "login.scss"
+        "login.scss",
+        "../SCSS/_general.scss"
     ],
     "names": [],
     "file": "login.css"

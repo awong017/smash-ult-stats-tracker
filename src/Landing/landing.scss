@@ -1,9 +1,16 @@
+@import '../SCSS/general';
+
 .landing {
     background-color: black;
-    margin-top: 200px;
-}
 
-.landing-header {
-    text-align: center;
-    color: white;
+    h1 {
+        text-align: center;
+        color: $body-color;
+        margin-top: 200px;
+    }
+
+    h2 {
+        text-align: center;
+        color: $body-color;
+    }
 }
