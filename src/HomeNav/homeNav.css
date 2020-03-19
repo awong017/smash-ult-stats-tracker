@@ -1,15 +1,23 @@
 .home-nav-ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-left: 0;
-    padding-right: 10px;
-    margin-top: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-left: 0;
+  padding-right: 10px;
+  margin-top: 0px;
 }
 
-.home-nav-li {
-    list-style: none;
-    color: white;
-    margin-left: 20px;
-    padding-top: 20px;
+.home-nav-ul li {
+  list-style: none;
+  color: white;
+  margin-left: 20px;
+  padding-top: 20px;
 }
+/*# sourceMappingURL=homeNav.css.map */

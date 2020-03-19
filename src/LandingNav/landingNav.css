@@ -1,46 +1,49 @@
 .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7)
-        ),
-        url("./images/smash-ult-banner.png");
-    background-size: cover;
-    background-position: center center;
-    background-color: black;
-    height: 200px;
-    width: 100%;
-    margin-top: 0px;
-    border-bottom: 3px solid red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7))), url("./images/smash-ult-banner.png");
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./images/smash-ult-banner.png");
+  background-size: cover;
+  background-position: center center;
+  background-color: black;
+  height: 200px;
+  width: 100%;
+  margin-top: 0px;
+  border-bottom: 3px solid red;
 }
 
-.landing-nav-ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-left: 0;
-    padding-right: 10px;
-    margin-top: 0px;
+.nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-left: 0;
+  padding-right: 10px;
+  margin-top: 0px;
 }
 
-.landing-nav-li {
-    list-style: none;
-    color: white;
-    margin-left: 20px;
-    padding-top: 20px;
+.nav li {
+  list-style: none;
+  color: white;
+  margin-left: 20px;
+  padding-top: 20px;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+.nav a {
+  text-decoration: none;
+  color: white;
 }
 
-a:hover {
-    cursor: pointer;
-    text-decoration: underline;
+.nav a:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
-
+/*# sourceMappingURL=landingNav.css.map */

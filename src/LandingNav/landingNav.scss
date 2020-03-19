@@ -1,0 +1,45 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url("./images/smash-ult-banner.png");
+    background-size: cover;
+    background-position: center center;
+    background-color: black;
+    height: 200px;
+    width: 100%;
+    margin-top: 0px;
+    border-bottom: 3px solid red;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-left: 0;
+        padding-right: 10px;
+        margin-top: 0px;
+    }
+    
+    li {
+        list-style: none;
+        color: white;
+        margin-left: 20px;
+        padding-top: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
