@@ -1,10 +1,19 @@
 .login {
   background-color: black;
-  color: white;
 }
 
-.login .login-header {
-  text-align: center;
+.login .login-form {
+  color: white;
   margin-top: 200px;
+  margin-left: auto;
+  width: 50%;
+}
+
+.login .login-form label {
+  display: block;
+}
+
+.login .login-form button {
+  display: block;
 }
 /*# sourceMappingURL=login.css.map */
