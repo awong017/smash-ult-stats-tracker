@@ -6,7 +6,8 @@
   color: white;
   margin-top: 200px;
   margin-left: auto;
-  width: 50%;
+  margin-right: auto;
+  width: 25%;
 }
 
 .login .login-form label {
