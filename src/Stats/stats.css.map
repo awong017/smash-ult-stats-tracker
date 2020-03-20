@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAEA,AACI,MADE,CACF,EAAE,CAAC;EACC,KAAK,ECDA,KAAK;EDEV,UAAU,EAAE,MAAM;CACrB",
     "sources": [
-        "stats.scss"
+        "stats.scss",
+        "../SCSS/_general.scss"
     ],
     "names": [],
     "file": "stats.css"

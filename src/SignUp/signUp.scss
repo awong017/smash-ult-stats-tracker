@@ -1,0 +1,11 @@
+@import '../SCSS/general';
+
+.sign-up {
+
+    h1 {
+        background-color: $background-color;
+        color: $body-color;
+        text-align: center;
+        margin-top: 200px;
+    }
+}
