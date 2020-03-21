@@ -21,4 +21,16 @@
   display: block;
   margin-top: 25px;
 }
+
+.login .login-form a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.login .login-form a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
 /*# sourceMappingURL=login.css.map */

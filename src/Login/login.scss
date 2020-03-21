@@ -24,6 +24,18 @@
             display: block;
             margin-top: 25px;
         }
+
+        a {
+            display: block;
+            color: $link-color;
+            text-decoration: none;
+            margin-top: 10px;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginNav from '../LoginNav/loginNav';
 import './login.css';
 
@@ -18,8 +19,12 @@ const login = () => {
                     <button className="login-button">Login</button>
                 </fieldset>
                 <fieldset className="login-option">
-                    <p>Forgot your password?</p>
-                    <p>Sign Up</p>
+                    <Link to={'/password'}>
+                        Forgot your password?
+                    </Link>
+                    <Link to={'/signup'}>
+                        Sign Up
+                    </Link>
                 </fieldset>
             </form>
         </div>
