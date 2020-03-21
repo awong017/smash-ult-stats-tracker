@@ -1,11 +1,11 @@
 import React from 'react';
 import './signUp.css'
-import LoginNav from '../LoginNav/loginNav';
+import LandingNav from '../LandingNav/landingNav';
 
 const signUp = () => {
     return (
         <div className="sign-up">
-            <LoginNav />
+            <LandingNav />
             <h1>This is the sign up page</h1>
         </div>
     )
