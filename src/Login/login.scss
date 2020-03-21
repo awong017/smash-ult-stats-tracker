@@ -1,21 +1,28 @@
 @import '../SCSS/_general';
 
 .login {
-    background-color: $background-color;
 
     .login-form {
+        background-color: darkgray;
         color: $body-color;
-        margin-top: 200px;
+        border: 2px solid black;
+        margin-top: 300px;
         margin-left: auto;
         margin-right: auto;
         width: 25%;
 
+        legend {
+            text-align: center;
+        }
+
         label {
             display: block;
+            margin-top: 25px;
         }
 
         button {
             display: block;
+            margin-top: 25px;
         }
     }
 }
