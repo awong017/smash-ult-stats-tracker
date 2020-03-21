@@ -1,7 +1,49 @@
-.sign-up h1 {
-  background-color: black;
-  color: white;
+.sign-up .sign-up-form {
+  background-color: #303030;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-top: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 20px;
+  width: 25%;
+}
+
+.sign-up .sign-up-form legend {
   text-align: center;
-  margin-top: 200px;
+  color: white;
+}
+
+.sign-up .sign-up-form fieldset {
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+
+.sign-up .sign-up-form label {
+  display: block;
+  color: #787878;
+  margin-top: 25px;
+}
+
+.sign-up .sign-up-form input {
+  background-color: #525151;
+  color: white;
+  border: 2px solid #525151;
+}
+
+.sign-up .sign-up-form button {
+  display: block;
+  color: white;
+  padding: 5px 10px;
+  background-color: #d10000;
+  border: 1px solid black;
+  margin-top: 25px;
+}
+
+.sign-up .sign-up-form button:hover {
+  cursor: pointer;
+  background-color: #8a0000;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 /*# sourceMappingURL=signUp.css.map */

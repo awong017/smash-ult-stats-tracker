@@ -14,7 +14,7 @@ const login = () => {
                     <input className="name-input" type="text" placeholder="User Name"></input>
 
                     <label className="password-label">Password</label>
-                    <input className="password-input" type="text" placeholder="Password"></input>
+                    <input className="password-input" type="password" placeholder="Password"></input>
 
                     <button className="login-button">Login</button>
                 </fieldset>
