@@ -19,6 +19,13 @@
     margin-top: 0px;
     border-bottom: 1px solid $red-color;
 
+    .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
     ul {
         display: flex;
         flex-direction: row;
@@ -32,7 +39,6 @@
         list-style: none;
         color: $link-color;
         margin-left: 20px;
-        padding-top: 20px;
     }
 
     a {
@@ -43,5 +49,12 @@
             cursor: pointer;
             color: red;
         }
+    }
+
+    .smash-ball-image {
+        width: 15%;
+        border-radius: 50%;
+        border: 2px solid white;
+        opacity: 0.5;
     }
 }
