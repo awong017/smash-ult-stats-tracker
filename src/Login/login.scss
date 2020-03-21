@@ -4,7 +4,7 @@
 
     .login-form {
         background-color: #303030;
-        border: 4px solid black;
+        border: 3px solid black;
         border-radius: 10px;
         margin-top: 300px;
         margin-left: auto;
@@ -38,7 +38,7 @@
             display: block;
             color: white;
             padding: 5px 10px;
-            background-color: #d10000;
+            background-color: $red-color;
             border: 1px solid black;
             margin-top: 25px;
 
