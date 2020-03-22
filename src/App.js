@@ -9,6 +9,38 @@ import './App.css'
 
 const App = () => {
 
+  const [state, updateState] = useState([
+    {
+      users: [
+        {
+          id: "a1",
+          email: "awong017@ucr.edu",
+          username: "awong017",
+          password: "asdfasdf1"
+        }
+      ]
+    },
+    {
+      characters: [
+        {
+          id: 1,
+          name: "samus"
+        },
+        {
+          id: 2,
+          name: "king dedede"
+        },
+        {
+          id: 3,
+          name: "pikachu"
+        },
+      ]
+    },
+    {
+      matches: ""
+    }
+  ]);
+
   const renderRoutes = () => {
     return (
       <>
