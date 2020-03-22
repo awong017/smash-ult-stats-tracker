@@ -9,7 +9,7 @@ import './App.css'
 
 const App = () => {
 
-  const [state, updateState] = useState([
+  const [data, append] = useState([
     {
       users: [
         {
@@ -18,9 +18,7 @@ const App = () => {
           username: "awong017",
           password: "asdfasdf1"
         }
-      ]
-    },
-    {
+      ],
       characters: [
         {
           id: 1,
@@ -34,10 +32,8 @@ const App = () => {
           id: 3,
           name: "pikachu"
         },
-      ]
-    },
-    {
-      matches: ""
+      ],
+      matches: "",
     }
   ]);
 
@@ -45,7 +41,9 @@ const App = () => {
     return (
       <>
         <Route exact path="/" component={Landing} />
-        <Route path="/login" component={Login} />
+        <Route path="/login"
+          render={(routeProps) => (<Login {...routeProps} data={data} />)}
+        />
         <Route path="/signup" component={SignUp} />
         <Route path="/home" component={Home} />
         <Route path="/stats" component={Stats} />

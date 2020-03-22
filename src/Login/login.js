@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import LoginNav from '../LoginNav/loginNav';
 import './login.css';
 
-const login = () => {
+const login = ({ data }) => {
     return (
         <div className="login">
             <LoginNav />
@@ -25,6 +25,7 @@ const login = () => {
                     <Link to={'/signup'}>
                         Sign Up
                     </Link>
+                    <button onClick={() => console.log("Hello")}>Console Log</button>
                 </fieldset>
             </form>
         </div>
