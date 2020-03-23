@@ -9,7 +9,7 @@ import './App.css'
 
 const App = () => {
 
-  const [data, append] = useState([
+  const [data, append] = useState(
     {
       users: [
         {
@@ -34,15 +34,27 @@ const App = () => {
         },
       ],
       matches: "",
+      usernameError: "This is a username error",
+      passwordError: "This is a password error"
     }
-  ]);
+  );
+
+  // Method for handling the login
+
+  const handleLogin = (e) => {
+    const { users } = data
+
+    e.preventDefault();
+    console.log("Handle Login");
+  }
+
 
   const renderRoutes = () => {
     return (
       <>
         <Route exact path="/" component={Landing} />
         <Route path="/login"
-          render={(routeProps) => (<Login {...routeProps} data={data} />)}
+          render={(routeProps) => (<Login {...routeProps} data={data} handleLogin={handleLogin} />)}
         />
         <Route path="/signup" component={SignUp} />
         <Route path="/home" component={Home} />

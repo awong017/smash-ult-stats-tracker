@@ -3,20 +3,22 @@ import { Link } from 'react-router-dom';
 import LoginNav from '../LoginNav/loginNav';
 import './login.css';
 
-const login = ({ data }) => {
+const login = ({ handleLogin }) => {
     return (
         <div className="login">
             <LoginNav />
-            <form className="login-form">
+            <form className="login-form" onSubmit={(e) => handleLogin(e)}>
                 <legend><h2>Login</h2></legend>
                 <fieldset className="login-input">
                     <label className="name-label">User Name</label>
                     <input className="name-input" type="text" placeholder="User Name"></input>
+                    <div className="input-error"></div>
 
                     <label className="password-label">Password</label>
                     <input className="password-input" type="password" placeholder="Password"></input>
+                    <div className="input-error"></div>
 
-                    <button className="login-button">Login</button>
+                    <input type="submit" className="login-button" value="Login" />
                 </fieldset>
                 <fieldset className="login-option">
                     <Link to={'/password'}>
@@ -25,7 +27,6 @@ const login = ({ data }) => {
                     <Link to={'/signup'}>
                         Sign Up
                     </Link>
-                    <button onClick={() => console.log("Hello")}>Console Log</button>
                 </fieldset>
             </form>
         </div>

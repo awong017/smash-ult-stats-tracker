@@ -31,16 +31,23 @@
   border: 2px solid #525151;
 }
 
-.login .login-form button {
+.login .login-form .input-error {
+  color: red;
+}
+
+.login .login-form .login-button, .login .login-form button {
   display: block;
+  width: 50px;
+  text-align: center;
   color: white;
-  padding: 5px 10px;
+  font-size: 14px;
+  padding: 2px 0px;
   background-color: #d10000;
   border: 1px solid black;
   margin-top: 25px;
 }
 
-.login .login-form button:hover {
+.login .login-form .login-button:hover, .login .login-form button:hover {
   cursor: pointer;
   background-color: #8a0000;
   -webkit-transition: 0.1s;
@@ -57,5 +64,10 @@
 .login .login-form a:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.login .login-form button {
+  width: initial;
+  padding: 5px 10px;
 }
 /*# sourceMappingURL=login.css.map */
