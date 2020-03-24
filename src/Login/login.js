@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginNav from '../LoginNav/loginNav';
 import './login.css';
 
 const login = ({ handleLogin }) => {
+
+    const [loginState, setState] = useState(
+        {
+            username: "",
+            password: ""
+        }
+    )
+
+    const loginInfo = (username, password) => {
+        const user = {
+            username: username,
+            password: password
+        }
+        setState(user);
+        console.log(loginState);
+    }
+
     return (
         <div className="login">
             <LoginNav />
@@ -11,11 +28,11 @@ const login = ({ handleLogin }) => {
                 <legend><h2>Login</h2></legend>
                 <fieldset className="login-input">
                     <label className="name-label">User Name</label>
-                    <input className="name-input" type="text" placeholder="User Name"></input>
+                    <input className="name-input" type="text" placeholder="User Name" onChange={(e) => loginInfo(e.target.value, password)}></input>
                     <div className="input-error"></div>
 
                     <label className="password-label">Password</label>
-                    <input className="password-input" type="password" placeholder="Password"></input>
+                    <input className="password-input" type="password" placeholder="Password" onChange={(e) => loginInfo(username, e.target.value)}></input>
                     <div className="input-error"></div>
 
                     <input type="submit" className="login-button" value="Login" />

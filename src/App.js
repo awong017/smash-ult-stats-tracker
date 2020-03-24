@@ -45,7 +45,7 @@ const App = () => {
     const { users } = data
 
     e.preventDefault();
-    console.log("Handle Login");
+    console.log(users);
   }
 
 
