@@ -83,12 +83,18 @@ const App = (props) => {
     }
 
     else if (!password) {
+      updateUsernameError({
+        usernameError: ""
+      })
       updatePasswordError({
         passwordError: "Please provide a password"
       })
     }
 
     else if (findUser.password != password) {
+      updateUsernameError({
+        usernameError: ""
+      })
       updatePasswordError({
         passwordError: "Incorrect password"
       })
