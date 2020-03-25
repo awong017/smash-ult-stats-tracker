@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import Landing from './Landing/landing';
-import Login from './Login/login';
-import SignUp from './SignUp/signUp';
-import Home from './Home/home';
-import Stats from './Stats/stats';
+import Landing from './Components/Landing/landing';
+import Login from './Components/Login/login';
+import SignUp from './Components/SignUp/signUp';
+import Home from './Components/Home/home';
+import Stats from './Components/Stats/stats';
 import Context from './context';
 import './App.css'
 

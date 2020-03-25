@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import HomeNav from '../HomeNav/homeNav';
-import Context from '../context';
+import Context from '../../context';
 import './home.css';
 
 const home = () => {
