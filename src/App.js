@@ -5,6 +5,7 @@ import Login from './Login/login';
 import SignUp from './SignUp/signUp';
 import Home from './Home/home';
 import Stats from './Stats/stats';
+import Context from './context';
 import './App.css'
 
 const App = () => {
@@ -53,10 +54,10 @@ const App = () => {
 
   // Method for handling the login
 
-  const handleLogin = (e, username, password) => {
+  const handleLogin = (event, username, password) => {
     const { users } = data
 
-    e.preventDefault();
+    event.preventDefault();
 
     console.log("Users: ", users)
     console.log("Username Error: ", data.usernameError)
@@ -108,9 +109,7 @@ const App = () => {
     return (
       <>
         <Route exact path="/" component={Landing} />
-        <Route path="/login"
-          render={(routeProps) => (<Login {...routeProps} data={data} handleLogin={handleLogin} />)}
-        />
+        <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/home" component={Home} />
         <Route path="/stats" component={Stats} />
@@ -118,10 +117,21 @@ const App = () => {
     );
   }
 
+  const contextValue = {
+    users: data.users,
+    characters: data.characters,
+    matches: data.matches,
+    usernameError: data.usernameError,
+    passwordError: data.passwordError,
+    handleLogin: handleLogin
+  }
+
   return (
-    <div className="app">
-      {renderRoutes()}
-    </div>
+    <Context.Provider value={contextValue}>
+      <div className="app">
+        {renderRoutes()}
+      </div>
+    </Context.Provider>
   )
 }
 

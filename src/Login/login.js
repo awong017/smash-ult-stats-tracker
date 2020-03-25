@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginNav from '../LoginNav/loginNav';
+import Context from '../context';
 import './login.css';
 
-const login = ({ handleLogin, usernameError, passwordError }) => {
+const login = () => {
+
+    const { handleLogin, usernameError, passwordError } = useContext(Context)
 
     const [loginState, setState] = useState("")
 
