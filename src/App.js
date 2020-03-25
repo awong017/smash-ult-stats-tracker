@@ -8,60 +8,59 @@ import Stats from './Stats/stats';
 import Context from './context';
 import './App.css'
 
-const App = () => {
+const App = (props) => {
 
-  const [data, updateData] = useState(
+  const [users, setUsers] = useState([
     {
-      users: [
-        {
-          id: "a1",
-          email: "awong017@ucr.edu",
-          username: "awong017",
-          password: "asdfasdf1"
-        },
-        {
-          id: "a2",
-          email: "brianphn@gmail.com",
-          username: "phanman",
-          password: "phantastic"
-        },
-        {
-          id: "a3",
-          email: "markt@gmail.com",
-          username: "markt",
-          password: "masterdev"
-        },
-      ],
-      characters: [
-        {
-          id: 1,
-          name: "samus"
-        },
-        {
-          id: 2,
-          name: "king dedede"
-        },
-        {
-          id: 3,
-          name: "pikachu"
-        },
-      ],
-      matches: "",
-      usernameError: "",
-      passwordError: ""
-    }
-  );
+      id: "a1",
+      email: "awong017@ucr.edu",
+      username: "awong017",
+      password: "asdfasdf1"
+    },
+    {
+      id: "a2",
+      email: "brianphn@gmail.com",
+      username: "phanman",
+      password: "phantastic"
+    },
+    {
+      id: "a3",
+      email: "markt@gmail.com",
+      username: "markt",
+      password: "masterdev"
+    },
+  ])
+
+  const [characters, updateCharacters] = useState([
+    {
+      id: 1,
+      name: "samus"
+    },
+    {
+      id: 2,
+      name: "king dedede"
+    },
+    {
+      id: 3,
+      name: "pikachu"
+    },
+  ])
+
+  const [matches, updateMatches] = useState("")
+
+  const [usernameError, updateUsernameError] = useState({
+    usernameError: ""
+  })
+
+  const [passwordError, updatePasswordError] = useState({
+    passwordError: ""
+  })
 
   // Method for handling the login
 
   const handleLogin = (event, username, password) => {
-    const { users } = data
 
-    event.preventDefault();
-
-    console.log("Users: ", users)
-    console.log("Username Error: ", data.usernameError)
-    console.log("Password Error: ", data.passwordError)
+    event.preventDefault()
 
     const checkUser = users.some(user => {
       return user.username === username
@@ -72,35 +71,37 @@ const App = () => {
     })
 
     if (!username) {
-      updateData({
+      updateUsernameError({
         usernameError: "Please provide a username"
       })
     }
 
     else if (checkUser === false) {
-      updateData({
+      updateUsernameError({
         usernameError: "User is not found"
       })
     }
 
     else if (!password) {
-      updateData({
+      updatePasswordError({
         passwordError: "Please provide a password"
       })
     }
 
     else if (findUser.password != password) {
-      updateData({
+      updatePasswordError({
         passwordError: "Incorrect password"
       })
     }
 
     else {
-      updateData({
-        usernameError: "",
+      updateUsernameError({
+        usernameError: ""
+      })
+      updatePasswordError({
         passwordError: ""
       })
-      this.props.history.push("/home")
+      props.history.push("/home")
     }
   }
 
@@ -118,11 +119,11 @@ const App = () => {
   }
 
   const contextValue = {
-    users: data.users,
-    characters: data.characters,
-    matches: data.matches,
-    usernameError: data.usernameError,
-    passwordError: data.passwordError,
+    users: users,
+    characters: characters,
+    matches: matches,
+    usernameError: usernameError.usernameError,
+    passwordError: passwordError.passwordError,
     handleLogin: handleLogin
   }
 
