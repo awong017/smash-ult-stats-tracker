@@ -6,11 +6,12 @@ import SignUp from './Components/SignUp/signUp';
 import Home from './Components/Home/home';
 import Stats from './Components/Stats/stats';
 import Context from './context';
+import uuid from 'uuid/v4';
 import './App.css'
 
 const App = (props) => {
 
-  const [users, setUsers] = useState([
+  const [users, updateUsers] = useState([
     {
       id: "a1",
       email: "awong017@ucr.edu",
@@ -47,6 +48,10 @@ const App = (props) => {
   ])
 
   const [matches, updateMatches] = useState("")
+
+  const [emailError, updateEmailError] = useState({
+    emailError: ""
+  })
 
   const [usernameError, updateUsernameError] = useState({
     usernameError: ""
@@ -107,6 +112,53 @@ const App = (props) => {
       updatePasswordError({
         passwordError: ""
       })
+
+      props.history.push("/home")
+    }
+  }
+
+  // Method for signing up and creating a new account
+
+  const handleSignup = (event, email, username, password1, password2) => {
+
+    event.preventDefault()
+
+    const findUser = users.find(user => {
+      return user.username === username
+    })
+
+    if (!email || !email.includes("@")) {
+      updateEmailError({
+        emailError: "Please input a valid email address"
+      })
+    }
+
+    else if (findUser === true) {
+      updateUsernameError({
+        usernameError: "Username is already taken"
+      })
+    }
+
+    else if (password1 !== password2) {
+      updatePasswordError({
+        passwordError: "Passwords are not matching"
+      })
+    }
+
+    else {
+      updateEmailError({ emailError: "" })
+      updateUsernameError({ usernameError: "" })
+      updatePasswordError({ passwordError: "" })
+
+      const newUser = {
+        id: uuid(),
+        email: email,
+        username: username,
+        password: password1
+      }
+
+      updateUsers([...users, newUser])
+
       props.history.push("/home")
     }
   }
@@ -128,9 +180,11 @@ const App = (props) => {
     users: users,
     characters: characters,
     matches: matches,
+    emailError: emailError.emailError,
     usernameError: usernameError.usernameError,
     passwordError: passwordError.passwordError,
-    handleLogin: handleLogin
+    handleLogin: handleLogin,
+    handleSignup: handleSignup
   }
 
   return (
