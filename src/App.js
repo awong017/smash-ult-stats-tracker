@@ -123,8 +123,12 @@ const App = (props) => {
 
     event.preventDefault()
 
-    const findUser = users.find(user => {
+    const findUser = users.some(user => {
       return user.username === username
+    })
+
+    const findEmail = users.some(user => {
+      return user.email === email
     })
 
     if (!email || !email.includes("@")) {
@@ -133,13 +137,37 @@ const App = (props) => {
       })
     }
 
+    else if (findEmail === true) {
+      updateEmailError({
+        emailError: "Account already created"
+      })
+    }
+
+    else if (!username) {
+      updateEmailError({ emailError: "" })
+      updateUsernameError({
+        usernameError: "Please input desired username"
+      })
+    }
+
     else if (findUser === true) {
+      updateEmailError({ emailError: "" })
       updateUsernameError({
         usernameError: "Username is already taken"
       })
     }
 
+    else if (!password1 || !password2) {
+      updateEmailError({ emailError: "" })
+      updateUsernameError({ usernameError: "" })
+      updatePasswordError({
+        passwordError: "Please input desired password"
+      })
+    }
+
     else if (password1 !== password2) {
+      updateEmailError({ emailError: "" })
+      updateUsernameError({ usernameError: "" })
       updatePasswordError({
         passwordError: "Passwords are not matching"
       })

@@ -27,19 +27,19 @@ const signUp = () => {
                 <legend><h2>Create Account</h2></legend>
                 <fieldset className="sign-up-input">
                     <label className="email-label">Email</label>
-                    <input className="email-input" type="text"></input>
-                    <div className="input-error"></div>
+                    <input className="email-input" type="text" onChange={(e) => signUpInfo(e.target.value, username, password1, password2)}></input>
+                    <div className="input-error">{emailError}</div>
 
                     <label className="name-label">Desired User Name</label>
-                    <input className="name-input" type="text"></input>
-                    <div className="input-error"></div>
+                    <input className="name-input" type="text" onChange={(e) => signUpInfo(email, e.target.value, password1, password2)}></input>
+                    <div className="input-error">{usernameError}</div>
 
                     <label className="password-label">Password</label>
-                    <input className="password-input" type="password"></input>
+                    <input className="password-input" type="password" onChange={(e) => signUpInfo(email, username, e.target.value, password2)}></input>
 
                     <label className="confirm-label">Confirm Password</label>
-                    <input className="confirm-input" type="password"></input>
-                    <div className="input-error"></div>
+                    <input className="confirm-input" type="password" onChange={(e) => signUpInfo(email, username, password1, e.target.value)}></input>
+                    <div className="input-error">{passwordError}</div>
 
                     <input type="submit" className="signup-button" value="Sign Up"></input>
                 </fieldset>
