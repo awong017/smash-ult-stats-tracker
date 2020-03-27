@@ -7,18 +7,18 @@ const homeNav = () => {
         <div className="nav">
             <ul className="home-nav-ul">
                 <li className="home-nav-li">
-                    <Link to={"/stats"}>
+                    <Link to={'/stats'}>
                         Stats
                     </Link>
                 </li>
                 <li className="home-nav-li">
-                    <Link to={"/"}>
+                    <Link to={'/'}>
                         Log Out
                     </Link>
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
 export default homeNav;

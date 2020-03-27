@@ -6,11 +6,11 @@ import './loginNav.css';
 const loginNav = () => {
     return (
         <div className="nav">
-            <Link to={"/"} className="smash-ball">
+            <Link to={'/'} className="smash-ball">
                 <img className="smash-ball-image" src={SmashBall} />
             </Link>
         </div>
-    )
-}
+    );
+};
 
 export default loginNav;

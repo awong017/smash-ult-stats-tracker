@@ -5,17 +5,16 @@ import Context from '../../context';
 import './login.css';
 
 const login = () => {
+    const { handleLogin, usernameError, passwordError } = useContext(Context);
 
-    const { handleLogin, usernameError, passwordError } = useContext(Context)
-
-    const [loginState, setState] = useState("")
+    const [loginState, setState] = useState('');
 
     const loginInfo = (username, password) => {
         setState({
             username: username,
             password: password
         });
-    }
+    };
 
     const { username, password } = loginState;
 
@@ -45,7 +44,7 @@ const login = () => {
                 </fieldset>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default login;

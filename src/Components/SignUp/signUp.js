@@ -1,13 +1,12 @@
 import React, { useState, useContext } from 'react';
 import LandingNav from '../LandingNav/landingNav';
 import Context from '../../context';
-import './signUp.css'
+import './signUp.css';
 
 const signUp = () => {
+    const { handleSignup, emailError, usernameError, passwordError } = useContext(Context);
 
-    const { handleSignup, emailError, usernameError, passwordError } = useContext(Context)
-
-    const [signupState, setState] = useState("")
+    const [signupState, setState] = useState('');
 
     const signUpInfo = (email, username, password1, password2) => {
         setState({
@@ -16,7 +15,7 @@ const signUp = () => {
             password1: password1,
             password2: password2
         });
-    }
+    };
 
     const { email, username, password1, password2 } = signupState;
 
@@ -45,7 +44,7 @@ const signUp = () => {
                 </fieldset>
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default signUp;
