@@ -70,11 +70,5 @@
                 text-decoration: underline;
             }
         }
-
-        button {
-            @extend .login-button;
-            width: initial;
-            padding: 5px 10px;
-        }
     }
 }
