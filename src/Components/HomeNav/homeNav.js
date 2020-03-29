@@ -7,7 +7,7 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 
 const Nav = Styled.div`
- position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -70,7 +70,7 @@ const homeNav = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
                 <div className="nav-flex">
-                    <Link to={'/'}>
+                    <Link to={'/home'}>
                         <img className="smash-ball-image" src={SmashBall} />
                     </Link>
                     <ul className="nav-ul">
