@@ -1,13 +1,22 @@
 import React from 'react';
 import LandingNav from '../LandingNav/landingNav';
-import './landing.css';
+import Styled, { ThemeProvider } from 'styled-components';
+import GlobalStyles from '../../Styles/globalStyles';
+
+const H1 = Styled.h1`
+    text-align: center;
+    color: ${(props) => props.theme.bodyColor};
+    margin-top: 200px;
+`;
 
 const landing = () => {
     return (
-        <div className="landing">
-            <LandingNav />
-            <h1 className="landing-header">This is the landing page</h1>
-        </div>
+        <ThemeProvider theme={GlobalStyles}>
+            <div className="landing">
+                <LandingNav />
+                <H1>This is the landing page</H1>
+            </div>
+        </ThemeProvider>
     );
 };
 
