@@ -54,7 +54,7 @@ const Nav = Styled.div`
       
       a:hover {
         cursor: pointer;
-        color: red;
+        color: ${(props) => props.theme.hoverColor};
       }
 
     .smash-ball-image {
