@@ -14,5 +14,4 @@ const globalStyles = {
     moblieScreen: '500px',
 };
 
-
 export default globalStyles;
