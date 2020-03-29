@@ -23,7 +23,7 @@ const Nav = Styled.div`
     height: 200px;
     width: 100%;
     margin-top: 0px;
-    border-bottom: 1px solid ${(props) => props.theme.accent};
+    border-bottom: 1px solid ${(props) => props.theme.accentColor};
 `;
 
 const NavFlex = Styled.div`
