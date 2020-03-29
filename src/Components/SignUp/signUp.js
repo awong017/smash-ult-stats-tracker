@@ -3,7 +3,6 @@ import LandingNav from '../LandingNav/landingNav';
 import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
-import './signUp.css';
 
 const SignUp = Styled.div`
 
@@ -37,6 +36,10 @@ const SignUp = Styled.div`
             background-color: #525151;
             color: white;
             border: 2px solid #525151;
+        }
+
+        .input-error {
+            color: ${(props) => props.theme.errorColor};
         }
 
         .signup-button {
