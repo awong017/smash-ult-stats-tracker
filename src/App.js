@@ -3,6 +3,8 @@ import { Route, withRouter } from 'react-router-dom';
 import Landing from './Components/Landing/landing';
 import Login from './Components/Login/login';
 import SignUp from './Components/SignUp/signUp';
+import ForgotPassword from './Components/ForgotPassword/forgotPassword';
+import EmailConfirmation from './Components/EmailConfirmation/emailConfirmation';
 import Home from './Components/Home/home';
 import Stats from './Components/Stats/stats';
 import Context from './context';
@@ -133,6 +135,41 @@ const App = (props) => {
     }
   }
 
+  // Method for retrieving forgotten password
+
+  const retrievePassword = (event, email) => {
+
+    event.preventDefault()
+
+    const findEmail = users.some(user => {
+      return user.email === email
+    })
+
+    if (!email) {
+      updateEmailError({
+        emailError: "Please enter a valid email address"
+      })
+    }
+
+    else if (findEmail === false) {
+      updateEmailError({
+        emailError: "Email address not found"
+      })
+    }
+
+    else {
+      updateEmailError({
+        emailError: ""
+      })
+
+      const findUser = users.some(user => {
+        return user.email === email
+      })
+
+      props.history.push('/emailConfirmation')
+    }
+  }
+
   // Method for signing up and creating a new account
 
   const handleSignup = (event, email, username, password1, password2) => {
@@ -214,6 +251,8 @@ const App = (props) => {
         <Route exact path="/" component={Landing} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
+        <Route path="/emailConfirmation" component={EmailConfirmation} />
         <Route path="/home" component={Home} />
         <Route path="/stats" component={Stats} />
       </>
@@ -229,6 +268,7 @@ const App = (props) => {
     passwordError: passwordError.passwordError,
     clearErrors: clearErrors,
     handleLogin: handleLogin,
+    retrievePassword: retrievePassword,
     handleSignup: handleSignup
   }
 

@@ -74,7 +74,7 @@ const statsNav = () => {
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={"/Log Out"}>
+                            <Link to={"/"}>
                                 Log Out
                             </Link>
                         </li>

@@ -109,7 +109,7 @@ const login = () => {
                         <input type="submit" className="login-button" value="Login" />
                     </fieldset>
                     <fieldset className="login-option">
-                        <Link to={'/password'}>
+                        <Link to={'/forgotPassword'}>
                             Forgot your password?
                         </Link>
                         <Link to={'/signup'}>
