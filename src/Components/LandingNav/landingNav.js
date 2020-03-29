@@ -24,22 +24,28 @@ const Nav = Styled.div`
     width: 100%;
     margin-top: 0px;
     border-bottom: 1px solid ${(props) => props.theme.accentColor};
-`;
 
-const NavFlex = Styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-left: 20px;
-`;
-
-const Ul = Styled.ul`
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-left: 0;
-    padding-right: 10px;
-    margin-top: 0px;
+    .nav-flex {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+  
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding-left: 0;
+        padding-right: 10px;
+        margin-top: 0px;
+    }
+   
+    li {
+        list-style: none;
+        color: ${(props) => props.theme.linkColor};
+        margin-left: 20px;
+    }
 
     a {
         text-decoration: none;
@@ -50,19 +56,13 @@ const Ul = Styled.ul`
         cursor: pointer;
         color: red;
       }
-`;
 
-const Li = Styled.li`
-    list-style: none;
-    color: ${(props) => props.theme.linkColor};
-    margin-left: 20px;
-`;
-
-const SmashBallImage = Styled.img`
-    width: 150px;
-    border-radius: 50%;
-    border: 2px solid white;
-    opacity: 0.5;
+    .smash-ball-image {
+        width: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+        opacity: 0.5;
+    }
 `;
 
 const landingNav = () => {
@@ -71,18 +71,18 @@ const landingNav = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
-                <NavFlex>
+                <div className="nav-flex">
                     <Link to={'/'}>
-                        <SmashBallImage src={SmashBall} />
+                        <img className="smash-ball-image" src={SmashBall} />
                     </Link>
-                    <Ul>
-                        <Li>
+                    <ul className="nav-ul">
+                        <li className="nav-li">
                             <Link to={'/login'} onClick={() => clearErrors()}>
                                 Login
                             </Link>
-                        </Li>
-                    </Ul>
-                </NavFlex>
+                        </li>
+                    </ul>
+                </div>
             </Nav>
         </ThemeProvider>
     );

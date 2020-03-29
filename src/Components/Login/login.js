@@ -7,7 +7,7 @@ import GlobalStyles from '../../Styles/globalStyles';
 
 const Login = Styled.div`
     .login-form {
-        background-color: #303030;
+        background-color: ${(props) => props.theme.formColor};
         border: 2px solid black;
         border-radius: 10px;
         margin-top: 300px;
@@ -58,7 +58,7 @@ const Login = Styled.div`
 
             &:hover {
                 cursor: pointer;
-                background-color: #8a0000;
+                background-color: ${(props) => props.theme.hoverColor};
                 transition: 0.1s;
             }
         }
@@ -99,11 +99,11 @@ const login = () => {
                     <legend><h2>Login</h2></legend>
                     <fieldset className="login-input">
                         <label className="name-label">User Name</label>
-                        <input className="name-input" type="text" placeholder="User Name" onChange={(e) => loginInfo(e.target.value, password)}></input>
+                        <input className="name-input" type="text" onChange={(e) => loginInfo(e.target.value, password)}></input>
                         <div className="input-error">{usernameError}</div>
 
                         <label className="password-label">Password</label>
-                        <input className="password-input" type="password" placeholder="Password" onChange={(e) => loginInfo(username, e.target.value)}></input>
+                        <input className="password-input" type="password" onChange={(e) => loginInfo(username, e.target.value)}></input>
                         <div className="input-error">{passwordError}</div>
 
                         <input type="submit" className="login-button" value="Login" />

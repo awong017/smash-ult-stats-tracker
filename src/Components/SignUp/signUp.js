@@ -7,7 +7,7 @@ import GlobalStyles from '../../Styles/globalStyles';
 const SignUp = Styled.div`
 
     .sign-up-form {
-        background-color: #303030;
+        background-color: ${(props) => props.theme.formColor};
         border: 3px solid black;
         border-radius: 10px;
         margin-top: 300px;
@@ -52,7 +52,7 @@ const SignUp = Styled.div`
 
             &:hover {
                 cursor: pointer;
-                background-color: #8a0000;
+                background-color: ${(props) => props.theme.hoverColor};
                 transition: 0.1s;
             }
         }
