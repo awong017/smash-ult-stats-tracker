@@ -61,6 +61,22 @@ const App = (props) => {
     passwordError: ""
   })
 
+  // Method for clearing out login and signup errors
+
+  const clearErrors = () => {
+    updateEmailError({
+      emailError: ""
+    })
+
+    updateUsernameError({
+      usernameError: ""
+    })
+
+    updatePasswordError({
+      passwordError: ""
+    })
+  }
+
   // Method for handling the login
 
   const handleLogin = (event, username, password) => {
@@ -211,6 +227,7 @@ const App = (props) => {
     emailError: emailError.emailError,
     usernameError: usernameError.usernameError,
     passwordError: passwordError.passwordError,
+    clearErrors: clearErrors,
     handleLogin: handleLogin,
     handleSignup: handleSignup
   }

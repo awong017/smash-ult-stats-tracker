@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SmashBall from './images/smash-ball.jpg';
 import SmashBanner from './images/smash-ult-banner.png';
-// import './landingNav.css';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 
@@ -55,11 +54,11 @@ const Ul = Styled.ul`
 const Li = Styled.li`
     list-style: none;
     color: ${(props) => props.theme.linkColor};
-    margin - left: 20px;
+    margin-left: 20px;
 `;
 
 const SmashBallImage = Styled.img`
-    width: 15%;
+    width: 150px;
     border-radius: 50%;
     border: 2px solid white;
     opacity: 0.5;

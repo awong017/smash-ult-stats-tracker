@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Context from '../../context';
 import SmashBall from '../LandingNav/images/smash-ball.jpg';
 import SmashBanner from '../LandingNav/images/smash-ult-banner.png';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -25,7 +26,7 @@ const Nav = Styled.div`
         border-bottom: 1px solid ${(props) => props.theme.accentColor};
 
         .smash-ball-image {
-            width: 7%;
+            width: 150px;
             border-radius: 50%;
             border: 2px solid white;
             margin-top: 20px;
@@ -36,10 +37,12 @@ const Nav = Styled.div`
 `;
 
 const loginNav = () => {
+    const { clearErrors } = useContext(Context)
+    
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
-                <Link to={'/'} className="smash-ball">
+                <Link to={'/'} className="smash-ball" onClick={() => clearErrors()}>
                     <img className="smash-ball-image" src={SmashBall} />
                 </Link>
             </Nav>

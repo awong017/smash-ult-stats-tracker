@@ -4,7 +4,6 @@ import LoginNav from '../LoginNav/loginNav';
 import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
-// import './login.css';
 
 const Login = Styled.div`
     .login-form {
@@ -15,9 +14,9 @@ const Login = Styled.div`
         margin-left: auto;
         margin-right: auto;
         padding: 20px 20px;
-        width: 15%;
+        width: 225px;
         @media screen and (max-width: ${(props) => props.theme.halfScreen}) {
-            width: 25%;
+            width: 225px;
         }
 
         legend {
