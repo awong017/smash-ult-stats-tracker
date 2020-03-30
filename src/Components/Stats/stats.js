@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 import StatsNav from '../StatsNav/statsNav';
+import CharacterSelect from '../CharacterSelect/characterSelect';
+import DisplayRecord from '../MatchupRecord/matchupRecord';
+import AllTimeRecordGraph from '../AllTimeRecordGraph/allTimeRecordGraph';
 import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
@@ -10,14 +13,6 @@ const Stats = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
-
-    h1 {
-        margin-bottom: 100px;
-    }
-
-    .character-select {
-        margin-bottom: 150px;
-    }
 
     .character-flex {
         display: flex;
@@ -32,19 +27,11 @@ const Stats = Styled.div`
             border-radius: 50%;
         }
 
-        .display-record {
-            padding-top: 50px;
-        }
-
         .opponent {
             width: 200px;
             border: 3px solid blue;
             border-radius: 50%;
         }
-    }
-
-    .graph {
-        margin-top: 100px;
     }
 `
 
@@ -53,26 +40,23 @@ const stats = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Stats>
                 <StatsNav />
-                <h1>This is the stats page</h1>
-                <div className="character-select">
-                    <h2>Character Select Component Here</h2>
-                </div>
+                <CharacterSelect />
                 <ul className="character-flex">
                     <li>
+                        <h2>Player</h2>
                         <img className="player" src={Pikachu} />
-                        <h2>Player</h2>      
-                    </li>
-                    <li className="display-record">
-                        <h2>Display Record Component Here</h2>
+                        <h2>Pikachu</h2>      
                     </li>
                     <li>
-                        <img className="opponent" src={Luigi} />
+                       <DisplayRecord />
+                    </li>
+                    <li>
                         <h2>Opponent</h2>
+                        <img className="opponent" src={Luigi} />
+                        <h2>Luigi</h2>
                     </li>
                 </ul>
-                <div className="graph">
-                    <h2>Display Graph Component Here</h2>
-                </div>
+                <AllTimeRecordGraph />
             </Stats>
         </ThemeProvider>
     );
