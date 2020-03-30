@@ -5,7 +5,7 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 
 const Stats = Styled.div`
-    margin-top: 200px;
+    margin-top: ${(props) => props.theme.marginTop};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
 `

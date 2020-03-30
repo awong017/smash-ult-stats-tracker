@@ -7,7 +7,7 @@ const Landing = Styled.div`
     h1 {
         text-align: center;
         color: ${(props) => props.theme.bodyColor};
-        margin-top: 200px;
+        margin-top: ${(props) => props.theme.marginTop};
     }  
 `;
 

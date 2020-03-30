@@ -9,6 +9,9 @@ const globalStyles = {
     accentColor: '#8a0000',
     hoverColor: '#d10000',
 
+    // Margins
+    marginTop: '300px',
+
     // Media Queries
     halfScreen: '960px',
     moblieScreen: '500px',

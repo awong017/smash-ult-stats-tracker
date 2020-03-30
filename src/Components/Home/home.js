@@ -8,7 +8,7 @@ const Home = Styled.div`
     text-align: center;
 
     h1 {
-        margin-top: 200px;
+        margin-top: ${(props) => props.theme.marginTop};
         color: ${(props => props.theme.bodyColor)};
     }
 `
@@ -20,7 +20,7 @@ const home = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Home>
                 <HomeNav />
-                <h1>Welcome</h1>
+                <h1>Welcome {context.currentUser.username}</h1>
                 <button onClick={() => console.log(context)}>Context</button>
             </Home>
         </ThemeProvider>

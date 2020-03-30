@@ -244,6 +244,8 @@ const App = (props) => {
 
       updateUsers([...users, newUser])
 
+      updateCurrentUser(newUser)
+
       props.history.push("/home")
     }
   }
