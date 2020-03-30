@@ -66,6 +66,8 @@ const Nav = Styled.div`
 `;
 
 const homeNav = () => {
+    const { handleLogout } = useContext(Context)
+
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
@@ -80,7 +82,7 @@ const homeNav = () => {
                             </Link>
                         </li>
                         <li className="nav-li">
-                            <Link to={'/'}>
+                            <Link to={'/'} onClick={() => handleLogout()}>
                                 Log Out
                             </Link>
                         </li>

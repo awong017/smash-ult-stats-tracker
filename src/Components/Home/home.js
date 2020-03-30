@@ -20,7 +20,7 @@ const home = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Home>
                 <HomeNav />
-                <h1>This is the Home Page</h1>
+                <h1>Welcome</h1>
                 <button onClick={() => console.log(context)}>Context</button>
             </Home>
         </ThemeProvider>

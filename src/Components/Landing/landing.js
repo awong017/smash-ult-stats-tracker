@@ -3,19 +3,21 @@ import LandingNav from '../LandingNav/landingNav';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 
-const H1 = Styled.h1`
-    text-align: center;
-    color: ${(props) => props.theme.bodyColor};
-    margin-top: 200px;
+const Landing = Styled.div`
+    h1 {
+        text-align: center;
+        color: ${(props) => props.theme.bodyColor};
+        margin-top: 200px;
+    }  
 `;
 
 const landing = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
-            <div className="landing">
+            <Landing>
                 <LandingNav />
-                <H1>This is the landing page</H1>
-            </div>
+                <h1>This is the landing page</h1>
+            </Landing>
         </ThemeProvider>
     );
 };

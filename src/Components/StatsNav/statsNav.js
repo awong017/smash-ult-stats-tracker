@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Context from '../../context';
 import SmashBall from '../LandingNav/images/smash-ball.jpg';
 import SmashBanner from '../LandingNav/images/smash-ult-banner.png';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -65,6 +66,8 @@ const Nav = Styled.div`
 `;
 
 const statsNav = () => {
+    const { handleLogout } = useContext(Context)
+
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
@@ -74,7 +77,7 @@ const statsNav = () => {
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={"/"}>
+                            <Link to={"/"} onClick={() => handleLogout()}>
                                 Log Out
                             </Link>
                         </li>

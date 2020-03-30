@@ -34,6 +34,8 @@ const App = (props) => {
     },
   ])
 
+  const [currentUser, updateCurrentUser] = useState('')
+
   const [characters, updateCharacters] = useState([
     {
       id: 1,
@@ -130,6 +132,8 @@ const App = (props) => {
       updatePasswordError({
         passwordError: ""
       })
+
+      updateCurrentUser(findUser)
 
       props.history.push("/home")
     }
@@ -244,6 +248,11 @@ const App = (props) => {
     }
   }
 
+  // Method for logging out
+
+  const handleLogout = () => {
+    updateCurrentUser('')
+  }
 
   const renderRoutes = () => {
     return (
@@ -261,6 +270,7 @@ const App = (props) => {
 
   const contextValue = {
     users: users,
+    currentUser: currentUser,
     characters: characters,
     matches: matches,
     emailError: emailError.emailError,
@@ -269,7 +279,8 @@ const App = (props) => {
     clearErrors: clearErrors,
     handleLogin: handleLogin,
     retrievePassword: retrievePassword,
-    handleSignup: handleSignup
+    handleSignup: handleSignup,
+    handleLogout: handleLogout
   }
 
   return (
