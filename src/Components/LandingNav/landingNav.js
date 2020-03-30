@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Context from '../../context';
-import SmashBall from './images/smash-ball.jpg';
-import SmashBanner from './images/smash-ult-banner.png';
+import SmashBall from '../../Images/smash-ball.jpg';
+import SmashBanner from '../../Images/smash-ult-banner.png';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 

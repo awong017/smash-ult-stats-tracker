@@ -10,7 +10,7 @@ const globalStyles = {
     hoverColor: '#d10000',
 
     // Margins
-    marginTop: '300px',
+    marginTop: '200px',
 
     // Media Queries
     halfScreen: '960px',
