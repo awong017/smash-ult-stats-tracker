@@ -16,7 +16,7 @@ const Stats = Styled.div`
 
     .character-flex {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         list-style: none;
         padding-left: 40px;
         padding-right: 40px;
