@@ -10,7 +10,7 @@ const matchupRecordGraph = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupRecordGraph>
-                <p>Matchup Record Filter</p>
+                <p>Matchup Record Graph</p>
             </MatchupRecordGraph>
         </ThemeProvider>
     )
