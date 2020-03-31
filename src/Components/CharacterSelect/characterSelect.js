@@ -11,7 +11,7 @@ const CharacterSelect = Styled.div`
     .character-select-list {
         display: grid;
         grid-template-columns: repeat(12, 8.33%);
-        width: 650px;
+        width: 850px;
         margin-left: auto;
         margin-right: auto;
     }
@@ -28,7 +28,7 @@ const characterSelect = () => {
                     {characters.map(character => 
                         <CharacterSelectItem 
                             key={character.id} 
-                            name={character.name}
+                            image={character.img}
                         />
                     )}
                 </div>

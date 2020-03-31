@@ -37,71 +37,105 @@ const App = (props) => {
   const [currentUser, updateCurrentUser] = useState('')
 
   const [characters, updateCharacters] = useState([
-    {id: 1,name: "mario"},
-    {id: 2,name: "donkey-kong"},
-    {id: 3,name: "link"},
-    {id: 4,name: "samus"},
-    {id: 5,name: "dark-samus"},
-    {id: 6,name: "yoshi"},
-    {id: 7,name: "kirby"},
-    {id: 8,name: "fox"},
-    {id: 9,name: "pikachu"},
-    {id: 10,name: "luigi"},
-    {id: 11,name: "ness"},
-    {id: 12,name: "captain-falcon"},
-    {id: 13,name: "jigglypuff"},
-    {id: 14,name: "peach"},
-    {id: 15,name: "daisy"},
-    {id: 16,name: "bowser"},
-    {id: 17,name: "ice-climbers"},
-    {id: 18,name: "sheik"},
-    {id: 19,name: "zelda"},
-    {id: 20,name: "dr-mario"},
-    {id: 21,name: "pichu"},
-    {id: 22,name: "falco"},
-    {id: 23,name: "marth"},
-    {id: 24,name: "lucina"},
-    {id: 25,name: "young-link"},
-    {id: 26,name: "ganondorf"},
-    {id: 27,name: "mewtwo"},
-    {id: 28,name: "roy"},
-    {id: 29,name: "chrom"},
-    {id: 30,name: "mr-game-and-watch"},
-    {id: 31,name: "meta-knight"},
-    {id: 32,name: "pit"},
-    {id: 33,name: "dark-pit"},
-    {id: 34,name: "zero-suit-samus"},
-    {id: 35,name: "wario"},
-    {id: 36,name: "snake"},
-    {id: 37,name: "ike"},
-    {id: 38,name: "pokemon-trainer"},
-    {id: 39,name: "diddy-kong"},
-    {id: 40,name: "lucas"},
-    {id: 41,name: "sonic"},
-    {id: 42,name: "king-dedede"},
-    {id: 43,name: "olimar"},
-    {id: 44,name: "lucario"},
-    {id: 45,name: "rob"},
-    {id: 46,name: "toon-link"},
-    {id: 47,name: "wolf"},
-    {id: 48,name: "villager"},
-    {id: 49,name: "mega-man"},
-    {id: 50,name: "wii-fit-trainer"},
-    {id: 51,name: "rosalina-and-luma"},
-    {id: 52,name: "little-mac"},
-    {id: 53,name: "greninja"},
-    {id: 54,name: "palutena"},
-    {id: 55,name: "pac-man"},
-    {id: 56,name: "robin"},
-    {id: 57,name: "shulk"},
-    {id: 58,name: "bowser-jr"},
-    {id: 59,name: "duck-hunt"},
-    {id: 60,name: "ryu"},
-    {id: 61,name: "ken"},
-
+    {id:1,name:"Mario",img:"mario"},
+    {id:2,name:"Donkey Kong",img:"donkey-kong"},
+    {id:3,name:"Link",img:"link"},
+    {id:4,name:"Samus",img:"samus"},
+    {id:5,name:"Dark Samus",img:"dark-samus"},
+    {id:6,name:"Yoshi",img:"yoshi"},
+    {id:7,name:"Kirby",img:"kirby"},
+    {id:8,name:"Fox",img:"fox"},
+    {id:9,name:"Pikachu",img:"pikachu"},
+    {id:10,name:"Luigi",img:"luigi"},
+    {id:11,name:"Ness",img:"ness"},
+    {id:12,name:"Captain Falcon",img:"captain-falcon"},
+    {id:13,name:"Jigglypuff",img:"jigglypuff"},
+    {id:14,name:"Peach",img:"peach"},
+    {id:15,name:"Daisy",img:"daisy"},
+    {id:16,name:"Bowser",img:"bowser"},
+    {id:17,name:"Ice Climbers",img:"ice-climbers"},
+    {id:18,name:"Sheik",img:"sheik"},
+    {id:19,name:"Zelda",img:"zelda"},
+    {id:20,name:"Dr Mario",img:"dr-mario"},
+    {id:21,name:"Pichu",img:"pichu"},
+    {id:22,name:"Falco",img:"falco"},
+    {id:23,name:"Marth",img:"marth"},
+    {id:24,name:"Lucina",img:"lucina"},
+    {id:25,name:"Young Link",img:"young-link"},
+    {id:26,name:"Ganondorf",img:"ganondorf"},
+    {id:27,name:"Mewtwo",img:"mewtwo"},
+    {id:28,name:"Roy",img:"roy"},
+    {id:29,name:"Chrom",img:"chrom"},
+    {id:30,name:"Mr Game & Watch",img:"mr-game-and-watch"},
+    {id:31,name:"Meta Knight",img:"meta-knight"},
+    {id:32,name:"Pit",img:"pit"},
+    {id:33,name:"Dark Pit",img:"dark-pit"},
+    {id:34,name:"Zero Suit Samus",img:"zero-suit-samus"},
+    {id:35,name:"Wario",img:"wario"},
+    {id:36,name:"Snake",img:"snake"},
+    {id:37,name:"Ike",img:"ike"},
+    {id:38,name:"Pokemon Trainer",img:"pokemon-trainer"},
+    {id:39,name:"Diddy Kong",img:"diddy-kong"},
+    {id:40,name:"Lucas",img:"lucas"},
+    {id:41,name:"Sonic",img:"sonic"},
+    {id:42,name:"King Dedede",img:"king-dedede"},
+    {id:43,name:"Olimar",img:"olimar"},
+    {id:44,name:"Lucario",img:"lucario"},
+    {id:45,name:"Rob",img:"rob"},
+    {id:46,name:"Toon Link",img:"toon-link"},
+    {id:47,name:"Wolf",img:"wolf"},
+    {id:48,name:"Villager",img:"villager"},
+    {id:49,name:"Mega Man",img:"mega-man"},
+    {id:50,name:"Wii Fit Trainer",img:"wii-fit-trainer"},
+    {id:51,name:"Rosalina and Luma",img:"rosalina-and-luma"},
+    {id:52,name:"Little Mac",img:"little-mac"},
+    {id:53,name:"Greninja",img:"greninja"},
+    {id:54,name:"Palutena",img:"palutena"},
+    {id:55,name:"Pac Man",img:"pac-man"},
+    {id:56,name:"Robin",img:"robin"},
+    {id:57,name:"Shulk",img:"shulk"},
+    {id:58,name:"Bowser Jr",img:"bowser-jr"},
+    {id:59,name:"Duck Hunt",img:"duck-hunt"},
+    {id:60,name:"Ryu",img:"ryu"},
+    {id:61,name:"Ken",img:"ken"},
+    {id:62,name:"Cloud",img:"cloud"},
+    {id:63,name:"Corrin",img:"corrin"},
+    {id:64,name:"Bayonetta",img:"bayonetta"},
+    {id:65,name:"Inkling",img:"inkling"},
+    {id:66,name:"Ridley",img:"ridley"},
+    {id:67,name:"Simon",img:"simon"},
+    {id:68,name:"Richter",img:"richter"},
+    {id:69,name:"King K Rool",img:"king-k-rool"},
+    {id:70,name:"Isabelle",img:"isabelle"},
+    {id:71,name:"Incineroar",img:"incineroar"},
+    {id:72,name:"Piranha Plant",img:"piranha-plant"},
+    {id:73,name:"Joker",img:"joker"},
+    {id:74,name:"Mii Brawler",img:"mii-brawler"},
+    {id:75,name:"Mii Swordsman",img:"mii-swordsman"},
+    {id:76,name:"Mii Gunner",img:"mii-gunner"},
   ])
 
   const [matches, updateMatches] = useState("")
+
+  const [competitor, udpateCompetitor] = useState({
+    competitor: "player"
+  })
+
+  const [playerCharacter, updatePlayerCharacter] = useState(
+    {
+      id:9,
+      name:"Pikachu",
+      img:"pikachu"
+    }
+  )
+
+  const [opponentCharacter, updateOpponentCharacter] = useState(
+    {
+      id:10,
+      name:"Luigi",
+      img:"luigi"
+    }
+  )
 
   const [emailError, updateEmailError] = useState({
     emailError: ""
@@ -320,11 +354,34 @@ const App = (props) => {
     );
   }
 
+  // Method for selecting player character
+
+  const characterSelect = (name) => {
+    const findCharacter = characters.find(character => {
+      return character.name === name
+    })
+
+    updatePlayerCharacter(findCharacter);
+  }
+
+    // Method for selecting opponent character
+
+    const opponentSelect = (name) => {
+      const findCharacter = characters.find(character => {
+        return character.name === name
+      })
+  
+      updateOpponentCharacter(findCharacter);
+    }
+
   const contextValue = {
     users: users,
     currentUser: currentUser,
     characters: characters,
     matches: matches,
+    competitor: competitor.competitor,
+    playerCharacter: playerCharacter,
+    opponentCharacter: opponentCharacter,
     emailError: emailError.emailError,
     usernameError: usernameError.usernameError,
     passwordError: passwordError.passwordError,

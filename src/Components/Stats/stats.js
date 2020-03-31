@@ -6,8 +6,6 @@ import AllTimeRecordGraph from '../AllTimeRecordGraph/allTimeRecordGraph';
 import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
-import Pikachu from '../../Images/Avatars/pikachu.jpg';
-import Luigi from '../../Images/Avatars/luigi.jpg';
 
 const Stats = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
@@ -36,6 +34,8 @@ const Stats = Styled.div`
 `
 
 const stats = () => {
+    const { playerCharacter, opponentCharacter } = useContext(Context)
+
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Stats>
@@ -44,16 +44,16 @@ const stats = () => {
                 <ul className="character-flex">
                     <li>
                         <h2>Player</h2>
-                        <img className="player" src={Pikachu} />
-                        <h2>Pikachu</h2>      
+                        <img className="player" src={require(`../../Images/Avatars/${playerCharacter.img}.jpg`)} />
+                        <h2>{playerCharacter.name}</h2>      
                     </li>
                     <li>
                        <DisplayRecord />
                     </li>
                     <li>
                         <h2>Opponent</h2>
-                        <img className="opponent" src={Luigi} />
-                        <h2>Luigi</h2>
+                        <img className="opponent" src={require(`../../Images/Avatars/${opponentCharacter.img}.jpg`)} />
+                        <h2>{opponentCharacter.name}</h2>
                     </li>
                 </ul>
                 <AllTimeRecordGraph />
