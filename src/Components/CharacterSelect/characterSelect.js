@@ -20,17 +20,16 @@ const CharacterSelect = Styled.div`
 const characterSelect = () => {
     const { characters } = useContext(Context)
 
-    const allCharacters = characters.map(character => {
-        return character.name
-    })
-
     return (
         <ThemeProvider theme={GlobalStyles}>
             <CharacterSelect>
                 <h2>Character Select Component</h2>
                 <div className="character-select-list">
                     {characters.map(character => 
-                        <CharacterSelectItem name={character.name}/>
+                        <CharacterSelectItem 
+                            key={character.id} 
+                            name={character.name}
+                        />
                     )}
                 </div>
             </CharacterSelect>
