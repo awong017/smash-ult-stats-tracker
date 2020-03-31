@@ -28,6 +28,7 @@ const characterSelect = () => {
                     {characters.map(character => 
                         <CharacterSelectItem 
                             key={character.id} 
+                            name={character.name}
                             image={character.img}
                         />
                     )}

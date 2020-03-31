@@ -340,6 +340,37 @@ const App = (props) => {
     updateCurrentUser('')
   }
 
+  // Method for toggling competitor
+
+  const toggleCompetitor = () => {
+    if (competitor.competitor === "player") {
+      udpateCompetitor({
+        competitor: "opponent"
+      })
+    }
+    else if (competitor.competitor === "opponent") {
+      udpateCompetitor({
+        competitor: "player"
+      })
+    }
+  }
+
+  // Method for selecting character
+
+  const toggleCharacterSelect = (name) => {
+    const findCharacter = characters.find(character => {
+      return character.name === name
+    })
+
+    if (competitor.competitor === "player") {
+      updatePlayerCharacter(findCharacter);
+    }
+
+    else {
+      updateOpponentCharacter(findCharacter);
+    }
+  }
+
   const renderRoutes = () => {
     return (
       <>
@@ -353,26 +384,6 @@ const App = (props) => {
       </>
     );
   }
-
-  // Method for selecting player character
-
-  const characterSelect = (name) => {
-    const findCharacter = characters.find(character => {
-      return character.name === name
-    })
-
-    updatePlayerCharacter(findCharacter);
-  }
-
-    // Method for selecting opponent character
-
-    const opponentSelect = (name) => {
-      const findCharacter = characters.find(character => {
-        return character.name === name
-      })
-  
-      updateOpponentCharacter(findCharacter);
-    }
 
   const contextValue = {
     users: users,
@@ -389,7 +400,9 @@ const App = (props) => {
     handleLogin: handleLogin,
     retrievePassword: retrievePassword,
     handleSignup: handleSignup,
-    handleLogout: handleLogout
+    handleLogout: handleLogout,
+    toggleCharacterSelect: toggleCharacterSelect,
+    toggleCompetitor: toggleCompetitor,
   }
 
   return (

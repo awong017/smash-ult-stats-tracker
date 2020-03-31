@@ -23,18 +23,26 @@ const Stats = Styled.div`
             width: 200px;
             border: 3px solid red;
             border-radius: 50%;
+
+            &:hover {
+                cursor: pointer
+            }
         }
 
         .opponent {
             width: 200px;
             border: 3px solid blue;
             border-radius: 50%;
+
+            &:hover {
+                cursor: pointer
+            }
         }
     }
 `
 
 const stats = () => {
-    const { playerCharacter, opponentCharacter } = useContext(Context)
+    const { toggleCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
 
     return (
         <ThemeProvider theme={GlobalStyles}>
@@ -44,7 +52,10 @@ const stats = () => {
                 <ul className="character-flex">
                     <li>
                         <h2>Player</h2>
-                        <img className="player" src={require(`../../Images/Avatars/${playerCharacter.img}.jpg`)} />
+                        <img className="player" 
+                            src={require(`../../Images/Avatars/${playerCharacter.img}.jpg`)} 
+                            onClick={() => toggleCompetitor()}
+                            />
                         <h2>{playerCharacter.name}</h2>      
                     </li>
                     <li>
@@ -52,7 +63,10 @@ const stats = () => {
                     </li>
                     <li>
                         <h2>Opponent</h2>
-                        <img className="opponent" src={require(`../../Images/Avatars/${opponentCharacter.img}.jpg`)} />
+                        <img className="opponent" 
+                            src={require(`../../Images/Avatars/${opponentCharacter.img}.jpg`)} 
+                            onClick={() => toggleCompetitor()}
+                            />
                         <h2>{opponentCharacter.name}</h2>
                     </li>
                 </ul>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
 
@@ -18,11 +19,14 @@ const CharacterSelectItem = Styled.div`
     }
 `;
 
-const characterSelectItem = ({ image }) => {
+const characterSelectItem = ({ name, image }) => {
+    const { toggleCharacterSelect } = useContext(Context)
+
     return (
         <CharacterSelectItem>
             <img 
                 src={require(`../../Images/Avatars/${image}.jpg`)}
+                onClick={() => toggleCharacterSelect(name)}
             />
         </CharacterSelectItem>
     )
