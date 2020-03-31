@@ -16,6 +16,7 @@ const matchupRecord = () => {
                 <h2>Matchup Record Component</h2>
                 <MatchupRecordFilter />
                 <MatchupRecordGraph />
+                <p>Matchup Record Data</p>
             </MatchupRecord>
         </ThemeProvider>
     )

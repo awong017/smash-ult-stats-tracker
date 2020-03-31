@@ -16,7 +16,7 @@ const landing = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Landing>
                 <LandingNav />
-                <h1>This is the landing page</h1>
+                <h1>Landing Page Component</h1>
             </Landing>
         </ThemeProvider>
     );

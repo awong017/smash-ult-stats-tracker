@@ -21,7 +21,6 @@ const Stats = Styled.div`
 
         img {
             width: 200px;
-            border: 3px solid red;
             border-radius: 50%;
 
             &:hover {
@@ -33,18 +32,32 @@ const Stats = Styled.div`
             border: none;
         }
 
-        .player {
-            border: 2px solid red;
-        }
-
-        .opponent {
-            border: 2px solid blue;
+        .selected {
+            border: 4px solid white;
         }
     }
 `
 
 const stats = () => {
-    const { updateCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
+    const { competitor, updateCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
+
+    const highlightPlayer = (fighter) => {
+        if (fighter === "player") {
+            return "selected"
+        }
+        else {
+            return "not-selected"
+        }
+    }
+
+    const highlightOpponent = (fighter) => {
+        if (fighter === "opponent") {
+            return "selected"
+        }
+        else {
+            return "not-selected"
+        }
+    }
 
     return (
         <ThemeProvider theme={GlobalStyles}>
@@ -54,7 +67,7 @@ const stats = () => {
                 <ul className="character-flex">
                     <li>
                         <h2>Player</h2>
-                        <img className="player" 
+                        <img className={highlightPlayer(competitor)}
                             src={require(`../../Images/Avatars/${playerCharacter.img}`)} 
                             onClick={() => updateCompetitor({competitor: "player"})}
                             />
@@ -65,7 +78,7 @@ const stats = () => {
                     </li>
                     <li>
                         <h2>Opponent</h2>
-                        <img className="opponent" 
+                        <img className={highlightOpponent(competitor)}
                             src={require(`../../Images/Avatars/${opponentCharacter.img}`)} 
                             onClick={() => updateCompetitor({competitor: "opponent"})}
                             />

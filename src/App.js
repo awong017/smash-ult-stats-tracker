@@ -15,26 +15,31 @@ const App = (props) => {
 
   const [users, updateUsers] = useState([
     {
-      id: "a1",
+      id: "u1",
       email: "awong017@ucr.edu",
       username: "awong017",
       password: "asdfasdf1"
     },
     {
-      id: "a2",
+      id: "u2",
       email: "brianphn@gmail.com",
       username: "phanman",
       password: "phantastic"
     },
     {
-      id: "a3",
+      id: "u3",
       email: "markt@gmail.com",
       username: "markt",
       password: "masterdev"
     },
   ])
 
-  const [currentUser, updateCurrentUser] = useState('')
+  const [currentUser, updateCurrentUser] = useState({
+    id: "u1",
+    email: "awong017@ucr.edu",
+    username: "awong017",
+    password: "asdfasdf1"
+  })
 
   const [characters, updateCharacters] = useState([
     {id:1,name:"Mario",img:"mario.jpg"},
@@ -87,7 +92,7 @@ const App = (props) => {
     {id:48,name:"Villager",img:"villager.jpg"},
     {id:49,name:"Mega Man",img:"mega-man.jpg"},
     {id:50,name:"Wii Fit Trainer",img:"wii-fit-trainer.jpg"},
-    {id:51,name:"Rosalina and Luma",img:"rosalina-and-luma.jpg"},
+    {id:51,name:"Rosalina & Luma",img:"rosalina-and-luma.jpg"},
     {id:52,name:"Little Mac",img:"little-mac.jpg"},
     {id:53,name:"Greninja",img:"greninja.jpg"},
     {id:54,name:"Palutena",img:"palutena.jpg"},
@@ -119,7 +124,15 @@ const App = (props) => {
     {id:80,name:"Mii Gunner",img:"mii-gunner.jpg"},
   ])
 
-  const [matches, updateMatches] = useState("")
+  const [matches, updateMatches] = useState({
+    id: "m1",
+    date: 1585686453,
+    user: "u1",
+    player: 9,
+    opponent: 10,
+    wins: 3,
+    losses: 5
+  })
 
   const [competitor, updateCompetitor] = useState({
     competitor: "player"
