@@ -126,12 +126,11 @@ const App = (props) => {
 
   const [matches, updateMatches] = useState({
     id: "m1",
-    date: 1585686453,
+    date: 1585686453000,
     user: "u1",
     player: 9,
     opponent: 10,
-    wins: 3,
-    losses: 5
+    outcome: "win"
   })
 
   const [competitor, updateCompetitor] = useState({

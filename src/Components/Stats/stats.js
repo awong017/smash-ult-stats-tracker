@@ -24,7 +24,8 @@ const Stats = Styled.div`
             border-radius: 50%;
 
             &:hover {
-                cursor: pointer
+                cursor: pointer;
+                border: 4px solid white;
             }
         }
 
