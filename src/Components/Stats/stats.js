@@ -19,7 +19,7 @@ const Stats = Styled.div`
         padding-left: 40px;
         padding-right: 40px;
 
-        .player {
+        img {
             width: 200px;
             border: 3px solid red;
             border-radius: 50%;
@@ -29,20 +29,22 @@ const Stats = Styled.div`
             }
         }
 
-        .opponent {
-            width: 200px;
-            border: 3px solid blue;
-            border-radius: 50%;
+        .not-selected {
+            border: none;
+        }
 
-            &:hover {
-                cursor: pointer
-            }
+        .player {
+            border: 2px solid red;
+        }
+
+        .opponent {
+            border: 2px solid blue;
         }
     }
 `
 
 const stats = () => {
-    const { toggleCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
+    const { updateCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
 
     return (
         <ThemeProvider theme={GlobalStyles}>
@@ -53,8 +55,8 @@ const stats = () => {
                     <li>
                         <h2>Player</h2>
                         <img className="player" 
-                            src={require(`../../Images/Avatars/${playerCharacter.img}.jpg`)} 
-                            onClick={() => toggleCompetitor()}
+                            src={require(`../../Images/Avatars/${playerCharacter.img}`)} 
+                            onClick={() => updateCompetitor({competitor: "player"})}
                             />
                         <h2>{playerCharacter.name}</h2>      
                     </li>
@@ -64,8 +66,8 @@ const stats = () => {
                     <li>
                         <h2>Opponent</h2>
                         <img className="opponent" 
-                            src={require(`../../Images/Avatars/${opponentCharacter.img}.jpg`)} 
-                            onClick={() => toggleCompetitor()}
+                            src={require(`../../Images/Avatars/${opponentCharacter.img}`)} 
+                            onClick={() => updateCompetitor({competitor: "opponent"})}
                             />
                         <h2>{opponentCharacter.name}</h2>
                     </li>

@@ -25,7 +25,7 @@ const characterSelectItem = ({ name, image }) => {
     return (
         <CharacterSelectItem>
             <img 
-                src={require(`../../Images/Avatars/${image}.jpg`)}
+                src={require(`../../Images/Avatars/${image}`)}
                 onClick={() => toggleCharacterSelect(name)}
             />
         </CharacterSelectItem>
