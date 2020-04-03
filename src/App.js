@@ -124,14 +124,44 @@ const App = (props) => {
     {id:80,name:"Mii Gunner",img:"mii-gunner.jpg"},
   ])
 
-  const [matches, updateMatches] = useState({
-    id: "m1",
-    date: 1585686453000,
-    user: "u1",
-    player: 9,
-    opponent: 10,
-    outcome: "win"
-  })
+  const [matches, updateMatches] = useState([
+    {
+      id: "m1",
+      date: 1585686453000,
+      user: "u1",
+      player: 9,
+      opponent: 10,
+      outcome: "win"
+    },
+    {
+      id: "m2",
+      date: 1585939615000,
+      user: "u1",
+      player: 9,
+      opponent: 1,
+      outcome: "win"
+    },
+    {
+      id: "m3",
+      date: 1585939615000,
+      user: "u1",
+      player: 4,
+      opponent: 10,
+      outcome: "win"
+    },
+    {
+      id: "m4",
+      date: 1585939615000,
+      user: "u1",
+      player: 9,
+      opponent: 10,
+      outcome: "loss"
+    },
+  ])
+
+  const [currentMatchup, updateCurrentMatchup] = useState("")
+  
+  const [filteredMatcup, updateFilteredMatchup] = useState("")
 
   const [competitor, updateCompetitor] = useState({
     competitor: "player"
@@ -139,7 +169,7 @@ const App = (props) => {
 
   const [playerCharacter, updatePlayerCharacter] = useState(
     {
-      id:9,
+      id: 9,
       name:"Pikachu",
       img:"pikachu.jpg"
     }
@@ -147,7 +177,7 @@ const App = (props) => {
 
   const [opponentCharacter, updateOpponentCharacter] = useState(
     {
-      id:10,
+      id: 10,
       name:"Luigi",
       img:"luigi.jpg"
     }
@@ -164,6 +194,36 @@ const App = (props) => {
   const [passwordError, updatePasswordError] = useState({
     passwordError: ""
   })
+
+    // Method for extracting matchup record
+
+    const getMatchupRecord = () => {
+      const filterByUser = matches.filter(match => {
+        return match.user === currentUser.id
+      })
+
+      const filterByPlayerCharacter = filterByUser.find(match => {
+        return match.player === playerCharacter.id
+      })
+
+      const filterByOpponents = filterByPlayerCharacter.find(match => {
+        return match.opponent === opponentCharacter.id
+      })
+      
+      let winCount = 0;
+      let lossCount = 0;
+
+      for (let i=0; i<filterByOpponents.length; i++) {
+        if (filterByOpponents[i].outcome === "win") {
+          winCount++
+        }
+        else if (filterByOpponents[i].outcome === "loss") {
+          lossCount++
+        }
+      }
+
+
+    }
 
   // Method for clearing out login and signup errors
 
