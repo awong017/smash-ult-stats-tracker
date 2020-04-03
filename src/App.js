@@ -157,11 +157,21 @@ const App = (props) => {
       opponent: 10,
       outcome: "loss"
     },
+    {
+      id: "m5",
+      date: 1585686453000,
+      user: "u1",
+      player: 9,
+      opponent: 10,
+      outcome: "win"
+    },
   ])
 
   const [currentMatchup, updateCurrentMatchup] = useState("")
   
   const [filteredMatcup, updateFilteredMatchup] = useState("")
+
+  const [matchupRecord, updateMatchupRecord] = useState("")
 
   const [competitor, updateCompetitor] = useState({
     competitor: "player"
@@ -202,11 +212,11 @@ const App = (props) => {
         return match.user === currentUser.id
       })
 
-      const filterByPlayerCharacter = filterByUser.find(match => {
+    const filterByPlayerCharacter = filterByUser.filter(match => {
         return match.player === playerCharacter.id
       })
 
-      const filterByOpponents = filterByPlayerCharacter.find(match => {
+      const filterByOpponents = filterByPlayerCharacter.filter(match => {
         return match.opponent === opponentCharacter.id
       })
       
@@ -222,7 +232,15 @@ const App = (props) => {
         }
       }
 
+      console.log("Wins: ", winCount)
+      console.log("Losses: ", lossCount)
 
+      updateMatchupRecord({
+        playerCharacter: playerCharacter.id,
+        opponentCharacter: opponentCharacter.id,
+        wins: winCount,
+        losses: lossCount
+      })
     }
 
   // Method for clearing out login and signup errors
@@ -451,6 +469,7 @@ const App = (props) => {
     currentUser: currentUser,
     characters: characters,
     matches: matches,
+    matchupRecord: matchupRecord,
     competitor: competitor.competitor,
     playerCharacter: playerCharacter,
     opponentCharacter: opponentCharacter,
@@ -463,6 +482,7 @@ const App = (props) => {
     handleSignup: handleSignup,
     handleLogout: handleLogout,
     toggleCharacterSelect: toggleCharacterSelect,
+    getMatchupRecord: getMatchupRecord,
     updateCompetitor: updateCompetitor,
   }
 

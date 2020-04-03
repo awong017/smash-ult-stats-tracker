@@ -40,7 +40,7 @@ const Stats = Styled.div`
 `
 
 const stats = () => {
-    const { competitor, updateCompetitor, playerCharacter, opponentCharacter } = useContext(Context)
+    const { competitor, updateCompetitor, playerCharacter, opponentCharacter, getMatchupRecord } = useContext(Context)
 
     const highlightPlayer = (fighter) => {
         if (fighter === "player") {
@@ -70,7 +70,7 @@ const stats = () => {
                         <h2>Player</h2>
                         <img className={highlightPlayer(competitor)}
                             src={require(`../../Images/Avatars/${playerCharacter.img}`)} 
-                            onClick={() => updateCompetitor({competitor: "player"})}
+                            onClick={() => {updateCompetitor({competitor: "player"}); getMatchupRecord()}}
                             />
                         <h2>{playerCharacter.name}</h2>      
                     </li>
@@ -81,7 +81,7 @@ const stats = () => {
                         <h2>Opponent</h2>
                         <img className={highlightOpponent(competitor)}
                             src={require(`../../Images/Avatars/${opponentCharacter.img}`)} 
-                            onClick={() => updateCompetitor({competitor: "opponent"})}
+                            onClick={() => {updateCompetitor({competitor: "opponent"}); getMatchupRecord()}}
                             />
                         <h2>{opponentCharacter.name}</h2>
                     </li>
