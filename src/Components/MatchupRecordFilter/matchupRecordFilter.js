@@ -24,6 +24,7 @@ const matchupRecordFilter = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupRecordFilter>
+                <p>Matchup Record Filter Component</p>
                 <label>View By: </label>
                 <select>
                   <option defaultValue>--Select Time--</option>

@@ -20,13 +20,13 @@ const CharacterSelectItem = Styled.div`
 `;
 
 const characterSelectItem = ({ name, image }) => {
-    const { toggleCharacterSelect } = useContext(Context)
+    const { toggleCharacterSelect, getMatchupRecord } = useContext(Context)
 
     return (
         <CharacterSelectItem>
             <img 
                 src={require(`../../Images/Avatars/${image}`)}
-                onClick={() => toggleCharacterSelect(name)}
+                onClick={() => {toggleCharacterSelect(name); getMatchupRecord()}}
             />
         </CharacterSelectItem>
     )

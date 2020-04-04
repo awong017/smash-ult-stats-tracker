@@ -442,11 +442,11 @@ const App = (props) => {
     })
 
     if (competitor.competitor === "player") {
-      updatePlayerCharacter(findCharacter);
+      updatePlayerCharacter(findCharacter)
     }
 
     else {
-      updateOpponentCharacter(findCharacter);
+      updateOpponentCharacter(findCharacter)
     }
   }
 
