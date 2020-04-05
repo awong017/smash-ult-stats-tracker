@@ -7,7 +7,6 @@ import GlobalStyles from '../../Styles/globalStyles';
 
 const MatchupRecord = Styled.div`
     color: ${(props) => props.theme.bodyColor};
-    padding-top: 50px;
 
     ul {
         display: flex;

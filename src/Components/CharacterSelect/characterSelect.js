@@ -6,8 +6,8 @@ import GlobalStyles from '../../Styles/globalStyles';
 
 const CharacterSelect = Styled.div`
     color: ${(props) => props.theme.bodyColor};
-    margin-bottom: 150px;
-    
+    margin-bottom: 50px;  
+
     .character-select-list {
         display: grid;
         grid-template-columns: repeat(12, 8.33%);

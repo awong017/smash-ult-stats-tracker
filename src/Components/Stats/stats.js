@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import StatsNav from '../StatsNav/statsNav';
 import CharacterSelect from '../CharacterSelect/characterSelect';
-import DisplayRecord from '../MatchupRecord/matchupRecord';
+import MatchupRecord from '../MatchupRecord/matchupRecord';
 import AllTimeRecordGraph from '../AllTimeRecordGraph/allTimeRecordGraph';
 import Context from '../../context';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -18,6 +18,14 @@ const Stats = Styled.div`
         list-style: none;
         padding-left: 40px;
         padding-right: 40px;
+
+        .player {
+            padding-top: 100px;
+        }
+
+        .opponent {
+            padding-top: 100px;
+        }
 
         img {
             width: 200px;
@@ -66,7 +74,7 @@ const stats = () => {
                 <StatsNav />
                 <CharacterSelect />
                 <ul className="character-flex">
-                    <li>
+                    <li className="player">
                         <h2>Player</h2>
                         <img className={highlightPlayer(competitor)}
                             src={require(`../../Images/Avatars/${playerCharacter.img}`)} 
@@ -75,9 +83,9 @@ const stats = () => {
                         <h2>{playerCharacter.name}</h2>      
                     </li>
                     <li>
-                       <DisplayRecord />
+                       <MatchupRecord />
                     </li>
-                    <li>
+                    <li className="opponent">
                         <h2>Opponent</h2>
                         <img className={highlightOpponent(competitor)}
                             src={require(`../../Images/Avatars/${opponentCharacter.img}`)} 

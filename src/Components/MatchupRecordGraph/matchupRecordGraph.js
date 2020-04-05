@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../../context';
 import { Doughnut } from 'react-chartjs-2';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../../Styles/globalStyles';
@@ -8,20 +9,23 @@ const MatchupRecordGraph = Styled.div`
 `
 
 const matchupRecordGraph = () => {
+
+    const { matchupRecord } = useContext(Context)
+    const { wins, losses} = matchupRecord
+
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupRecordGraph>
-                <p>Matchup Record Graph Component</p>
                 <Doughnut 
                     data={{
-                        labels: ["Wins", "Losses"],
+                        labels: ["Losses", "Wins"],
                         datasets: [
                             {
                                 label: "Matchup Record",
-                                data: [2, 1],
+                                data: [losses, wins],
                                 backgroundColor: [
-                                    "rgb(0, 255, 0)",
-                                    "rgb(255, 0, 0)",
+                                    "rgb(204, 0, 0)",
+                                    "rgb(0, 179, 0)",
                                 ],
                                 borderColor: "#262626"
                             }
@@ -33,9 +37,7 @@ const matchupRecordGraph = () => {
                         aspectRatio: 1,
                         maintainAspectRatio: false,
                         title: {
-                            display: false,
-                            text: "Matchup Record Title",
-                            fontSize: 14,
+                            display: false
                         },
                         legend: {
                             display: false
