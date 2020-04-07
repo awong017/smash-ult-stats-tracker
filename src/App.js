@@ -232,9 +232,6 @@ const App = (props) => {
         }
       }
 
-      console.log("Wins: ", winCount)
-      console.log("Losses: ", lossCount)
-
       updateMatchupRecord({
         playerCharacter: playerCharacter.id,
         opponentCharacter: opponentCharacter.id,

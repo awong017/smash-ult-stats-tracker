@@ -24,8 +24,8 @@ const matchupRecordGraph = () => {
                                 label: "Matchup Record",
                                 data: [losses, wins],
                                 backgroundColor: [
-                                    "rgb(204, 0, 0)",
-                                    "rgb(0, 179, 0)",
+                                    "#d10000",
+                                    "white",
                                 ],
                                 borderColor: "#262626"
                             }

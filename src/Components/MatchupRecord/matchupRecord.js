@@ -7,6 +7,7 @@ import GlobalStyles from '../../Styles/globalStyles';
 
 const MatchupRecord = Styled.div`
     color: ${(props) => props.theme.bodyColor};
+    border: 2px solid white;
 
     ul {
         display: flex;
@@ -16,11 +17,30 @@ const MatchupRecord = Styled.div`
         li {
             list-style: none;
         }
+
+        .win-rate {
+            padding-top: 25px;
+        }
+
+        win-rate-hidden {
+            display: none;
+        }
     }
 `
 
 const matchupRecord = () => {
     const { matchupRecord } = useContext(Context)
+    const { wins, losses } = matchupRecord
+    const winPercent = (((wins)/(wins + losses)) * 100).toFixed(2)
+
+    const hideWinPercent = () => {
+        if (wins === 0 && losses === 0) {
+            return "win-rate-hidden"
+        }
+        else {
+            return "win-rate"
+        }
+    }
 
     return (
         <ThemeProvider theme={GlobalStyles}>
@@ -31,13 +51,16 @@ const matchupRecord = () => {
                 <ul>
                     <li>
                         <h3>Wins</h3>
-                        <p>{matchupRecord.wins}</p>
+                        <p>{wins}</p>
+                    </li>
+                    <li className="win-rate">
+                        <h3 className={() => hideWinPercent()}>{winPercent}%</h3>
                     </li>
                     <li>
                         <h3>Losses</h3>
-                        <p>{matchupRecord.losses}</p>
+                        <p>{losses}</p>
                     </li>
-                </ul>
+                </ul> 
             </MatchupRecord>
         </ThemeProvider>
     )
