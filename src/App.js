@@ -205,40 +205,76 @@ const App = (props) => {
     passwordError: ""
   })
 
-    // Method for extracting matchup record
+  // Method for adding wins
 
-    const getMatchupRecord = () => {
-      const filterByUser = matches.filter(match => {
-        return match.user === currentUser.id
-      })
+  const addWins = () => {
+    const { playerCharacter, opponentCharacter } = matchupRecord
+    const match = {
+      id: uuid(),
+      date: Date.now(),
+      user: currentUser.id,
+      player: playerCharacter,
+      opponent: opponentCharacter,
+      outcome: "win"
+    }
+
+    updateMatches([...matches, match])
+    updateCurrentMatchup([...currentMatchup, match])
+  }
+
+  // Method for adding losses
+
+  const addLosses = () => {
+    const { playerCharacter, opponentCharacter } = matchupRecord
+    const match = {
+      id: uuid(),
+      date: Date.now(),
+      user: currentUser.id,
+      player: playerCharacter,
+      opponent: opponentCharacter,
+      outcome: "loss"
+    }
+
+    updateMatches([...matches, match])
+    updateCurrentMatchup([...currentMatchup, match])
+  }
+
+  // Method for extracting matchup record
+
+  const getMatchupRecord = () => {
+    const filterByUser = matches.filter(match => {
+      return match.user === currentUser.id
+    })
 
     const filterByPlayerCharacter = filterByUser.filter(match => {
-        return match.player === playerCharacter.id
-      })
+      return match.player === playerCharacter.id
+    })
 
-      const filterByOpponents = filterByPlayerCharacter.filter(match => {
-        return match.opponent === opponentCharacter.id
-      })
+    const filterByOpponents = filterByPlayerCharacter.filter(match => {
+      return match.opponent === opponentCharacter.id
+    })
+
+    updateCurrentMatchup(filterByOpponents)
       
-      let winCount = 0;
-      let lossCount = 0;
+    let winCount = 0;
+    let lossCount = 0;
 
-      for (let i=0; i<filterByOpponents.length; i++) {
-        if (filterByOpponents[i].outcome === "win") {
-          winCount++
-        }
-        else if (filterByOpponents[i].outcome === "loss") {
-          lossCount++
-        }
+    for (let i=0; i<currentMatchup.length; i++) {
+      if (currentMatchup[i].outcome === "win") {
+        winCount++
       }
-
-      updateMatchupRecord({
-        playerCharacter: playerCharacter.id,
-        opponentCharacter: opponentCharacter.id,
-        wins: winCount,
-        losses: lossCount
-      })
+      else if (currentMatchup[i].outcome === "loss") {
+        lossCount++
+      }
     }
+
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
+  }
 
   // Method for clearing out login and signup errors
 
@@ -480,6 +516,8 @@ const App = (props) => {
     handleLogout: handleLogout,
     toggleCharacterSelect: toggleCharacterSelect,
     getMatchupRecord: getMatchupRecord,
+    addWins: addWins,
+    addLosses: addLosses,
     updateCompetitor: updateCompetitor,
   }
 

@@ -7,7 +7,6 @@ import GlobalStyles from '../../Styles/globalStyles';
 
 const MatchupRecord = Styled.div`
     color: ${(props) => props.theme.bodyColor};
-    border: 2px solid white;
 
     ul {
         display: flex;
@@ -18,27 +17,50 @@ const MatchupRecord = Styled.div`
             list-style: none;
         }
 
-        .win-rate {
-            padding-top: 25px;
+        .increment {
+            display: flex;
+            flex-direction: flex-column;
+            justify-content: space-between;
+
+            button {
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                color: white;
+                border: 1px solid white;
+                background: transparent;
+
+                &:hover {
+                    cursor: pointer;
+                    color: black;
+                    background: white;
+                }
+            }
         }
 
-        win-rate-hidden {
+        .percent {
+            display: block;
+           
+        }
+
+        .percent-hidden {
             display: none;
         }
     }
 `
 
 const matchupRecord = () => {
-    const { matchupRecord } = useContext(Context)
+    const { matches, matchupRecord, addWins, addLosses } = useContext(Context)
     const { wins, losses } = matchupRecord
     const winPercent = (((wins)/(wins + losses)) * 100).toFixed(2)
+    const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(2)
 
-    const hideWinPercent = () => {
+    const hidePercent = () => {
         if (wins === 0 && losses === 0) {
-            return "win-rate-hidden"
+            return "percent-hidden"
         }
         else {
-            return "win-rate"
+            return "percent"
         }
     }
 
@@ -52,15 +74,23 @@ const matchupRecord = () => {
                     <li>
                         <h3>Wins</h3>
                         <p>{wins}</p>
-                    </li>
-                    <li className="win-rate">
-                        <h3 className={() => hideWinPercent()}>{winPercent}%</h3>
+                        <div className="increment">
+                            <button className="add" onClick={() => addWins()}>+</button>
+                            <button className="subtract">-</button>
+                        </div>
+                        <p>({winPercent}%)</p>
                     </li>
                     <li>
                         <h3>Losses</h3>
                         <p>{losses}</p>
+                        <div className="increment">
+                            <button className="add" onClick={() => addLosses()}>+</button>
+                            <button className="subtract">-</button>
+                        </div>
+                        <p>({lossPercent}%)</p>
                     </li>
-                </ul> 
+                </ul>
+                <button onClick={() => console.log("Matches: ", matches)}>Console Log</button> 
             </MatchupRecord>
         </ThemeProvider>
     )
