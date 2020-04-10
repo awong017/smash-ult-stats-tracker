@@ -127,7 +127,7 @@ const App = (props) => {
   const [matches, updateMatches] = useState([
     {
       id: "m1",
-      date: 1585686453000,
+      date: 1585686353000,
       user: "u1",
       player: 9,
       opponent: 10,
@@ -239,6 +239,46 @@ const App = (props) => {
     })
   }
 
+  // Method for subtracting wins
+
+  const subtractWins = () => {
+    const matchesWon = currentMatchup.filter(match => {
+      return match.outcome === "win"
+    })
+
+    const lastMatchWon = matchesWon.pop()
+    
+    const filteredMatches = matches.filter(match => {
+      return match !== lastMatchWon
+    })
+    
+    const filterCurrentMatchup = currentMatchup.filter(match => {
+      return match !== lastMatchWon
+    })
+
+    updateMatches(filteredMatches)
+    updateCurrentMatchup(filterCurrentMatchup)
+
+    let winCount = 0;
+    let lossCount = 0;
+
+    for (let i=0; i<currentMatchup.length; i++) {
+      if (currentMatchup[i].outcome === "win") {
+        winCount++
+      }
+      else if (currentMatchup[i].outcome === "loss") {
+        lossCount++
+      }
+    }
+
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
+  }
+
   // Method for adding losses
 
   const addLosses = () => {
@@ -265,6 +305,46 @@ const App = (props) => {
 
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
+  }
+
+   // Method for subtracting losses
+
+   const subtractLosses = () => {
+    const matchesWon = currentMatchup.filter(match => {
+      return match.outcome === "loss"
+    })
+
+    const lastMatchLost = matchesWon.pop()
+
+    const filteredMatches = matches.filter(match => {
+      return match !== lastMatchLost
+    })
+
+    const filterCurrentMatchup = currentMatchup.filter(match => {
+      return match !== lastMatchLost
+    })
+
+    updateMatches(filteredMatches)
+    updateCurrentMatchup(filterCurrentMatchup)
+
+    let winCount = 0;
+    let lossCount = 0;
+
+    for (let i=0; i<currentMatchup.length; i++) {
+      if (currentMatchup[i].outcome === "win") {
+        winCount++
+      }
+      else if (currentMatchup[i].outcome === "loss") {
+        lossCount++
+      }
+    }
+
     updateMatchupRecord({
       playerCharacter: playerCharacter.id,
       opponentCharacter: opponentCharacter.id,
@@ -551,7 +631,9 @@ const App = (props) => {
     toggleCharacterSelect: toggleCharacterSelect,
     getMatchupRecord: getMatchupRecord,
     addWins: addWins,
+    subtractWins: subtractWins,
     addLosses: addLosses,
+    subtractLosses: subtractLosses,
     updateCompetitor: updateCompetitor,
   }
 

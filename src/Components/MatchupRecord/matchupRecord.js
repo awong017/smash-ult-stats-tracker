@@ -49,7 +49,7 @@ const MatchupRecord = Styled.div`
 `
 
 const matchupRecord = () => {
-    const { matches, matchupRecord, addWins, addLosses } = useContext(Context)
+    const { matches, matchupRecord, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
     const { wins, losses } = matchupRecord
     const winPercent = (((wins)/(wins + losses)) * 100).toFixed(2)
     const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(2)
@@ -75,7 +75,7 @@ const matchupRecord = () => {
                         <p>{wins}</p>
                         <div className="increment">
                             <button className="add" onClick={() => addWins()}>+</button>
-                            <button className="subtract">-</button>
+                            <button className="subtract" onClick={() => subtractWins()}>-</button>
                         </div>
                         <p>({winPercent}%)</p>
                     </li>
@@ -84,7 +84,7 @@ const matchupRecord = () => {
                         <p>{losses}</p>
                         <div className="increment">
                             <button className="add" onClick={() => addLosses()}>+</button>
-                            <button className="subtract">-</button>
+                            <button className="subtract" onClick={() => subtractLosses()}>-</button>
                         </div>
                         <p>({lossPercent}%)</p>
                     </li>
