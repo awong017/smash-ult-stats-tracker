@@ -1,20 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
-const AllTimeRecordGraph = Styled.div`
+const MatchupHistoryItem = Styled.div`
     color: ${(props) => props.theme.bodyColor};
     margin-top: 100px;
 `
 
-const allTimeRecordGraph = () => {
+const matchupHistoryItem = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
-            <AllTimeRecordGraph>
-                <h2>All Time Record Graph</h2>
-            </AllTimeRecordGraph>
+            <MatchupHistoryItem>
+                <h2>Matchup History Item</h2>
+            </MatchupHistoryItem>
         </ThemeProvider>
     )
 }
 
-export default allTimeRecordGraph;
+export default matchupHistoryItem;

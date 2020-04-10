@@ -205,6 +205,42 @@ const App = (props) => {
     passwordError: ""
   })
 
+  // Method for filtering matchup by date
+
+  const filterByDate = (timeFrame) => {
+    if(timeFrame === 'day') {
+        const matchupByDate = currentMatchup.filter(match => {
+          return match.date >= Date.now()-100000000
+      })
+        
+      updateFilteredMatchup(matchupByDate)
+    }
+
+    else if(timeFrame === 'week') {
+      const matchupByDate = currentMatchup.filter(match => {
+        return match.date >= Date.now()-700000000
+      })
+
+      updateFilteredMatchup(matchupByDate)
+    }
+
+    else if(timeFrame === 'month') {
+      const matchupByDate = currentMatchup.filter(match => {
+        return match.date >= Date.now()-300000000000
+    })
+
+    updateFilteredMatchup(matchupByDate)
+    }
+
+    else if(timeFrame === 'year') {
+      const matchupByDate = currentMatchup.filter(match => {
+        return match.date >= Date.now()-3650000000000
+    })
+
+    updateFilteredMatchup(matchupByDate)
+    }
+  }
+
   // Method for adding wins
 
   const addWins = () => {

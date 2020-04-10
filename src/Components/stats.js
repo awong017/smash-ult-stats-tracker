@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import StatsNav from './statsNav';
 import CharacterSelect from './characterSelect';
 import MatchupRecord from './matchupRecord';
-import AllTimeRecordGraph from './allTimeRecordGraph';
+import MatchupHistory from './matchupHistory';
 import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
@@ -94,7 +94,7 @@ const stats = () => {
                         <h2>{opponentCharacter.name}</h2>
                     </li>
                 </ul>
-                <AllTimeRecordGraph />
+                <MatchupHistory />
             </Stats>
         </ThemeProvider>
     );
