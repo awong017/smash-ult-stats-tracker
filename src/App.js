@@ -208,35 +208,69 @@ const App = (props) => {
   // Method for adding wins
 
   const addWins = () => {
-    const { playerCharacter, opponentCharacter } = matchupRecord
     const match = {
       id: uuid(),
       date: Date.now(),
       user: currentUser.id,
-      player: playerCharacter,
-      opponent: opponentCharacter,
+      player: playerCharacter.id,
+      opponent: opponentCharacter.id,
       outcome: "win"
+    }
+
+    let winCount = 0;
+    let lossCount = 0;
+
+    for (let i=0; i<currentMatchup.length; i++) {
+      if (currentMatchup[i].outcome === "win") {
+        winCount++
+      }
+      else if (currentMatchup[i].outcome === "loss") {
+        lossCount++
+      }
     }
 
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
   }
 
   // Method for adding losses
 
   const addLosses = () => {
-    const { playerCharacter, opponentCharacter } = matchupRecord
     const match = {
       id: uuid(),
       date: Date.now(),
       user: currentUser.id,
-      player: playerCharacter,
-      opponent: opponentCharacter,
+      player: playerCharacter.id,
+      opponent: opponentCharacter.id,
       outcome: "loss"
+    }
+
+    let winCount = 0;
+    let lossCount = 0;
+
+    for (let i=0; i<currentMatchup.length; i++) {
+      if (currentMatchup[i].outcome === "win") {
+        winCount++
+      }
+      else if (currentMatchup[i].outcome === "loss") {
+        lossCount++
+      }
     }
 
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
   }
 
   // Method for extracting matchup record

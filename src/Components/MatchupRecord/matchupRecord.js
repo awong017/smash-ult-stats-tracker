@@ -23,7 +23,6 @@ const MatchupRecord = Styled.div`
             justify-content: space-between;
 
             button {
-                height: 20px;
                 width: 20px;
                 border-radius: 50%;
                 color: white;
