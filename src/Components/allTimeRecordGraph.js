@@ -1,6 +1,6 @@
 import React from 'react';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const AllTimeRecordGraph = Styled.div`
     color: ${(props) => props.theme.bodyColor};

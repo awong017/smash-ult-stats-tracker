@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import LandingNav from '../LandingNav/landingNav';
-import Context from '../../context';
+import LandingNav from './landingNav';
+import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const ForgotPassword = Styled.div`
     .forgot-password-form {

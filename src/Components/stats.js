@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import StatsNav from '../StatsNav/statsNav';
-import CharacterSelect from '../CharacterSelect/characterSelect';
-import MatchupRecord from '../MatchupRecord/matchupRecord';
-import AllTimeRecordGraph from '../AllTimeRecordGraph/allTimeRecordGraph';
-import Context from '../../context';
+import StatsNav from './statsNav';
+import CharacterSelect from './characterSelect';
+import MatchupRecord from './matchupRecord';
+import AllTimeRecordGraph from './allTimeRecordGraph';
+import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const Stats = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
@@ -77,7 +77,7 @@ const stats = () => {
                     <li className="player">
                         <h2>Player</h2>
                         <img className={highlightPlayer(competitor)}
-                            src={require(`../../Images/Avatars/${playerCharacter.img}`)} 
+                            src={require(`../Images/Avatars/${playerCharacter.img}`)} 
                             onClick={() => {updateCompetitor({competitor: "player"}); getMatchupRecord()}}
                             />
                         <h2>{playerCharacter.name}</h2>      
@@ -88,7 +88,7 @@ const stats = () => {
                     <li className="opponent">
                         <h2>Opponent</h2>
                         <img className={highlightOpponent(competitor)}
-                            src={require(`../../Images/Avatars/${opponentCharacter.img}`)} 
+                            src={require(`../Images/Avatars/${opponentCharacter.img}`)} 
                             onClick={() => {updateCompetitor({competitor: "opponent"}); getMatchupRecord()}}
                             />
                         <h2>{opponentCharacter.name}</h2>

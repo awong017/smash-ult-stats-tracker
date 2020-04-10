@@ -1,7 +1,7 @@
 import React from 'react';
-import LandingNav from '../LandingNav/landingNav';
+import LandingNav from './landingNav';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const Landing = Styled.div`
     h1 {

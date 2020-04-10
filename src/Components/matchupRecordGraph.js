@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import Context from '../../context';
+import Context from '../context';
 import { Doughnut } from 'react-chartjs-2';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupRecordGraph = Styled.div`
     color: ${(props) => props.theme.bodyColor};

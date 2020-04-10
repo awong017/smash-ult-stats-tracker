@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Context from '../../context';
-import SmashBall from '../../Images/smash-ball.jpg';
-import SmashBanner from '../../Images/smash-ult-banner.png';
+import Context from '../context';
+import SmashBall from '../Images/smash-ball.jpg';
+import SmashBanner from '../Images/smash-ult-banner.png';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const Nav = Styled.div`
- position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -65,27 +65,27 @@ const Nav = Styled.div`
     }
 `;
 
-const landingNav = () => {
-    const { clearErrors } = useContext(Context)
+const statsNav = () => {
+    const { handleLogout } = useContext(Context)
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Nav>
                 <div className="nav-flex">
-                    <Link to={'/'}>
+                    <Link to={'/home'}>
                         <img className="smash-ball-image" src={SmashBall} />
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={'/login'} onClick={() => clearErrors()}>
-                                Login
+                            <Link to={"/"} onClick={() => handleLogout()}>
+                                Log Out
                             </Link>
                         </li>
                     </ul>
                 </div>
             </Nav>
         </ThemeProvider>
-    );
-};
+    )
+}
 
-export default landingNav;
+export default statsNav;

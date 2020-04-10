@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-import Landing from './Components/Landing/landing';
-import Login from './Components/Login/login';
-import SignUp from './Components/SignUp/signUp';
-import ForgotPassword from './Components/ForgotPassword/forgotPassword';
-import EmailConfirmation from './Components/EmailConfirmation/emailConfirmation';
-import Home from './Components/Home/home';
-import Stats from './Components/Stats/stats';
+import Landing from './Components/landing';
+import Login from './Components/login';
+import SignUp from './Components/signUp';
+import ForgotPassword from './Components/forgotPassword';
+import EmailConfirmation from './Components/emailConfirmation';
+import Home from './Components/home';
+import Stats from './Components/stats';
 import Context from './context';
 import uuid from 'uuid/v4';
 import './App.css'
@@ -251,7 +251,7 @@ const App = (props) => {
     const filteredMatches = matches.filter(match => {
       return match !== lastMatchWon
     })
-    
+
     const filterCurrentMatchup = currentMatchup.filter(match => {
       return match !== lastMatchWon
     })

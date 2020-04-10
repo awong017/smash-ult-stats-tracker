@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Context from '../../context';
-import SmashBall from '../../Images/smash-ball.jpg';
-import SmashBanner from '../../Images/smash-ult-banner.png';
+import Context from '../context';
+import SmashBall from '../Images/smash-ball.jpg';
+import SmashBanner from '../Images/smash-ult-banner.png';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const Nav = Styled.div`
     position: fixed;
@@ -65,7 +65,7 @@ const Nav = Styled.div`
     }
 `;
 
-const statsNav = () => {
+const homeNav = () => {
     const { handleLogout } = useContext(Context)
 
     return (
@@ -77,7 +77,12 @@ const statsNav = () => {
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={"/"} onClick={() => handleLogout()}>
+                            <Link to={'/stats'}>
+                                Stats
+                            </Link>
+                        </li>
+                        <li className="nav-li">
+                            <Link to={'/'} onClick={() => handleLogout()}>
                                 Log Out
                             </Link>
                         </li>
@@ -85,7 +90,7 @@ const statsNav = () => {
                 </div>
             </Nav>
         </ThemeProvider>
-    )
-}
+    );
+};
 
-export default statsNav;
+export default homeNav;

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import CharacterSelectItem from '../CharacterSelectItem/characterSelectItem';
-import Context from '../../context';
+import CharacterSelectItem from './characterSelectItem';
+import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const CharacterSelect = Styled.div`
     color: ${(props) => props.theme.bodyColor};

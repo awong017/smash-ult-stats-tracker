@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import MatchupRecordFilter from '../MatchupRecordFilter/matchupRecordFilter';
-import MatchupRecordGraph from '../MatchupRecordGraph/matchupRecordGraph';
-import Context from '../../context';
+import MatchupRecordFilter from './matchupRecordFilter';
+import MatchupRecordGraph from './matchupRecordGraph';
+import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupRecord = Styled.div`
     color: ${(props) => props.theme.bodyColor};

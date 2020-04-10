@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginNav from '../LoginNav/loginNav';
-import Context from '../../context';
+import LoginNav from './loginNav';
+import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const Login = Styled.div`
     .login-form {

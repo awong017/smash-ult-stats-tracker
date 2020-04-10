@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginNav from '../LoginNav/loginNav';
+import LoginNav from './loginNav';
 import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import GlobalStyles from '../Styles/globalStyles';
 
 const EmailConfirmation = Styled.div`
     margin-top: 350px;

@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
-import Context from '../../context';
-import Styled, { ThemeProvider } from 'styled-components';
-import GlobalStyles from '../../Styles/globalStyles';
+import Context from '../context';
+import Styled from 'styled-components';
 
 const CharacterSelectItem = Styled.div`
     img {
@@ -25,7 +24,7 @@ const characterSelectItem = ({ name, image }) => {
     return (
         <CharacterSelectItem>
             <img 
-                src={require(`../../Images/Avatars/${image}`)}
+                src={require(`../Images/Avatars/${image}`)}
                 onClick={() => {toggleCharacterSelect(name); getMatchupRecord()}}
             />
         </CharacterSelectItem>
