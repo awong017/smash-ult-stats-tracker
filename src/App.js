@@ -169,7 +169,7 @@ const App = (props) => {
 
   const [currentMatchup, updateCurrentMatchup] = useState("")
   
-  const [filteredMatcup, updateFilteredMatchup] = useState("")
+  const [filteredMatchup, updateFilteredMatchup] = useState([])
 
   const [matchupRecord, updateMatchupRecord] = useState("")
 
@@ -208,7 +208,7 @@ const App = (props) => {
   // Method for filtering matchup by date
 
   const filterByDate = (timeFrame) => {
-    if(timeFrame === 'day') {
+    if(timeFrame === "day") {
         const matchupByDate = currentMatchup.filter(match => {
           return match.date >= Date.now()-100000000
       })
@@ -216,7 +216,7 @@ const App = (props) => {
       updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === 'week') {
+    else if(timeFrame === "week") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-700000000
       })
@@ -224,7 +224,7 @@ const App = (props) => {
       updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === 'month') {
+    else if(timeFrame === "month") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-300000000000
     })
@@ -232,12 +232,16 @@ const App = (props) => {
     updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === 'year') {
+    else if(timeFrame === "year") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-3650000000000
     })
 
     updateFilteredMatchup(matchupByDate)
+    }
+
+    else if(timeFrame === "all time") {
+      updateFilteredMatchup([])
     }
   }
 
@@ -409,11 +413,20 @@ const App = (props) => {
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<currentMatchup.length; i++) {
-      if (currentMatchup[i].outcome === "win") {
+    const characterMatchup = () => {
+      if (filteredMatchup.length === 0) {
+        return currentMatchup
+      }
+      else {
+        return filteredMatchup
+      }
+    }
+
+    for (let i=0; i<characterMatchup().length; i++) {
+      if (characterMatchup()[i].outcome === "win") {
         winCount++
       }
-      else if (currentMatchup[i].outcome === "loss") {
+      else if (characterMatchup()[i].outcome === "loss") {
         lossCount++
       }
     }
@@ -652,6 +665,8 @@ const App = (props) => {
     currentUser: currentUser,
     characters: characters,
     matches: matches,
+    currentMatchup: currentMatchup,
+    filteredMatchup: filteredMatchup,
     matchupRecord: matchupRecord,
     competitor: competitor.competitor,
     playerCharacter: playerCharacter,

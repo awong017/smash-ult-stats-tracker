@@ -27,11 +27,11 @@ const matchupRecordFilter = () => {
                 <label>View By: </label>
                 <select>
                   <option defaultValue>--Select Time--</option>
-                  <option>Day</option>
-                  <option>Week</option>
-                  <option>Month</option>
-                  <option>Year</option>
-                  <option>All Time</option>
+                  <option value="day">Day</option>
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                  <option value="all time">All Time</option>
                 </select>
             </MatchupRecordFilter>
         </ThemeProvider>

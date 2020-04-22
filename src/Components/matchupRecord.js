@@ -49,7 +49,7 @@ const MatchupRecord = Styled.div`
 `
 
 const matchupRecord = () => {
-    const { matches, matchupRecord, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
+    const { matches, currentMatchup, filteredMatchup, matchupRecord, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
     const { wins, losses } = matchupRecord
     const winPercent = (((wins)/(wins + losses)) * 100).toFixed(2)
     const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(2)
@@ -89,7 +89,14 @@ const matchupRecord = () => {
                         <p>({lossPercent}%)</p>
                     </li>
                 </ul>
-                <button onClick={() => console.log("Matches: ", matches)}>Console Log</button> 
+                <button 
+                    onClick={() => 
+                        console.log("Matches: ", matches, 
+                        "Current Matchup: ", currentMatchup, 
+                        "filteredMatchup: ", filteredMatchup,
+                        "filtered matchup length: ", filteredMatchup.length)}>
+                        Console Log
+                </button> 
             </MatchupRecord>
         </ThemeProvider>
     )
