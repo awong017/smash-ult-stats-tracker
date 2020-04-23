@@ -205,6 +205,49 @@ const App = (props) => {
     passwordError: ""
   })
 
+   // Method for getting matches based on the player character
+  // and opponent character
+
+  const getCurrentMatchup = () => {
+    const filterByUser = matches.filter(match => {
+      return match.user === currentUser.id
+    })
+
+    const filterByPlayerCharacter = filterByUser.filter(match => {
+      return match.player === playerCharacter.id
+    })
+
+    const filterByOpponents = filterByPlayerCharacter.filter(match => {
+      return match.opponent === opponentCharacter.id
+    })
+
+    updateCurrentMatchup(filterByOpponents)
+  }
+
+  // Method for getting the matchup record based on the player
+  // charcter and opponent character
+
+  const getMatchupRecord = () => {
+    let winCount = 0;
+    let lossCount = 0;
+
+    for (let i=0; i<filteredMatchup.length; i++) {
+      if (filteredMatchup[i].outcome === "win") {
+        winCount++
+      }
+      else if (filteredMatchup[i].outcome === "loss") {
+        lossCount++
+      }
+    }
+
+    updateMatchupRecord({
+      playerCharacter: playerCharacter.id,
+      opponentCharacter: opponentCharacter.id,
+      wins: winCount,
+      losses: lossCount
+    })
+  }
+
   // Method for filtering matchup by date
 
   const filterByDate = (timeFrame) => {
@@ -240,8 +283,8 @@ const App = (props) => {
     updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === "all time") {
-      updateFilteredMatchup([])
+    else {
+      updateFilteredMatchup(currentMatchup)
     }
   }
 
@@ -257,20 +300,21 @@ const App = (props) => {
       outcome: "win"
     }
 
+    updateMatches([...matches, match])
+    updateCurrentMatchup([...currentMatchup, match])
+    updateFilteredMatchup([...filteredMatchup, match])
+
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<currentMatchup.length; i++) {
-      if (currentMatchup[i].outcome === "win") {
+    for (let i=0; i<filteredMatchup.length; i++) {
+      if (filteredMatchup[i].outcome === "win") {
         winCount++
       }
-      else if (currentMatchup[i].outcome === "loss") {
+      else if (filteredMatchup[i].outcome === "loss") {
         lossCount++
       }
     }
-
-    updateMatches([...matches, match])
-    updateCurrentMatchup([...currentMatchup, match])
     updateMatchupRecord({
       playerCharacter: playerCharacter.id,
       opponentCharacter: opponentCharacter.id,
@@ -381,52 +425,6 @@ const App = (props) => {
         winCount++
       }
       else if (currentMatchup[i].outcome === "loss") {
-        lossCount++
-      }
-    }
-
-    updateMatchupRecord({
-      playerCharacter: playerCharacter.id,
-      opponentCharacter: opponentCharacter.id,
-      wins: winCount,
-      losses: lossCount
-    })
-  }
-
-  // Method for extracting matchup record
-
-  const getMatchupRecord = () => {
-    const filterByUser = matches.filter(match => {
-      return match.user === currentUser.id
-    })
-
-    const filterByPlayerCharacter = filterByUser.filter(match => {
-      return match.player === playerCharacter.id
-    })
-
-    const filterByOpponents = filterByPlayerCharacter.filter(match => {
-      return match.opponent === opponentCharacter.id
-    })
-
-    updateCurrentMatchup(filterByOpponents)
-      
-    let winCount = 0;
-    let lossCount = 0;
-
-    const characterMatchup = () => {
-      if (filteredMatchup.length === 0) {
-        return currentMatchup
-      }
-      else {
-        return filteredMatchup
-      }
-    }
-
-    for (let i=0; i<characterMatchup().length; i++) {
-      if (characterMatchup()[i].outcome === "win") {
-        winCount++
-      }
-      else if (characterMatchup()[i].outcome === "loss") {
         lossCount++
       }
     }
@@ -680,7 +678,9 @@ const App = (props) => {
     handleSignup: handleSignup,
     handleLogout: handleLogout,
     toggleCharacterSelect: toggleCharacterSelect,
+    getCurrentMatchup: getCurrentMatchup,
     getMatchupRecord: getMatchupRecord,
+    filterByDate: filterByDate,
     addWins: addWins,
     subtractWins: subtractWins,
     addLosses: addLosses,
