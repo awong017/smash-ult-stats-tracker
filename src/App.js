@@ -340,17 +340,30 @@ const App = (props) => {
       return match !== lastMatchWon
     })
 
+    const findWonMatch = filteredMatchup.some(match => {
+      return match.date === lastMatchWon.date
+    })
+
+    if (findWonMatch === true) {
+      const filter = filteredMatchup.filter(match => {
+        return match !== lastMatchWon
+      })
+
+      updateFilteredMatchup(filter)
+    }
+
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
+
 
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<currentMatchup.length; i++) {
-      if (currentMatchup[i].outcome === "win") {
+    for (let i=0; i<filteredMatchup.length; i++) {
+      if (filteredMatchup[i].outcome === "win") {
         winCount++
       }
-      else if (currentMatchup[i].outcome === "loss") {
+      else if (filteredMatchup[i].outcome === "loss") {
         lossCount++
       }
     }
@@ -378,17 +391,18 @@ const App = (props) => {
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<currentMatchup.length; i++) {
-      if (currentMatchup[i].outcome === "win") {
+    for (let i=0; i<filteredMatchup.length; i++) {
+      if (filteredMatchup[i].outcome === "win") {
         winCount++
       }
-      else if (currentMatchup[i].outcome === "loss") {
+      else if (filteredMatchup[i].outcome === "loss") {
         lossCount++
       }
     }
 
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
+    updateFilteredMatchup([...filteredMatchup, match])
     updateMatchupRecord({
       playerCharacter: playerCharacter.id,
       opponentCharacter: opponentCharacter.id,
@@ -414,17 +428,29 @@ const App = (props) => {
       return match !== lastMatchLost
     })
 
+    const findLostMatch = filteredMatchup.some(match => {
+      return match.date === lastMatchLost.date
+    })
+
+    if (findLostMatch === true) {
+      const filter = filteredMatchup.filter(match => {
+        return match !== lastMatchLost
+      })
+
+      updateFilteredMatchup(filter)
+    }
+
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
 
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<currentMatchup.length; i++) {
-      if (currentMatchup[i].outcome === "win") {
+    for (let i=0; i<filteredMatchup.length; i++) {
+      if (filteredMatchup[i].outcome === "win") {
         winCount++
       }
-      else if (currentMatchup[i].outcome === "loss") {
+      else if (filteredMatchup[i].outcome === "loss") {
         lossCount++
       }
     }
