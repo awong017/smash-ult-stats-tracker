@@ -169,9 +169,13 @@ const App = (props) => {
 
   const [currentMatchup, updateCurrentMatchup] = useState("")
   
-  const [filteredMatchup, updateFilteredMatchup] = useState([])
+  const [filteredMatchup, updateFilteredMatchup] = useState("")
 
   const [matchupRecord, updateMatchupRecord] = useState("")
+
+  const [timeFrame, updateTimeFrame] = useState({
+    timeFrame: "all"
+  })
 
   const [competitor, updateCompetitor] = useState({
     competitor: "player"
@@ -228,14 +232,23 @@ const App = (props) => {
   // charcter and opponent character
 
   const getMatchupRecord = () => {
+    const matches = () => {
+      if(timeFrame.timeFrame !== "all") {
+        return filteredMatchup
+      }
+      else {
+        return currentMatchup
+      }
+    }
+
     let winCount = 0;
     let lossCount = 0;
 
-    for (let i=0; i<filteredMatchup.length; i++) {
-      if (filteredMatchup[i].outcome === "win") {
+    for (let i=0; i<matches().length; i++) {
+      if (matches()[i].outcome === "win") {
         winCount++
       }
-      else if (filteredMatchup[i].outcome === "loss") {
+      else if (matches()[i].outcome === "loss") {
         lossCount++
       }
     }
@@ -250,41 +263,45 @@ const App = (props) => {
 
   // Method for filtering matchup by date
 
-  const filterByDate = (timeFrame) => {
-    if(timeFrame === "day") {
+  const filterByDate = (time) => {
+    if(time === "day") {
         const matchupByDate = currentMatchup.filter(match => {
           return match.date >= Date.now()-100000000
       })
-        
+
+      updateTimeFrame({timeFrame: "day"})
       updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === "week") {
+    else if(time === "week") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-700000000
       })
 
+      updateTimeFrame({timeFrame: "week"})
       updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === "month") {
+    else if(time === "month") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-300000000000
     })
 
-    updateFilteredMatchup(matchupByDate)
+      updateTimeFrame({timeFrame: "month"})
+      updateFilteredMatchup(matchupByDate)
     }
 
-    else if(timeFrame === "year") {
+    else if(time === "year") {
       const matchupByDate = currentMatchup.filter(match => {
         return match.date >= Date.now()-3650000000000
     })
 
-    updateFilteredMatchup(matchupByDate)
+      updateTimeFrame({timeFrame: "year"})
+      updateFilteredMatchup(matchupByDate)
     }
 
     else {
-      updateFilteredMatchup(currentMatchup)
+      updateTimeFrame({timeFrame: "all"})
     }
   }
 
@@ -692,6 +709,7 @@ const App = (props) => {
     currentMatchup: currentMatchup,
     filteredMatchup: filteredMatchup,
     matchupRecord: matchupRecord,
+    timeFrame: timeFrame,
     competitor: competitor.competitor,
     playerCharacter: playerCharacter,
     opponentCharacter: opponentCharacter,
