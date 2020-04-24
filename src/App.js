@@ -319,25 +319,12 @@ const App = (props) => {
 
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
-    updateFilteredMatchup([...filteredMatchup, match])
 
-    let winCount = 0;
-    let lossCount = 0;
-
-    for (let i=0; i<filteredMatchup.length; i++) {
-      if (filteredMatchup[i].outcome === "win") {
-        winCount++
-      }
-      else if (filteredMatchup[i].outcome === "loss") {
-        lossCount++
-      }
+    if(timeFrame.timeFrame !== "all") {
+      updateFilteredMatchup([...filteredMatchup, match])
     }
-    updateMatchupRecord({
-      playerCharacter: playerCharacter.id,
-      opponentCharacter: opponentCharacter.id,
-      wins: winCount,
-      losses: lossCount
-    })
+    
+    getMatchupRecord()
   }
 
   // Method for subtracting wins
@@ -357,40 +344,24 @@ const App = (props) => {
       return match !== lastMatchWon
     })
 
-    const findWonMatch = filteredMatchup.some(match => {
-      return match.date === lastMatchWon.date
-    })
-
-    if (findWonMatch === true) {
-      const filter = filteredMatchup.filter(match => {
-        return match !== lastMatchWon
+    if(timeFrame.timeFrame !== "all") {
+      const findWonMatch = filteredMatchup.some(match => {
+        return match.date === lastMatchWon.date
       })
-
-      updateFilteredMatchup(filter)
+  
+      if (findWonMatch === true) {
+        const filter = filteredMatchup.filter(match => {
+          return match !== lastMatchWon
+        })
+  
+        updateFilteredMatchup(filter)
+      }
     }
 
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
-
-
-    let winCount = 0;
-    let lossCount = 0;
-
-    for (let i=0; i<filteredMatchup.length; i++) {
-      if (filteredMatchup[i].outcome === "win") {
-        winCount++
-      }
-      else if (filteredMatchup[i].outcome === "loss") {
-        lossCount++
-      }
-    }
-
-    updateMatchupRecord({
-      playerCharacter: playerCharacter.id,
-      opponentCharacter: opponentCharacter.id,
-      wins: winCount,
-      losses: lossCount
-    })
+    
+    getMatchupRecord()
   }
 
   // Method for adding losses
@@ -405,27 +376,14 @@ const App = (props) => {
       outcome: "loss"
     }
 
-    let winCount = 0;
-    let lossCount = 0;
-
-    for (let i=0; i<filteredMatchup.length; i++) {
-      if (filteredMatchup[i].outcome === "win") {
-        winCount++
-      }
-      else if (filteredMatchup[i].outcome === "loss") {
-        lossCount++
-      }
-    }
-
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
-    updateFilteredMatchup([...filteredMatchup, match])
-    updateMatchupRecord({
-      playerCharacter: playerCharacter.id,
-      opponentCharacter: opponentCharacter.id,
-      wins: winCount,
-      losses: lossCount
-    })
+
+    if(timeFrame.timeFrame !== "all") {
+      updateFilteredMatchup([...filteredMatchup, match])
+    }
+
+    getMatchupRecord()
   }
 
    // Method for subtracting losses
@@ -445,39 +403,24 @@ const App = (props) => {
       return match !== lastMatchLost
     })
 
-    const findLostMatch = filteredMatchup.some(match => {
-      return match.date === lastMatchLost.date
-    })
-
-    if (findLostMatch === true) {
-      const filter = filteredMatchup.filter(match => {
-        return match !== lastMatchLost
+    if(timeFrame.timeFrame !== "all") {
+      const findLostMatch = filteredMatchup.some(match => {
+        return match.date === lastMatchLost.date
       })
-
-      updateFilteredMatchup(filter)
+  
+      if (findLostMatch === true) {
+        const filter = filteredMatchup.filter(match => {
+          return match !== lastMatchLost
+        })
+  
+        updateFilteredMatchup(filter)
+      }
     }
-
+  
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
 
-    let winCount = 0;
-    let lossCount = 0;
-
-    for (let i=0; i<filteredMatchup.length; i++) {
-      if (filteredMatchup[i].outcome === "win") {
-        winCount++
-      }
-      else if (filteredMatchup[i].outcome === "loss") {
-        lossCount++
-      }
-    }
-
-    updateMatchupRecord({
-      playerCharacter: playerCharacter.id,
-      opponentCharacter: opponentCharacter.id,
-      wins: winCount,
-      losses: lossCount
-    })
+    getMatchupRecord()
   }
 
   // Method for clearing out login and signup errors

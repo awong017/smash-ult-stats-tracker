@@ -22,13 +22,13 @@ const MatchupRecordFilter = Styled.div`
 `
 
 const matchupRecordFilter = () => {
-    const { filterByDate } = useContext(Context);
+    const { filterByDate, getMatchupRecord } = useContext(Context);
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupRecordFilter>
                 <label>View By: </label>
-                <select onChange={(e) => filterByDate(e.target.value)}>
+                <select onChange={(e) => {filterByDate(e.target.value); getMatchupRecord()}}>
                   <option defaultValue>--Select Time--</option>
                   <option value="day">Day</option>
                   <option value="week">Week</option>

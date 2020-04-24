@@ -51,8 +51,8 @@ const MatchupRecord = Styled.div`
 const matchupRecord = () => {
     const { matches, currentMatchup, filteredMatchup, matchupRecord, timeFrame, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
     const { wins, losses } = matchupRecord
-    const winPercent = (((wins)/(wins + losses)) * 100).toFixed(2)
-    const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(2)
+    const winPercent = (((wins)/(wins + losses)) * 100).toFixed(1)
+    const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(1)
 
     const hidePercent = () => {
         if (wins === 0 && losses === 0) {
