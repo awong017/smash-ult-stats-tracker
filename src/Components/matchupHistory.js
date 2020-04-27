@@ -7,34 +7,50 @@ import GlobalStyles from '../Styles/globalStyles';
 const MatchupHistory = Styled.div`
     color: ${(props) => props.theme.bodyColor};
     margin-top: 100px;
+
+    .history-heading {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        width: 300px;
+        border: 2px solid white;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0px;
+        list-style: none;
+        
+        li {
+            font-weight: bold;
+        }
+    }
 `
 
 const matchupHistory = () => {
-    const { matches, characters, currentMatchup, filteredMatchup, timeFrame } = useContext(Context)
+    const { currentMatchup, filteredMatchup, timeFrame } = useContext(Context)
 
-    // const getMatchupHistory = () => {
-    //     if (timeFrame.timeFrame === "all") {
-    //         return currentMatchup
-    //     }
-    //     else {
-    //         return filteredMatchup
-    //     }
-    // }
+    const getMatchupHistory = () => {
+        if (timeFrame.timeFrame === "all") {
+            return currentMatchup
+        }
+        else {
+            return filteredMatchup
+        }
+    }
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupHistory>
                 <h2>Matchup History Component</h2>
-                    <h2>Matchup History Item Component</h2>
-                    {matches.map(match => 
-                         <MatchupHistoryItem
-                            key={match.id}
-                            id={match.id}
-                            date={match.date}
-                            outcome={match.outcome}
-                        />
-                    )}
-                <button onClick={() => console.log(matches)}>Matches</button>
+                <ul className="history-heading">
+                    <li className="date-detail">Date</li>
+                    <li className="outcome-detail">Outcome</li>
+                </ul>
+                {getMatchupHistory().map(match => 
+                    <MatchupHistoryItem
+                        key={match.id}
+                        date={match.date}
+                        outcome={match.outcome}
+                    />
+                )}
             </MatchupHistory>
         </ThemeProvider>
     )

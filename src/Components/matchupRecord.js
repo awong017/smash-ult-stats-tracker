@@ -89,14 +89,6 @@ const matchupRecord = () => {
                         </div>
                     </li>
                 </ul>
-                <button 
-                    onClick={() => 
-                        console.log("Matches: ", matches, 
-                        "Current Matchup: ", currentMatchup, 
-                        "filteredMatchup: ", filteredMatchup,
-                        "time frame: ", timeFrame)}>
-                        Console Log
-                </button> 
             </MatchupRecord>
         </ThemeProvider>
     )
