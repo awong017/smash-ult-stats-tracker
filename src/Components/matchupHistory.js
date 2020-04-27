@@ -10,12 +10,31 @@ const MatchupHistory = Styled.div`
 `
 
 const matchupHistory = () => {
-    const { currentMatchup } = useContext(Context)
+    const { matches, characters, currentMatchup, filteredMatchup, timeFrame } = useContext(Context)
+
+    // const getMatchupHistory = () => {
+    //     if (timeFrame.timeFrame === "all") {
+    //         return currentMatchup
+    //     }
+    //     else {
+    //         return filteredMatchup
+    //     }
+    // }
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupHistory>
-                <h2>Matchup History</h2>
+                <h2>Matchup History Component</h2>
+                    <h2>Matchup History Item Component</h2>
+                    {matches.map(match => 
+                         <MatchupHistoryItem
+                            key={match.id}
+                            id={match.id}
+                            date={match.date}
+                            outcome={match.outcome}
+                        />
+                    )}
+                <button onClick={() => console.log(matches)}>Matches</button>
             </MatchupHistory>
         </ThemeProvider>
     )

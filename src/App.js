@@ -167,9 +167,9 @@ const App = (props) => {
     },
   ])
 
-  const [currentMatchup, updateCurrentMatchup] = useState("")
+  const [currentMatchup, updateCurrentMatchup] = useState([])
   
-  const [filteredMatchup, updateFilteredMatchup] = useState("")
+  const [filteredMatchup, updateFilteredMatchup] = useState([])
 
   const [matchupRecord, updateMatchupRecord] = useState("")
 

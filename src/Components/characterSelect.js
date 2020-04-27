@@ -27,7 +27,7 @@ const characterSelect = () => {
                 <div className="character-select-list">
                     {characters.map(character => 
                         <CharacterSelectItem 
-                            key={character.id} 
+                            key={character.id}  
                             name={character.name}
                             image={character.img}
                         />
