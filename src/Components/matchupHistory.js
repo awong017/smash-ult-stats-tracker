@@ -36,15 +36,17 @@ const matchupHistory = () => {
         }
     }
 
+    const sortByDate = getMatchupHistory().sort((a,b) => b.date-a.date) 
+
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupHistory>
-                <h2>Matchup History Component</h2>
+                <h2>Matchup History</h2>
                 <ul className="history-heading">
                     <li className="date-detail">Date</li>
                     <li className="outcome-detail">Outcome</li>
                 </ul>
-                {getMatchupHistory().map(match => 
+                {sortByDate.map(match => 
                     <MatchupHistoryItem
                         key={match.id}
                         date={match.date}

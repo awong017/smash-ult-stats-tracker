@@ -23,7 +23,7 @@ const characterSelect = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <CharacterSelect>
-                <h2>Character Select Component</h2>
+                <h2>Character Select</h2>
                 <div className="character-select-list">
                     {characters.map(character => 
                         <CharacterSelectItem 

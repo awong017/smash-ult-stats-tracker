@@ -66,7 +66,7 @@ const matchupRecord = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <MatchupRecord>
-                <h2>Matchup Record Component</h2>
+                <h2>Matchup Record</h2>
                 <MatchupRecordFilter />
                 <MatchupRecordGraph />
                 <ul>

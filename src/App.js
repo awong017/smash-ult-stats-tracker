@@ -149,21 +149,22 @@ const App = (props) => {
       opponent: 10,
       outcome: "win"
     },
+  
     {
       id: "m4",
-      date: 1585939615000,
-      user: "u1",
-      player: 9,
-      opponent: 10,
-      outcome: "loss"
-    },
-    {
-      id: "m5",
       date: 1585686453000,
       user: "u1",
       player: 9,
       opponent: 10,
       outcome: "win"
+    },
+    {
+      id: "m5",
+      date: 1585939615000,
+      user: "u1",
+      player: 9,
+      opponent: 10,
+      outcome: "loss"
     },
   ])
 
