@@ -4,18 +4,18 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 
-const TopPlayers = Styled.div`
+const TopCharacters = Styled.div`
     color: ${(props) => props.theme.bodyColor};
 `
 
-const topPlayers = () => {
+const topCharacters = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
-            <TopPlayers>
-                <h2>Top Players Component</h2>
-            </TopPlayers>
+            <TopCharacters>
+                <h2>Top Characters Component</h2>
+            </TopCharacters>
         </ThemeProvider>
     )
 }
 
-export default topPlayers;
+export default topCharacters;

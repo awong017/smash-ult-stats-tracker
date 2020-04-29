@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import HomeNav from './homeNav';
-import GlobalRankings from './globalRankings';
+import TopPlayers from './topPlayers';
+import TopCharacters from './topCharacters';
 import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
@@ -22,7 +23,8 @@ const home = () => {
             <Home>
                 <HomeNav />
                 <h1>Welcome {context.currentUser.username}</h1>
-                <GlobalRankings />
+                <TopPlayers />
+                <TopCharacters />
                 <button onClick={() => console.log(context)}>Context</button>
             </Home>
         </ThemeProvider>
