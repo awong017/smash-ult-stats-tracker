@@ -62,6 +62,11 @@ const Nav = Styled.div`
         border-radius: 50%;
         border: 2px solid white;
         opacity: 0.5;
+
+        &:hover {
+            opacity: 1.0;
+            transition: 0.3s;
+        }
     }
 `;
 

@@ -18,7 +18,7 @@ const App = (props) => {
       id: "u1",
       email: "awong017@ucr.edu",
       username: "awong017",
-      password: "asdfasdf1"
+      password: "awong017"
     },
     {
       id: "u2",
@@ -31,6 +31,18 @@ const App = (props) => {
       email: "markt@gmail.com",
       username: "markt",
       password: "masterdev"
+    },
+    {
+      id: "u4",
+      email: "shaann@gmail.com",
+      username: "raisin",
+      password: "raisin"
+    },
+    {
+      id: "u5",
+      email: "alvinv@gmail.com",
+      username: "alvinv",
+      password: "masterdev2"
     },
   ])
 
@@ -165,6 +177,38 @@ const App = (props) => {
       player: 9,
       opponent: 10,
       outcome: "loss"
+    },
+    {
+      id: "m6",
+      date: 1588126662000,
+      user: "u3",
+      player: 9,
+      opponent: 10,
+      outcome: "loss"
+    },
+    {
+      id: "m7",
+      date: 1588126662000,
+      user: "u4",
+      player: 9,
+      opponent: 10,
+      outcome: "win"
+    },
+    {
+      id: "m5",
+      date: 1588126662000,
+      user: "u5",
+      player: 13,
+      opponent: 10,
+      outcome: "win"
+    },
+    {
+      id: "m6",
+      date: 1588126662000,
+      user: "u5",
+      player: 12,
+      opponent: 10,
+      outcome: "win"
     },
   ])
 

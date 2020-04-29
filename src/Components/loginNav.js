@@ -32,6 +32,11 @@ const Nav = Styled.div`
             margin-top: 20px;
             margin-left: 20px;
             opacity: 0.5;
+
+            &:hover {
+                opacity: 1.0;
+                transition: 0.3s;
+            }
         }
     }
 `;
