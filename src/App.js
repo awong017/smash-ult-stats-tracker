@@ -210,6 +210,14 @@ const App = (props) => {
       opponent: 10,
       outcome: "win"
     },
+    {
+      id: "m6",
+      date: 1588126662000,
+      user: "u2",
+      player: 12,
+      opponent: 10,
+      outcome: "loss"
+    },
   ])
 
   const [currentMatchup, updateCurrentMatchup] = useState([])
