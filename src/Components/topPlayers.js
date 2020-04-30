@@ -7,6 +7,7 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const TopPlayers = Styled.div`
     color: ${(props) => props.theme.bodyColor};
+    border: 2px solid white;
 
     .top-players-heading {
         display: grid;
@@ -68,7 +69,6 @@ const topPlayers = () => {
                     />
                 )}
             </TopPlayers>
-            <button onClick={() => console.log(topPlayers())}>Top 3 Players</button>
         </ThemeProvider>
     )
 }

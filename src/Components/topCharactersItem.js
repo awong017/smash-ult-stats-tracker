@@ -1,23 +1,21 @@
 import React, { useContext } from 'react';
-import TopCharactersItem from './topCharactersItem';
 import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 
-const TopCharacters = Styled.div`
+const TopCharactersItem = Styled.div`
     color: ${(props) => props.theme.bodyColor};
 `
 
-const topCharacters = () => {
+const topCharactersItem = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
-            <TopCharacters>
-                <h2>Top Characters Component</h2>
-                <TopCharactersItem />
-            </TopCharacters>
+            <TopCharactersItem>
+                <h2>Top Characters Item Component</h2>
+            </TopCharactersItem>
         </ThemeProvider>
     )
 }
 
-export default topCharacters;
+export default topCharactersItem;
