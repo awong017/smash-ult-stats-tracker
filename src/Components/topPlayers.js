@@ -23,7 +23,7 @@ const TopPlayers = Styled.div`
 const topPlayers = () => {
     const { users, matches } = useContext(Context);
 
-    const topPlayers = () => {
+    const bestPlayers = () => {
         const records = []
 
         for (let i=0; i<users.length; i++) {
@@ -61,7 +61,7 @@ const topPlayers = () => {
                     <li className="user-detail">User</li>
                     <li className="win-detail"># of Wins</li>
                 </ul>
-                {topPlayers().map(player => 
+                {bestPlayers().map(player => 
                     <TopPlayersItem
                         key={player.id}
                         user={player.user}
