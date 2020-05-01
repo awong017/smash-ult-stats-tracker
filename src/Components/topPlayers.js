@@ -6,18 +6,10 @@ import GlobalStyles from '../Styles/globalStyles';
 
 
 const TopPlayers = Styled.div`
-    color: ${(props) => props.theme.bodyColor};
+    width: 300px;
     border: 2px solid white;
-
-    .top-players-heading {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0px;
-        list-style: none;
-    }
+    color: ${(props) => props.theme.bodyColor};
+    text-align: center;
 `
 
 const topPlayers = () => {
@@ -56,11 +48,7 @@ const topPlayers = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <TopPlayers>
-                <h2>Top Players Component</h2>
-                <ul className="top-players-heading">
-                    <li className="user-detail">User</li>
-                    <li className="win-detail"># of Wins</li>
-                </ul>
+                <h2>Top 3 Players</h2>
                 {bestPlayers().map(player => 
                     <TopPlayersItem
                         key={player.id}

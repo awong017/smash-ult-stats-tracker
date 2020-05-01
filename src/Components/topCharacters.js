@@ -6,18 +6,10 @@ import GlobalStyles from '../Styles/globalStyles';
 
 
 const TopCharacters = Styled.div`
-    color: ${(props) => props.theme.bodyColor};
+    width: 300px;
     border: 2px solid white;
-
-    .top-characters-heading {
-        display: grid;
-        grid-template-columns: repeat(2, 50%);
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 0px;
-        list-style: none;
-    }
+    color: ${(props) => props.theme.bodyColor};
+    text-align: center;
 `
 
 const topCharacters = () => {
@@ -41,6 +33,7 @@ const topCharacters = () => {
                 const characterRecord = {
                     id: characters[i].id,
                     name: characters[i].name,
+                    img: characters[i].img,
                     wins: winCount
                 }
     
@@ -56,16 +49,13 @@ const topCharacters = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <TopCharacters>
-                <h2>Top Characters Component</h2>
-                <ul className="top-characters-heading">
-                    <li>Character</li>
-                    <li># of Wins</li>
-                </ul>
-                {bestCharacters().map(match =>
+                <h2>Top 3 Characters</h2>
+                {bestCharacters().map(character =>
                      <TopCharactersItem 
-                        key={match.id}
-                        name={match.name}
-                        wins={match.wins}
+                        key={character.id}
+                        name={character.name}
+                        img={character.img}
+                        wins={character.wins}
                     />
                 )}
                

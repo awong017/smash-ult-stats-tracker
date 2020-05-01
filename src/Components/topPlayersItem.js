@@ -22,7 +22,7 @@ const topPlayersItem = ({ user, wins }) => {
             <TopPlayersItem>
                 <ul>
                     <li>{user}</li>
-                    <li>{wins}</li>
+                    <li>{wins} wins</li>
                 </ul>
             </TopPlayersItem>
         </ThemeProvider>

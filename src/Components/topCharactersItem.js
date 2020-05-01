@@ -15,16 +15,26 @@ const TopCharactersItem = Styled.div`
         margin-right: auto;
         padding-left: 0px;
         list-style: none;
+
+        li {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        img {
+            width: 65px;
+            border-radius: 50%;
+        }
     }
 `
 
-const topCharactersItem = ({ name, wins }) => {
+const topCharactersItem = ({ name, img, wins }) => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <TopCharactersItem>
                 <ul>
-                    <li>{name}</li>
-                    <li>{wins}</li>
+                    <li><img src={require(`../Images/Avatars/${img}`)}/></li>
+                    <li>{wins} wins</li>
                 </ul>
             </TopCharactersItem>
         </ThemeProvider>

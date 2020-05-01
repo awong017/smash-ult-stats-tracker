@@ -7,10 +7,9 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const Home = Styled.div`
-    text-align: center;
-
     h1 {
         margin-top: ${(props) => props.theme.marginTop};
+        margin-bottom: 50px;
         color: ${(props => props.theme.bodyColor)};
     }
 `
@@ -22,10 +21,9 @@ const home = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Home>
                 <HomeNav />
-                <h1>Welcome {context.currentUser.username}</h1>
+                <h1>Hey {context.currentUser.username}</h1>
                 <TopPlayers />
                 <TopCharacters />
-                <button onClick={() => console.log(context)}>Context</button>
             </Home>
         </ThemeProvider>
     );
