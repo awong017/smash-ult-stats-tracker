@@ -6,8 +6,10 @@ import GlobalStyles from '../Styles/globalStyles';
 
 
 const TopCharacters = Styled.div`
+    margin-left: 24px;
     width: 300px;
-    border: 2px solid white;
+    border: 2px solid black;
+    background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
 `

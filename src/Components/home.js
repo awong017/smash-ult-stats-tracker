@@ -10,6 +10,7 @@ const Home = Styled.div`
     h1 {
         margin-top: ${(props) => props.theme.marginTop};
         margin-bottom: 48px;
+        margin-left: 24px;
         color: ${(props => props.theme.bodyColor)};
     }
 `
