@@ -5,7 +5,7 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const EmailConfirmation = Styled.div`
-    margin-top: 350px;
+    margin-top: 348px;
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
 

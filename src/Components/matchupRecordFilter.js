@@ -7,7 +7,7 @@ const MatchupRecordFilter = Styled.div`
     color: ${(props) => props.theme.bodyColor};
 
     label {
-        margin-right: 10px;
+        margin-right: 8px;
     }
 
     select {

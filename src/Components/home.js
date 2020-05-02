@@ -9,7 +9,7 @@ import GlobalStyles from '../Styles/globalStyles';
 const Home = Styled.div`
     h1 {
         margin-top: ${(props) => props.theme.marginTop};
-        margin-bottom: 50px;
+        margin-bottom: 48px;
         color: ${(props => props.theme.bodyColor)};
     }
 `

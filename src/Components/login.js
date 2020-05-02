@@ -51,10 +51,10 @@ const Login = Styled.div`
             text-align: center;
             color: white;
             font-size: 14px;
-            padding: 2px 0px;
+            padding: 4px 0px;
             background-color: ${(props) => props.theme.accentColor};
             border: 1px solid black;
-            margin-top: 25px;
+            margin-top: 24px;
 
             &:hover {
                 cursor: pointer;
@@ -67,7 +67,7 @@ const Login = Styled.div`
             display: block;
             color: ${(props) => props.theme.linkColor};
             text-decoration: none;
-            margin-top: 10px;
+            margin-top: 8px;
 
             &:hover {
                 cursor: pointer;

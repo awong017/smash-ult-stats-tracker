@@ -37,7 +37,7 @@ const Nav = Styled.div`
         flex-direction: row;
         justify-content: flex-end;
         padding-left: 0;
-        padding-right: 10px;
+        padding-right: 8px;
         margin-top: 0px;
     }
    

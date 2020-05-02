@@ -8,7 +8,7 @@ const CharacterSelectItem = Styled.div`
         opacity: 0.5;
         margin-left: auto;
         margin-right: auto;
-        margin-bottom: 2px;
+        margin-bottom: 4px;
         border-radius: 50%;
     
         &:hover {

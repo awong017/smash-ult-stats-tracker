@@ -29,7 +29,7 @@ const SignUp = Styled.div`
         label {
             display: block;
             color: #787878;
-            margin-top: 25px;
+            margin-top: 24px;
         }
 
         input {
@@ -45,10 +45,10 @@ const SignUp = Styled.div`
         .signup-button {
             display: block;
             color: white;
-            padding: 5px 10px;
+            padding: 4px 8px;
             background-color: ${(props) => props.theme.accentColor};
             border: 1px solid black;
-            margin-top: 50px;
+            margin-top: 48px;
 
             &:hover {
                 cursor: pointer;

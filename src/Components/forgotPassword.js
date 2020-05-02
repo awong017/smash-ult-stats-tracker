@@ -13,7 +13,7 @@ const ForgotPassword = Styled.div`
         margin-left: auto;
         margin-right: auto;
         padding: 20px 20px;
-        width: 225px;;
+        width: 224px;;
 
         legend {
             text-align: center;
@@ -44,7 +44,7 @@ const ForgotPassword = Styled.div`
         .email-button {
             display: block;
             color: white;
-            padding: 5px 10px;
+            padding: 4px 8px;
             background-color: ${(props) => props.theme.accentColor};
             border: 1px solid black;
             margin-top: 50px;
