@@ -70,7 +70,7 @@ const Nav = Styled.div`
     }
 `;
 
-const statsNav = () => {
+const matchupNav = () => {
     const { handleLogout } = useContext(Context)
 
     return (
@@ -93,4 +93,4 @@ const statsNav = () => {
     )
 }
 
-export default statsNav;
+export default matchupNav;

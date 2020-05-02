@@ -82,7 +82,7 @@ const homeNav = () => {
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={'/stats'}>
+                            <Link to={'/matchup'}>
                                 Stats
                             </Link>
                         </li>

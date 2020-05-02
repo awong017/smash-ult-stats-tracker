@@ -6,7 +6,7 @@ import SignUp from './Components/signUp';
 import ForgotPassword from './Components/forgotPassword';
 import EmailConfirmation from './Components/emailConfirmation';
 import Home from './Components/home';
-import Stats from './Components/stats';
+import Matchup from './Components/matchup';
 import Context from './context';
 import uuid from 'uuid/v4';
 import './App.css'
@@ -692,7 +692,7 @@ const App = (props) => {
         <Route path="/forgotPassword" component={ForgotPassword} />
         <Route path="/emailConfirmation" component={EmailConfirmation} />
         <Route path="/home" component={Home} />
-        <Route path="/stats" component={Stats} />
+        <Route path="/matchup" component={Matchup} />
       </>
     );
   }

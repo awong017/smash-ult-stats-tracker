@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import StatsNav from './statsNav';
+import StatsNav from './matchupNav';
 import CharacterSelect from './characterSelect';
 import MatchupRecord from './matchupRecord';
 import MatchupHistory from './matchupHistory';
@@ -7,7 +7,7 @@ import Context from '../context';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
-const Stats = Styled.div`
+const Matchup = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
@@ -47,7 +47,7 @@ const Stats = Styled.div`
     }
 `
 
-const stats = () => {
+const matchup = () => {
     const { competitor, updateCompetitor, playerCharacter, opponentCharacter, getCurrentMatchup, getMatchupRecord } = useContext(Context)
 
     const highlightPlayer = (fighter) => {
@@ -70,7 +70,7 @@ const stats = () => {
 
     return (
         <ThemeProvider theme={GlobalStyles}>
-            <Stats>
+            <Matchup>
                 <StatsNav />
                 <CharacterSelect />
                 <ul className="character-flex">
@@ -95,9 +95,9 @@ const stats = () => {
                     </li>
                 </ul>
                 <MatchupHistory />
-            </Stats>
+            </Matchup>
         </ThemeProvider>
     );
 };
 
-export default stats;
+export default matchup;
