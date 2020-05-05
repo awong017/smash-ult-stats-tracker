@@ -9,7 +9,6 @@ import Home from './Components/home';
 import Matchup from './Components/matchup';
 import Context from './context';
 import uuid from 'uuid/v4';
-import './App.css'
 
 const App = (props) => {
 
@@ -262,7 +261,7 @@ const App = (props) => {
     passwordError: ""
   })
 
-   // Method for getting matches based on the player character
+  // Method for getting matches based on the player character
   // and opponent character
 
   const getCurrentMatchup = () => {
