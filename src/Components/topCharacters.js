@@ -6,7 +6,8 @@ import GlobalStyles from '../Styles/globalStyles';
 
 
 const TopCharacters = Styled.div`
-    margin-left: 24px;
+    margin-left: auto;
+    margin-right: 24px;
     width: 300px;
     border: 2px solid black;
     background-color: ${(props) => props.theme.formColor};

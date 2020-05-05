@@ -7,7 +7,8 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const TopPlayers = Styled.div`
     margin-bottom: 24px;
-    margin-left: 24px;
+    margin-left: auto;
+    margin-right: 24px;
     width: 300px;
     border: 2px solid black;
     background-color: ${(props) => props.theme.formColor};

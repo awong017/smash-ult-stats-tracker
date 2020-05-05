@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import HomeNav from './homeNav';
+import PlayerStats from './playerStats';
 import TopPlayers from './topPlayers';
 import TopCharacters from './topCharacters';
 import Context from '../context';
@@ -13,6 +14,11 @@ const Home = Styled.div`
         margin-left: 24px;
         color: ${(props => props.theme.bodyColor)};
     }
+
+    .home-content {
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
 `
 
 const home = () => {
@@ -23,8 +29,13 @@ const home = () => {
             <Home>
                 <HomeNav />
                 <h1>Hey {context.currentUser.username}</h1>
-                <TopPlayers />
-                <TopCharacters />
+                <section className="home-content">
+                    <PlayerStats />
+                    <section className="global-standings">
+                        <TopPlayers />
+                        <TopCharacters />
+                    </section>
+                </section>
             </Home>
         </ThemeProvider>
     );
