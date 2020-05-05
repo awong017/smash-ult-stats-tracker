@@ -369,14 +369,14 @@ const App = (props) => {
       opponent: opponentCharacter.id,
       outcome: "win"
     }
-
+  
     updateMatches([...matches, match])
     updateCurrentMatchup([...currentMatchup, match])
-
+  
     if(timeFrame.timeFrame !== "all") {
       updateFilteredMatchup([...filteredMatchup, match])
     }
-    
+      
     getMatchupRecord()
   }
 

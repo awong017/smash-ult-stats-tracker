@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import MatchupRecordFilter from './matchupRecordFilter';
 import MatchupRecordGraph from './matchupRecordGraph';
 import Context from '../context';
+import uuid from 'uuid/v4';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
@@ -49,7 +50,7 @@ const MatchupRecord = Styled.div`
 `
 
 const matchupRecord = () => {
-    const { matches, currentMatchup, filteredMatchup, matchupRecord, timeFrame, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
+    const { matchupRecord, addWins, subtractWins, addLosses, subtractLosses } = useContext(Context)
     const { wins, losses } = matchupRecord
     const winPercent = (((wins)/(wins + losses)) * 100).toFixed(1)
     const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(1)
