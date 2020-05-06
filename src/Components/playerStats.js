@@ -28,8 +28,31 @@ const playerStats = () => {
         const filterMatchesByUser = matches.filter(match => {
             return match.user === currentUser.id
         })
+
         const lastMatchPlayed = filterMatchesByUser.pop()
             return format(lastMatchPlayed.date, 'M/dd/yy')
+    }
+
+    // Method for getting player wins for all matches
+
+    const getPlayerWins = () => {
+        const filterMatchesByUser = matches.filter(match => {
+            return match.user === currentUser.id
+        })
+
+        let wins = 0
+
+        for (let i=0; i<filterMatchesByUser.length; i++) {
+            if (filterMatchesByUser[i].outcome === "win") {
+                wins++
+            }
+        }
+
+        console.log(filterMatchesByUser)
+        console.log(wins)
+
+        const winPercentage = (wins/(filterMatchesByUser.length))*100
+        return winPercentage
     }
 
     return (
@@ -38,6 +61,7 @@ const playerStats = () => {
                 <h2>Player Stats Component</h2>
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
                 <section className="player-stats-content">
+                    <p>Win Rate: {getPlayerWins()}%</p>
                 </section>
             </PlayerStats>
         </ThemeProvider>
