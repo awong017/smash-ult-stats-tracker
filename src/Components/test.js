@@ -1,5 +1,19 @@
-const array = [1, 2, 3, 4, 5]
+let obj = {
+    first: 1,
+    second: 2,
+    third: 3
+}
 
-const cut = array.splice(3,array.length-(array.length-3));
+let match = {
+    id: 1,
+    date: 9872349082,
+    player: "first",
+    opponent: 5,
+    outcome: "win"
+}
 
-console.log(array);
+let key = match.player;
+
+console.log(key);
+
+console.log(obj[match.player]);

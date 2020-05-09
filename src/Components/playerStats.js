@@ -48,11 +48,29 @@ const playerStats = () => {
             }
         }
 
-        console.log(filterMatchesByUser)
-        console.log(wins)
-
         const winPercentage = (wins/(filterMatchesByUser.length))*100
         return winPercentage
+    }
+
+    // Method for getting most played character
+
+    const getMostPlayedCharacter = () => {
+        const filterMatchesByUser = matches.filter(match => {
+            return match.user === currentUser.id
+        })
+
+        let characterMatches = {}
+
+        for (let i=0; i<filterMatchesByUser.length; i++) {
+            if (characterMatches[filterMatchesByUser[i].player] === undefined) {
+                characterMatches[filterMatchesByUser[i].player] = 1
+            }
+            else {
+                characterMatches[filterMatchesByUser[i].player] ++
+            }
+        }
+
+        console.log("Character Matches: ", characterMatches);
     }
 
     return (
@@ -62,6 +80,7 @@ const playerStats = () => {
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
                 <section className="player-stats-content">
                     <p>Win Rate: {getPlayerWins()}%</p>
+                    <p>Most Played Character: {getMostPlayedCharacter()}</p>
                 </section>
             </PlayerStats>
         </ThemeProvider>
