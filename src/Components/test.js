@@ -1,19 +1,18 @@
-let obj = {
-    first: 1,
-    second: 2,
-    third: 3
-}
+let arr1 = [
+    {
+        id: 1,
+        name: "Adam"
+    },
+    {
+        id: 2,
+        name: "Bryan"
+    },
+    {
+        id: 3,
+        name: "Wong"
+    }, 
+]
 
-let match = {
-    id: 1,
-    date: 9872349082,
-    player: "first",
-    opponent: 5,
-    outcome: "win"
-}
+let arr2 = ["apples", "oranges", "lemons", "grapes", "limes"]
 
-let key = match.player;
-
-console.log(key);
-
-console.log(obj[match.player]);
+console.log(arr2.indexOf("pears"));

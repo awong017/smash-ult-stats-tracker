@@ -59,14 +59,14 @@ const playerStats = () => {
             return match.user === currentUser.id
         })
 
-        let characterMatches = {}
+        let characterMatches = []
 
         for (let i=0; i<filterMatchesByUser.length; i++) {
-            if (characterMatches[filterMatchesByUser[i].player] === undefined) {
-                characterMatches[filterMatchesByUser[i].player] = 1
+            if (characterMatches.indexOf(filterMatchesByUser[i].player) === -1) {
+                characterMatches.push({[filterMatchesByUser[i].player]: 1})
             }
             else {
-                characterMatches[filterMatchesByUser[i].player] ++
+                characterMatches.filterMatchesByUser[i].player ++
             }
         }
 
