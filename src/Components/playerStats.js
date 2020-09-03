@@ -82,13 +82,14 @@ const playerStats = () => {
                 characterMatches[filterMatchesByUser[i].player] = 1
             }
         }
-        let characterID = Object.entries(characterMatches)
-            .sort((a,b) => b[1]-a[1])[0][0]
+        let mostPlayedCharacter = Object.entries(characterMatches)
+            .sort((a,b) => b[1]-a[1])[0]
+        
 
-        let mostPlayedCharacter = characters.find(character => {
-            return character.id === parseInt(characterID);
+        let mostPlayedCharacterData = characters.find(character => {
+            return character.id === parseInt(mostPlayedCharacter[0]);
         })
-        return mostPlayedCharacter.img
+        return mostPlayedCharacterData.img
     }
 
     return (
@@ -99,14 +100,19 @@ const playerStats = () => {
                 <p>Win Rate: {getPlayerWins()}%</p>
                 <ul className="most-played-character">
                     <li>
-                        <p>Most Played Character: </p>  
+                        <p>Most Played: </p>  
                     </li>
                     <li>
                         <img src={require(`../Images/Avatars/${getMostPlayedCharacter()}`)} 
                             alt="character avatar"
                         /> 
                     </li>
+                    <li>
+                        <p>INSERT PLAY COUNT HERE</p>
+                    </li>
                 </ul>
+                <p>Most Wins: </p>
+                <p>Most Losses: </p>
             </PlayerStats>
         </ThemeProvider>
     )
