@@ -17,10 +17,23 @@ const PlayerStats = Styled.div`
     p {
         margin-left: 24px;
     }
+
+    .most-played-character {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+
+        img {
+            display: inline-block;
+            margin-left: 24px;
+            width: 65px;
+            border-radius: 50%;
+        }
+    }
 `
 
 const playerStats = () => {
-    const { currentUser, matches } = useContext(Context)
+    const { characters, currentUser, matches } = useContext(Context)
 
      // Method for getting last match played
 
@@ -59,18 +72,23 @@ const playerStats = () => {
             return match.user === currentUser.id
         })
 
-        let characterMatches = []
+        let characterMatches = {}
 
         for (let i=0; i<filterMatchesByUser.length; i++) {
-            if (characterMatches.indexOf(filterMatchesByUser[i].player) === -1) {
-                characterMatches.push({[filterMatchesByUser[i].player]: 1})
+            if (characterMatches[filterMatchesByUser[i].player]) {
+                characterMatches[filterMatchesByUser[i].player] = characterMatches[filterMatchesByUser[i].player] + 1
             }
             else {
-                characterMatches.filterMatchesByUser[i].player ++
+                characterMatches[filterMatchesByUser[i].player] = 1
             }
         }
+        let characterID = Object.entries(characterMatches)
+            .sort((a,b) => b[1]-a[1])[0][0]
 
-        console.log("Character Matches: ", characterMatches);
+        let mostPlayedCharacter = characters.find(character => {
+            return character.id === parseInt(characterID);
+        })
+        return mostPlayedCharacter.img
     }
 
     return (
@@ -78,10 +96,17 @@ const playerStats = () => {
             <PlayerStats>
                 <h2>Player Stats Component</h2>
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
-                <section className="player-stats-content">
-                    <p>Win Rate: {getPlayerWins()}%</p>
-                    <p>Most Played Character: {getMostPlayedCharacter()}</p>
-                </section>
+                <p>Win Rate: {getPlayerWins()}%</p>
+                <ul className="most-played-character">
+                    <li>
+                        <p>Most Played Character: </p>  
+                    </li>
+                    <li>
+                        <img src={require(`../Images/Avatars/${getMostPlayedCharacter()}`)} 
+                            alt="character avatar"
+                        /> 
+                    </li>
+                </ul>
             </PlayerStats>
         </ThemeProvider>
     )
