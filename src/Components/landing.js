@@ -16,22 +16,26 @@ const landing = () => {
 
     const [redditData, updateRedditData] = useState([])
 
-    fetch('https://www.reddit.com/r/supersmashbros/hot.json?g=US&limit=5')
+    fetch('https://www.reddit.com/r/supersmashbros/hot.json?g=US&limit=10')
         .then(res => res.json())
         .then(resJson => updateRedditData(resJson.data.children))
+
+    let redditDataCopy = [...redditData]
+    redditDataCopy.shift()
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Landing>
                 <LandingNav />
                 <h1>Landing Page Component</h1>
-                {redditData.map(redditPost => {
-                    <LandingItem 
+                {redditDataCopy.map(redditPost => 
+                    <LandingItem
+                        key={redditPost.data.id} 
                         title={redditPost.data.title}
                         picture={redditPost.data.thumbnail}
-                        url={redditPost.data.url}
+                        url={redditPost.data.permalink}
                     />
-                })}
+                )}
                 <button onClick={() => console.log(redditData)}>Reddit</button>
             </Landing>
         </ThemeProvider>
