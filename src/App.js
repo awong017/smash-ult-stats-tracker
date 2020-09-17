@@ -160,7 +160,6 @@ const App = (props) => {
       opponent: 10,
       outcome: "win"
     },
-  
     {
       id: "m4",
       date: 1585686453000,
