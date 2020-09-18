@@ -25,8 +25,9 @@ const Login = Styled.div`
         }
 
         fieldset {
-            border: 2px solid black;
             margin-bottom: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
         }
 
         label {
@@ -54,6 +55,7 @@ const Login = Styled.div`
             padding: 4px 0px;
             background-color: ${(props) => props.theme.accentColor};
             border: 1px solid black;
+            border-radius: 5px;
             margin-top: 24px;
 
             &:hover {

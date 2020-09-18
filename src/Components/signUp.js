@@ -8,7 +8,7 @@ const SignUp = Styled.div`
 
     .sign-up-form {
         background-color: ${(props) => props.theme.formColor};
-        border: 3px solid black;
+        border: 2px solid black;
         border-radius: 10px;
         margin-top: 300px;
         margin-left: auto;
@@ -23,6 +23,7 @@ const SignUp = Styled.div`
 
         fieldset {
             border: 2px solid black;
+            border-radius: 10px;
             margin-bottom: 10px;
         }
 
@@ -48,6 +49,7 @@ const SignUp = Styled.div`
             padding: 4px 8px;
             background-color: ${(props) => props.theme.accentColor};
             border: 1px solid black;
+            border-radius: 5px;
             margin-top: 48px;
 
             &:hover {

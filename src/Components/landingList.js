@@ -5,7 +5,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const LandingList = Styled.div`
     margin-left: 24px;
-    border: 2px solid black;
     width: 50vw;
 
     h2 {
@@ -15,14 +14,14 @@ const LandingList = Styled.div`
 
     .landing-items {
         display: grid;
-        grid-template-columns: repeat(3, 33%);
+        grid-template-columns: repeat(3, 33.33%);
     }
 `
 
 const landingList = () => {
     const [redditData, updateRedditData] = useState([])
 
-    fetch('https://www.reddit.com/r/supersmashbros/hot.json?g=US&limit=10')
+    fetch('https://www.reddit.com/r/supersmashbros/hot.json?g=US&limit=12')
         .then(res => res.json())
         .then(resJson => updateRedditData(resJson.data.children))
 

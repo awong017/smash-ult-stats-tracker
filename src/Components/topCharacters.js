@@ -10,6 +10,7 @@ const TopCharacters = Styled.div`
     margin-right: 24px;
     width: 300px;
     border: 2px solid black;
+    border-radius: 10px;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;

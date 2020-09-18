@@ -7,6 +7,7 @@ import GlobalStyles from '../Styles/globalStyles';
 const PlayerStats = Styled.div`
     margin-left: 24px;
     border: 2px solid black;
+    border-radius: 10px;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
 

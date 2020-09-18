@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LandingNav from './landingNav';
 import LandingList from './landingList';
+import TopPlayers from './topPlayers';
+import TopCharacters from './topCharacters';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const Landing = Styled.div`
-    h1 {
-        text-align: center;
-        color: ${(props) => props.theme.bodyColor};
-        margin-top: ${(props) => props.theme.marginTop};
+    margin-top: ${(props) => props.theme.marginTop};
+ 
+    .landing-content {
+        display: flex;
+        justify-content: space-between;
     }
 `;
 
@@ -17,8 +20,13 @@ const landing = () => {
         <ThemeProvider theme={GlobalStyles}>
             <Landing>
                 <LandingNav />
-                <h1>Landing Page Component</h1>
-                <LandingList />
+                <div className="landing-content">
+                    <LandingList />
+                    <div className="rankings">
+                        <TopPlayers />
+                        <TopCharacters />
+                    </div>
+                </div>
                 <button onClick={() => console.log(redditData)}>Reddit</button>
             </Landing>
         </ThemeProvider>

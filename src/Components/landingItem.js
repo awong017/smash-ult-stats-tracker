@@ -7,6 +7,7 @@ const LandingItem = Styled.div`
     margin-right: 8px;
     margin-bottom: 8px;
     border: 2px solid black;
+    border-radius: 10px;
     min-height: 300px;
     background-color: ${(props) => props.theme.formColor};
     text-align: center;
@@ -35,6 +36,13 @@ const LandingItem = Styled.div`
                 cursor: pointer;
                 background-color: ${(props) => props.theme.hoverColor};
                 transition: 0.1s;
+            }
+        }
+    }
+    @media screen and (max-width: 960px) {
+        ul {
+            img {
+                width: initial;
             }
         }
     }
