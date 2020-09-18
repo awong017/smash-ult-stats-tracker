@@ -8,6 +8,8 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const Landing = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
+    color: white;
+    text-align: center;
  
     .landing-content {
         display: flex;
@@ -23,6 +25,7 @@ const landing = () => {
                 <div className="landing-content">
                     <LandingList />
                     <div className="rankings">
+                        <h2>Current Rankings</h2>
                         <TopPlayers />
                         <TopCharacters />
                     </div>

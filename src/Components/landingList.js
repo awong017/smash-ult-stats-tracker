@@ -16,23 +16,26 @@ const LandingList = Styled.div`
         display: grid;
         grid-template-columns: repeat(3, 33.33%);
     }
+
+    @media screen and (max-width: 960px) {
+        .landing-items {
+            grid-template-columns: repeat(2,50%);
+        }
+    }
 `
 
 const landingList = () => {
     const [redditData, updateRedditData] = useState([])
 
-    fetch('https://www.reddit.com/r/supersmashbros/hot.json?g=US&limit=12')
+    fetch('https://www.reddit.com/r/smashbrosultimate/hot.json?g=US&limit=10')
         .then(res => res.json())
         .then(resJson => updateRedditData(resJson.data.children))
 
-    let redditDataCopy = [...redditData]
-    redditDataCopy.shift()
-
     return (
         <LandingList>
-            <h2>r/supersmashbros</h2>
+            <h2>Hot on Reddit</h2>
             <div className="landing-items">
-                {redditDataCopy.map(redditPost => 
+                {redditData.map(redditPost => 
                     <LandingItem
                         key={redditPost.data.id} 
                         title={redditPost.data.title}
