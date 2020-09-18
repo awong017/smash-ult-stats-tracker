@@ -27,7 +27,6 @@ const landing = () => {
                         <TopCharacters />
                     </div>
                 </div>
-                <button onClick={() => console.log(redditData)}>Reddit</button>
             </Landing>
         </ThemeProvider>
     );

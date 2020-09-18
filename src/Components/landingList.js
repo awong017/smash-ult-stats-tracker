@@ -41,6 +41,7 @@ const landingList = () => {
                     />
                 )}
             </div>
+            <button onClick={() => console.log(redditData)}>Reddit</button>
         </LandingList>
     )
 }
