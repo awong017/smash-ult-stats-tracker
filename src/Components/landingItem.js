@@ -3,6 +3,12 @@ import Styled from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const LandingItem = Styled.div`
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    min-height: 300px;
+    background-color: ${(props) => props.theme.formColor};
     text-align: center;
     color: white;
 
@@ -10,16 +16,20 @@ const LandingItem = Styled.div`
         list-style: none;
         padding-left: 0;
 
+        img {
+            width: 200px;
+        }
+
         a {
+            margin-top: 24px;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 4px 8px;
+            background-color: ${(props) => props.theme.accentColor};
             text-decoration: none;
             color: white;
             text-align: center;
-            color: white;
             font-size: 14px;
-            padding: 4px 2px;
-            background-color: ${(props) => props.theme.accentColor};
-            border: 1px solid black;
-            margin-top: 24px;
 
             &:hover {
                 cursor: pointer;
@@ -36,8 +46,8 @@ const landingItem = (props) => {
         <LandingItem theme={GlobalStyles}>
            <ul>
                <li><img src={props.picture}></img></li>
-               <li><h2>{props.title}</h2></li>
-               <li><a href={pageLink}>Go to Page</a></li>
+               <li><h3>{props.title}</h3></li>
+               <li><a href={pageLink}>See on Reddit</a></li>
            </ul>
         </LandingItem>
     )
