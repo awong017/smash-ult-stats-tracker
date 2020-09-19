@@ -26,13 +26,12 @@ const LandingItem = Styled.div`
             width: 200px;
         }
 
-        a {
+        button {
             margin-top: 24px;
             border: 1px solid black;
             border-radius: 5px;
             padding: 4px 8px;
             background-color: ${(props) => props.theme.accentColor};
-            text-decoration: none;
             color: white;
             text-align: center;
             font-size: 14px;
@@ -62,7 +61,7 @@ const landingItem = (props) => {
     const pageLink = `https://www.reddit.com/${props.url}`
     
     const imageSource = (thumbnail) => {
-        if (thumbnail === "default" || thumbnail === "self") {
+        if (!thumbnail.includes("http")) {
             return RedditLogo
         }
         else {
@@ -71,7 +70,7 @@ const landingItem = (props) => {
     }
 
     const imageClass = (thumbnail) => {
-        if (thumbnail === "default" || thumbnail === "self") {
+        if (!thumbnail.includes("http")) {
             return "reddit-logo"
         }
         else {
@@ -84,7 +83,7 @@ const landingItem = (props) => {
            <ul>
                <li><img className={imageClass(props.picture)} src={imageSource(props.picture)}></img></li>
                <li><h3>{props.title}</h3></li>
-               <li><a href={pageLink}>See on Reddit</a></li>
+               <li><button onClick={() => window.open(pageLink)}>See on Reddit</button></li>
            </ul>
         </LandingItem>
     )

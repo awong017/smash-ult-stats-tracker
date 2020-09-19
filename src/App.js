@@ -497,11 +497,11 @@ const App = (props) => {
     event.preventDefault()
 
     const checkUser = users.some(user => {
-      return user.username === username
+      return user.username.toLowerCase() === username.toLowerCase()
     })
 
     const findUser = users.find(user => {
-      return user.username === username
+      return user.username.toLowerCase() === username.toLowerCase()
     })
 
     if (!username) {
@@ -555,7 +555,7 @@ const App = (props) => {
     event.preventDefault()
 
     const findEmail = users.some(user => {
-      return user.email === email
+      return user.email.toLowerCase() === email.toLowerCase()
     })
 
     if (!email) {
@@ -590,14 +590,14 @@ const App = (props) => {
     event.preventDefault()
 
     const findUser = users.some(user => {
-      return user.username === username
+      return user.username.toLowerCase() === username.toLowerCase()
     })
 
     const findEmail = users.some(user => {
-      return user.email === email
+      return user.email.toLowerCase() === email.toLowerCase()
     })
 
-    if (!email || !email.includes("@")) {
+    if (!email || !email.includes("@") || !email.includes(".com")) {
       updateEmailError({
         emailError: "Please input a valid email address"
       })
@@ -628,6 +628,14 @@ const App = (props) => {
       updateUsernameError({ usernameError: "" })
       updatePasswordError({
         passwordError: "Please input desired password"
+      })
+    }
+
+    else if (password1.length < 8 || password2.length < 8) {
+      updateEmailError({ emailError: "" })
+      updateUsernameError({ usernameError: "" })
+      updatePasswordError({
+        passwordError: "Password must be at least 8 characters long"
       })
     }
 
