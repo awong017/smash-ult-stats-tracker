@@ -12,38 +12,11 @@ import uuid from 'uuid/v4';
 
 const App = (props) => {
 
-  const [users, updateUsers] = useState([
-    {
-      id: "u1",
-      email: "awong017@ucr.edu",
-      username: "awong017",
-      password: "awong017"
-    },
-    {
-      id: "u2",
-      email: "brianphn@gmail.com",
-      username: "phanman",
-      password: "phantastic"
-    },
-    {
-      id: "u3",
-      email: "markt@gmail.com",
-      username: "markt",
-      password: "masterdev"
-    },
-    {
-      id: "u4",
-      email: "shaann@gmail.com",
-      username: "raisin",
-      password: "raisin"
-    },
-    {
-      id: "u5",
-      email: "alvinv@gmail.com",
-      username: "alvinv",
-      password: "masterdev2"
-    },
-  ])
+  const [users, updateUsers] = useState([])
+
+  const [matches, updateMatches] = useState([])
+
+  const [characters, updateCharacters] = useState("")
 
   const [currentUser, updateCurrentUser] = useState({
     id: "u1",
@@ -51,91 +24,6 @@ const App = (props) => {
     username: "awong017",
     password: "asdfasdf1"
   })
-
-  const [characters, updateCharacters] = useState('')
-
-  const [matches, updateMatches] = useState([
-    {
-      id: "m1",
-      date: 1585686353000,
-      user: "u1",
-      player: 9,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m2",
-      date: 1585939615000,
-      user: "u1",
-      player: 9,
-      opponent: 1,
-      outcome: "win"
-    },
-    {
-      id: "m3",
-      date: 1585939615000,
-      user: "u1",
-      player: 4,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m4",
-      date: 1585686453000,
-      user: "u1",
-      player: 9,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m5",
-      date: 1585939615000,
-      user: "u1",
-      player: 9,
-      opponent: 10,
-      outcome: "loss"
-    },
-    {
-      id: "m6",
-      date: 1588126662000,
-      user: "u3",
-      player: 9,
-      opponent: 10,
-      outcome: "loss"
-    },
-    {
-      id: "m7",
-      date: 1588126662000,
-      user: "u4",
-      player: 9,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m8",
-      date: 1588126662000,
-      user: "u5",
-      player: 13,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m9",
-      date: 1588126662000,
-      user: "u5",
-      player: 12,
-      opponent: 10,
-      outcome: "win"
-    },
-    {
-      id: "m10",
-      date: 1588126662000,
-      user: "u2",
-      player: 12,
-      opponent: 10,
-      outcome: "loss"
-    },
-  ])
 
   const [currentMatchup, updateCurrentMatchup] = useState([])
   
@@ -624,10 +512,12 @@ const App = (props) => {
 
   const contextValue = {
     users: users,
+    updateUsers: updateUsers,
     currentUser: currentUser,
     characters: characters,
     updateCharacters: updateCharacters,
     matches: matches,
+    updateMatches: updateMatches,
     currentMatchup: currentMatchup,
     filteredMatchup: filteredMatchup,
     matchupRecord: matchupRecord,

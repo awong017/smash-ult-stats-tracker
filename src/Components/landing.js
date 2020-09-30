@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Context from '../context';
+import Config from '../config';
 import LandingNav from './landingNav';
 import LandingList from './landingList';
 import TopPlayers from './topPlayers';
@@ -23,19 +24,34 @@ const Landing = Styled.div`
 `;
 
 const landing = () => {
-    const { updateCharacters } = useContext(Context)
+    const { updateUsers, updateMatches, updateCharacters } = useContext(Context)
 
     const [error, updateError] = useState('')
 
     useEffect(() => {
         let isSubscribed = true;
-        fetch('http://localhost:8000/api/characters')
+        fetch(`${Config.API_ENDPOINT}/users`)
+            .then(res => (isSubscribed ? res.json().then(resJson => updateUsers(resJson)) : null))
+            .catch(error => (isSubscribed ? updateError(error.toString()) : null))
+        return () => isSubscribed = false 
+    }, []) 
+
+    useEffect(() => {
+        let isSubscribed = true;
+        fetch(`${Config.API_ENDPOINT}/matches`)
+            .then(res => (isSubscribed ? res.json().then(resJson => updateMatches(resJson)) : null))
+            .catch(error => (isSubscribed ? updateError(error.toString()) : null))
+        return () => isSubscribed = false 
+    }, []) 
+
+    useEffect(() => {
+        let isSubscribed = true;
+        fetch(`${Config.API_ENDPOINT}/characters`)
             .then(res => (isSubscribed ? res.json().then(resJson => updateCharacters(resJson)) : null))
             .catch(error => (isSubscribed ? updateError(error.toString()) : null))
         return () => isSubscribed = false 
     }, []) 
        
-    
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Landing>

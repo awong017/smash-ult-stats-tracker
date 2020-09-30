@@ -25,7 +25,7 @@ const topPlayers = () => {
 
         for (let i=0; i<users.length; i++) {
             const userMatches = matches.filter(match => {
-                return match.user === users[i].id
+                return match.user_id === users[i].id
             })
 
             let winCount = 0;

@@ -21,7 +21,7 @@ const LandingList = Styled.div`
         color: red;
     }
 
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 1440px) {
         .landing-items {
             grid-template-columns: repeat(2,50%);
         }
