@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingItem from './landingItem';
 import Styled from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
@@ -27,9 +27,16 @@ const LandingList = Styled.div`
 const landingList = () => {
     const [redditData, updateRedditData] = useState([])
 
-    fetch('https://www.reddit.com/r/smashbrosultimate/hot.json?g=US&limit=10')
-        .then(res => res.json())
-        .then(resJson => updateRedditData(resJson.data.children))
+    useEffect(() => {
+        let isSubscribed = true
+        if (isSubscribed) {
+            fetch('https://www.reddit.com/r/smashbrosultimate/hot.json?g=US&limit=10')
+                .then(res => res.json())
+                .then(resJson => updateRedditData(resJson.data.children))
+        }
+        return () => isSubscribed = false
+    }, [])
+   
 
     return (
         <LandingList>

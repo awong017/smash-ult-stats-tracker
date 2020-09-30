@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import Context from '../context';
 import LandingNav from './landingNav';
 import LandingList from './landingList';
 import TopPlayers from './topPlayers';
@@ -18,6 +19,19 @@ const Landing = Styled.div`
 `;
 
 const landing = () => {
+    const { updateCharacters } = useContext(Context)
+
+    useEffect(() => {
+        let isSubscribed = true;
+        if (isSubscribed) {
+            fetch('http://localhost:8000/api/characters')
+                .then(res => res.json())
+                .then(resJson => updateCharacters(resJson))
+        }
+        return () => isSubscribed = false 
+    }, []) 
+       
+    
     return (
         <ThemeProvider theme={GlobalStyles}>
             <Landing>

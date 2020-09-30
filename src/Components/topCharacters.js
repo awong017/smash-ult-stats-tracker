@@ -17,32 +17,32 @@ const TopCharacters = Styled.div`
 `
 
 const topCharacters = () => {
-        const { characters, matches } = useContext(Context);
+    const { characters, updateCharacters, matches } = useContext(Context);
     
-        const bestCharacters = () => {
-            const records = []
+    const bestCharacters = () => {
+        const records = []
     
-            for (let i=0; i<characters.length; i++) {
-                const characterMatches = matches.filter(match => {
-                    return match.player === characters[i].id
-                })
+        for (let i=0; i<characters.length; i++) {
+            const characterMatches = matches.filter(match => {
+                return match.player === characters[i].id
+            })
     
-                let winCount = 0;
-                for (let i=0; i<characterMatches.length; i++) {
-                    if (characterMatches[i].outcome == "win") {
-                        winCount ++
-                    }
+            let winCount = 0;
+            for (let i=0; i<characterMatches.length; i++) {
+                if (characterMatches[i].outcome == "win") {
+                    winCount ++
                 }
-    
-                const characterRecord = {
-                    id: characters[i].id,
-                    name: characters[i].name,
-                    img: characters[i].img,
-                    wins: winCount
-                }
-    
-                records.push(characterRecord)
             }
+    
+            const characterRecord = {
+                id: characters[i].id,
+                name: characters[i].name,
+                img: characters[i].img,
+                wins: winCount
+            }
+
+            records.push(characterRecord)
+        }
     
             const sortCharacters = records.sort((a,b) => b.wins - a.wins)
             const topThreeCharacters = sortCharacters.splice(0,sortCharacters.length-(sortCharacters.length-3))
