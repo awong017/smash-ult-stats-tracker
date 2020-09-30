@@ -17,6 +17,10 @@ const LandingList = Styled.div`
         grid-template-columns: repeat(3, 33.33%);
     }
 
+    .error {
+        color: red;
+    }
+
     @media screen and (max-width: 960px) {
         .landing-items {
             grid-template-columns: repeat(2,50%);
@@ -26,15 +30,14 @@ const LandingList = Styled.div`
 
 const landingList = () => {
     const [redditData, updateRedditData] = useState([])
+    const [error, updateError] = useState('')
 
     useEffect(() => {
         let isSubscribed = true
-        if (isSubscribed) {
-            fetch('https://www.reddit.com/r/smashbrosultimate/hot.json?g=US&limit=10')
-                .then(res => res.json())
-                .then(resJson => updateRedditData(resJson.data.children))
-        }
-        return () => isSubscribed = false
+        fetch('https://www.reddit.com/r/smashbrosultimate/hot.json?g=US&limit=10')
+            .then(res => (isSubscribed ? res.json().then(resJson => updateRedditData(resJson.data.children)) : null))
+            .catch(error => (isSubscribed ? updateError(error.toString()) : null))
+            return () => isSubscribed = false
     }, [])
    
 
@@ -51,6 +54,7 @@ const landingList = () => {
                     />
                 )}
             </div>
+            <div className="error">{error}</div>
         </LandingList>
     )
 }

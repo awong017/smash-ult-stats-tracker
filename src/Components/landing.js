@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Context from '../context';
 import LandingNav from './landingNav';
 import LandingList from './landingList';
@@ -16,18 +16,22 @@ const Landing = Styled.div`
         display: flex;
         justify-content: space-between;
     }
+
+    .error {
+        color: red;
+    }
 `;
 
 const landing = () => {
     const { updateCharacters } = useContext(Context)
 
+    const [error, updateError] = useState('')
+
     useEffect(() => {
         let isSubscribed = true;
-        if (isSubscribed) {
-            fetch('http://localhost:8000/api/characters')
-                .then(res => res.json())
-                .then(resJson => updateCharacters(resJson))
-        }
+        fetch('http://localhost:8000/api/characters')
+            .then(res => (isSubscribed ? res.json().then(resJson => updateCharacters(resJson)) : null))
+            .catch(error => (isSubscribed ? updateError(error.toString()) : null))
         return () => isSubscribed = false 
     }, []) 
        
@@ -44,6 +48,7 @@ const landing = () => {
                         <TopCharacters />
                     </div>
                 </div>
+                <div className="error">{error}</div>
             </Landing>
         </ThemeProvider>
     );
