@@ -30,7 +30,7 @@ const landing = () => {
 
     useEffect(() => {
         let isSubscribed = true;
-        fetch(`${Config.API_ENDPOINT}/users`)
+        fetch(`${Config.API_ENDPOINT}/api/users`)
             .then(res => (isSubscribed ? res.json().then(resJson => updateUsers(resJson)) : null))
             .catch(error => (isSubscribed ? updateError(error.toString()) : null))
         return () => isSubscribed = false 
@@ -38,7 +38,7 @@ const landing = () => {
 
     useEffect(() => {
         let isSubscribed = true;
-        fetch(`${Config.API_ENDPOINT}/matches`)
+        fetch(`${Config.API_ENDPOINT}/api/matches`)
             .then(res => (isSubscribed ? res.json() 
             .then(resJson => {
                 const modifiedMatches = resJson.map(match => ({
@@ -58,7 +58,7 @@ const landing = () => {
 
     useEffect(() => {
         let isSubscribed = true;
-        fetch(`${Config.API_ENDPOINT}/characters`)
+        fetch(`${Config.API_ENDPOINT}/api/characters`)
             .then(res => (isSubscribed ? res.json().then(resJson => updateCharacters(resJson)) : null))
             .catch(error => (isSubscribed ? updateError(error.toString()) : null))
         return () => isSubscribed = false 

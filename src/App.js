@@ -8,6 +8,7 @@ import EmailConfirmation from './Components/emailConfirmation';
 import Home from './Components/home';
 import Matchup from './Components/matchup';
 import Context from './context';
+import Config from './config';
 import uuid from 'uuid/v4';
 
 const App = (props) => {
@@ -18,12 +19,7 @@ const App = (props) => {
 
   const [characters, updateCharacters] = useState("")
 
-  const [currentUser, updateCurrentUser] = useState({
-    id: "u1",
-    email: "awong017@ucr.edu",
-    username: "awong017",
-    password: "asdfasdf1"
-  })
+  const [currentUser, updateCurrentUser] = useState("")
 
   const [currentMatchup, updateCurrentMatchup] = useState([])
   
@@ -41,17 +37,17 @@ const App = (props) => {
 
   const [playerCharacter, updatePlayerCharacter] = useState(
     {
-      id: 9,
-      name:"Pikachu",
-      img:"pikachu.jpg"
+      id: 1,
+      name:"Mario",
+      img:"mario.jpg"
     }
   )
 
   const [opponentCharacter, updateOpponentCharacter] = useState(
     {
-      id: 10,
-      name:"Luigi",
-      img:"luigi.jpg"
+      id: 1,
+      name:"Mario",
+      img:"mario.jpg"
     }
   )
 
@@ -72,7 +68,7 @@ const App = (props) => {
 
   const getCurrentMatchup = () => {
     const filterByUser = matches.filter(match => {
-      return match.user === currentUser.id
+      return match.user_id === currentUser.id
     })
 
     const filterByPlayerCharacter = filterByUser.filter(match => {
@@ -460,15 +456,36 @@ const App = (props) => {
       updatePasswordError({ passwordError: "" })
 
       const newUser = {
-        id: uuid(),
         email: email,
         username: username,
         password: password1
       }
 
-      updateUsers([...users, newUser])
+      const url = `${Config.API_ENDPOINT}/api/users`;
 
-      updateCurrentUser(newUser)
+      const options ={
+          method: 'POST',
+          body: JSON.stringify(newUser),
+          headers: {
+              "Content-Type": "application/json"
+          }
+      };
+
+      fetch(url, options)
+          .then(res => {
+              if(!res.ok) {
+                  throw new Error('Something went wrong, please try again later');
+              }
+              return res.json();
+          })
+      
+      // fetch(`${Config.API_ENDPOINT}/api/users/${newUser.email}`)
+      //     .then(res => res.json())
+      //     .then(resJson => updateUsers([...users, resJson]), updateCurrentUser(resJson))
+
+      // updateUsers([...users, newUser])
+
+      // updateCurrentUser(newUser)
 
       props.history.push("/home")
     }

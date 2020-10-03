@@ -24,11 +24,15 @@ const PlayerStats = Styled.div`
         list-style: none;
         padding-left: 0;
 
-        img {
+        .avatar {
             display: inline-block;
             margin-left: 24px;
             width: 65px;
             border-radius: 50%;
+        }
+
+        .character-avatar-none {
+            display: none;
         }
     }
 `
@@ -43,9 +47,13 @@ const playerStats = () => {
             return match.user_id === currentUser.id
         })
 
-        const lastMatchPlayed = filterMatchesByUser.pop()
-        
-        return format(lastMatchPlayed.date, 'M/dd/yy')
+        if (filterMatchesByUser.length > 0) {
+            const lastMatchPlayed = filterMatchesByUser.pop()
+            return format(lastMatchPlayed.date, 'M/dd/yy')
+        }
+        else {
+            return "N/A"
+        }
     }
 
     // Method for getting player wins for all matches
@@ -55,16 +63,21 @@ const playerStats = () => {
             return match.user_id === currentUser.id
         })
 
-        let wins = 0
+        if (filterMatchesByUser.length > 0) {
+            let wins = 0
 
-        for (let i=0; i<filterMatchesByUser.length; i++) {
-            if (filterMatchesByUser[i].outcome === "win") {
-                wins++
+            for (let i=0; i<filterMatchesByUser.length; i++) {
+                if (filterMatchesByUser[i].outcome === "win") {
+                    wins++
+                }
             }
+    
+            const winPercentage = (wins/(filterMatchesByUser.length))*100
+            return winPercentage.toFixed(1)
         }
-
-        const winPercentage = (wins/(filterMatchesByUser.length))*100
-        return winPercentage
+        else {
+            return "N/A"
+        }
     }
 
     // Method for getting most played character
@@ -74,30 +87,35 @@ const playerStats = () => {
             return match.user_id === currentUser.id
         })
 
-        let characterMatches = {}
+        if (filterMatchesByUser.length > 0) {
+            let characterMatches = {}
 
-        for (let i=0; i<filterMatchesByUser.length; i++) {
-            if (characterMatches[filterMatchesByUser[i].player]) {
-                characterMatches[filterMatchesByUser[i].player] = characterMatches[filterMatchesByUser[i].player] + 1
+            for (let i=0; i<filterMatchesByUser.length; i++) {
+                if (characterMatches[filterMatchesByUser[i].player]) {
+                    characterMatches[filterMatchesByUser[i].player] = characterMatches[filterMatchesByUser[i].player] + 1
+                }
+                else {
+                    characterMatches[filterMatchesByUser[i].player] = 1
+                }
             }
-            else {
-                characterMatches[filterMatchesByUser[i].player] = 1
-            }
+            let mostPlayedCharacter = Object.entries(characterMatches)
+                .sort((a,b) => b[1]-a[1])[0]
+            
+    
+            let mostPlayedCharacterData = characters.find(character => {
+                return character.id === parseInt(mostPlayedCharacter[0]);
+            })
+            return mostPlayedCharacterData.img
         }
-        let mostPlayedCharacter = Object.entries(characterMatches)
-            .sort((a,b) => b[1]-a[1])[0]
-        
-
-        let mostPlayedCharacterData = characters.find(character => {
-            return character.id === parseInt(mostPlayedCharacter[0]);
-        })
-        return mostPlayedCharacterData.img
+        else {
+            return 'na.jpg'
+        }
     }
 
     return (
         <ThemeProvider theme={GlobalStyles}>
             <PlayerStats>
-                <h2>Player Stats Component</h2>
+                <h2>Your Stats</h2>
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
                 <p>Win Rate: {getPlayerWins()}%</p>
                 <ul className="most-played-character">
@@ -105,7 +123,7 @@ const playerStats = () => {
                         <p>Most Played: </p>  
                     </li>
                     <li>
-                        <img src={require(`../Images/Avatars/${getMostPlayedCharacter()}`)} 
+                        <img className="avatar" src={require(`../Images/Avatars/${getMostPlayedCharacter()}`)} 
                             alt="character avatar"
                         /> 
                     </li>
