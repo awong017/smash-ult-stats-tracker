@@ -40,18 +40,19 @@ const playerStats = () => {
 
     const getLastMatchPlayed = () => {
         const filterMatchesByUser = matches.filter(match => {
-            return match.user === currentUser.id
+            return match.user_id === currentUser.id
         })
 
         const lastMatchPlayed = filterMatchesByUser.pop()
-            return format(lastMatchPlayed.date, 'M/dd/yy')
+        
+        return format(lastMatchPlayed.date, 'M/dd/yy')
     }
 
     // Method for getting player wins for all matches
 
     const getPlayerWins = () => {
         const filterMatchesByUser = matches.filter(match => {
-            return match.user === currentUser.id
+            return match.user_id === currentUser.id
         })
 
         let wins = 0
@@ -70,7 +71,7 @@ const playerStats = () => {
 
     const getMostPlayedCharacter = () => {
         const filterMatchesByUser = matches.filter(match => {
-            return match.user === currentUser.id
+            return match.user_id === currentUser.id
         })
 
         let characterMatches = {}

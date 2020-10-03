@@ -169,7 +169,7 @@ const App = (props) => {
     const match = {
       id: uuid(),
       date: Date.now(),
-      user: currentUser.id,
+      user_id: currentUser.id,
       player: playerCharacter.id,
       opponent: opponentCharacter.id,
       outcome: "win"
@@ -228,7 +228,7 @@ const App = (props) => {
     const match = {
       id: uuid(),
       date: Date.now(),
-      user: currentUser.id,
+      user_id: currentUser.id,
       player: playerCharacter.id,
       opponent: opponentCharacter.id,
       outcome: "loss"

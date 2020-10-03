@@ -24,7 +24,7 @@ const Landing = Styled.div`
 `;
 
 const landing = () => {
-    const { updateUsers, updateMatches, updateCharacters } = useContext(Context)
+    const { updateUsers, matches, updateMatches, updateCharacters } = useContext(Context)
 
     const [error, updateError] = useState('')
 
@@ -39,7 +39,19 @@ const landing = () => {
     useEffect(() => {
         let isSubscribed = true;
         fetch(`${Config.API_ENDPOINT}/matches`)
-            .then(res => (isSubscribed ? res.json().then(resJson => updateMatches(resJson)) : null))
+            .then(res => (isSubscribed ? res.json() 
+            .then(resJson => {
+                const modifiedMatches = resJson.map(match => ({
+                    id: match.id,
+                    date: parseInt(match.date),
+                    user_id: match.user_id,
+                    player: match.player,
+                    opponent: match.opponent,
+                    outcome: match.outcome
+                    })
+                )
+                updateMatches(modifiedMatches)
+            }) : null))
             .catch(error => (isSubscribed ? updateError(error.toString()) : null))
         return () => isSubscribed = false 
     }, []) 
@@ -62,9 +74,10 @@ const landing = () => {
                         <h2>Current Rankings</h2>
                         <TopPlayers />
                         <TopCharacters />
+                        <div className="error">{error}</div>
+                        <button onClick={() => console.log(matches)}>Matches</button>
                     </div>
                 </div>
-                <div className="error">{error}</div>
             </Landing>
         </ThemeProvider>
     );
