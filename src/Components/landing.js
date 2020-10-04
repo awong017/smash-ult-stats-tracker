@@ -75,7 +75,6 @@ const landing = () => {
                         <TopPlayers />
                         <TopCharacters />
                         <div className="error">{error}</div>
-                        <button onClick={() => console.log(matches)}>Matches</button>
                     </div>
                 </div>
             </Landing>

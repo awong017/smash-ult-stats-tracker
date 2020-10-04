@@ -464,29 +464,26 @@ const App = (props) => {
       const url = `${Config.API_ENDPOINT}/api/users`;
 
       const options ={
-          method: 'POST',
-          body: JSON.stringify(newUser),
-          headers: {
-              "Content-Type": "application/json"
-          }
+        method: 'POST',
+        body: JSON.stringify(newUser),
+        headers: {
+          "Content-Type": "application/json"
+        }
       };
 
       fetch(url, options)
-          .then(res => {
-              if(!res.ok) {
-                  throw new Error('Something went wrong, please try again later');
-              }
-              return res.json();
+        .then(res => {
+          if(!res.ok) {
+            throw new Error('Something went wrong, please try again later');
+          }
+            return res.json();
           })
-      
-      // fetch(`${Config.API_ENDPOINT}/api/users/${newUser.email}`)
-      //     .then(res => res.json())
-      //     .then(resJson => updateUsers([...users, resJson]), updateCurrentUser(resJson))
-
-      // updateUsers([...users, newUser])
-
-      // updateCurrentUser(newUser)
-
+          .then(resJson => 
+            fetch(`${Config.API_ENDPOINT}/api/users/${resJson.email}`)
+              .then(res => res.json())
+              .then(resJson2 => {updateUsers([...users, resJson2]), updateCurrentUser(resJson2[0])})
+            )
+            
       props.history.push("/home")
     }
   }
