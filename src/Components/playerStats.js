@@ -114,6 +114,8 @@ const playerStats = () => {
         }
     }
 
+    // Method for getting character with most wins
+
     const getCharacterWithMostWins = () => {
         const filterMatchesByUser = matches.filter(match => {
             return match.user_id === currentUser.id
@@ -139,6 +141,42 @@ const playerStats = () => {
 
             const character = characters.find(character => {
                 return character.id == sortedWinCounts[0][0]
+            })
+
+            return character.img
+        }
+        else {
+            return "na.jpg"
+        }
+    }
+
+    // Method for getting character with most losses
+
+    const getCharacterWithMostLosses = () => {
+        const filterMatchesByUser = matches.filter(match => {
+            return match.user_id === currentUser.id
+        })
+
+        const filterMatchesByLosses = filterMatchesByUser.filter(match => {
+            return match.outcome === "loss"
+        })
+
+        if (filterMatchesByLosses.length > 0) {
+            let lossCounts = {}
+    
+            for (let i=0; i<filterMatchesByLosses.length; i++) {
+                if (lossCounts[filterMatchesByLosses[i].player]) {
+                    lossCounts[filterMatchesByLosses[i].player] = lossCounts[filterMatchesByLosses[i].player] + 1
+                }
+                else {
+                    lossCounts[filterMatchesByLosses[i].player] = 1
+                }
+            }
+            
+            const sortedLossCounts = Object.entries(lossCounts).sort((a,b) => b[1] - a[1])
+
+            const character = characters.find(character => {
+                return character.id == sortedLossCounts[0][0]
             })
 
             return character.img
@@ -180,7 +218,19 @@ const playerStats = () => {
                         <p>INSERT WIN COUNT HERE</p>
                     </li>
                 </ul>
-                <p>Most Losses: </p>
+                <ul className="most-losses">
+                    <li>
+                        <p>Most Losses: </p>  
+                    </li>
+                    <li>
+                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostLosses()}`)} 
+                            alt="character avatar"
+                        /> 
+                    </li>
+                    <li>
+                        <p>INSERT LOSS COUNT HERE</p>
+                    </li>
+                </ul>
             </PlayerStats>
         </ThemeProvider>
     )
