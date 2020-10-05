@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Context from '../context';
 import { format } from 'date-fns';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -19,7 +19,7 @@ const PlayerStats = Styled.div`
         margin-left: 24px;
     }
 
-    .most-played-character {
+    ul {
         display: flex;
         list-style: none;
         padding-left: 0;
@@ -30,15 +30,17 @@ const PlayerStats = Styled.div`
             width: 65px;
             border-radius: 50%;
         }
-
-        .character-avatar-none {
-            display: none;
-        }
     }
 `
 
 const playerStats = () => {
     const { characters, currentUser, matches } = useContext(Context)
+
+    const { playerStats, updatePlayerStats } = useState({
+        mostPlayedCount: "",
+        mostWinCount: "",
+        mostLossCount: ""
+    })
 
      // Method for getting last match played
 
@@ -108,7 +110,41 @@ const playerStats = () => {
             return mostPlayedCharacterData.img
         }
         else {
-            return 'na.jpg'
+            return "na.jpg"
+        }
+    }
+
+    const getCharacterWithMostWins = () => {
+        const filterMatchesByUser = matches.filter(match => {
+            return match.user_id === currentUser.id
+        })
+
+        const filterMatchesByWins = filterMatchesByUser.filter(match => {
+            return match.outcome === "win"
+        })
+
+        if (filterMatchesByWins.length > 0) {
+            let winCounts = {}
+    
+            for (let i=0; i<filterMatchesByWins.length; i++) {
+                if (winCounts[filterMatchesByWins[i].player]) {
+                    winCounts[filterMatchesByWins[i].player] = winCounts[filterMatchesByWins[i].player] + 1
+                }
+                else {
+                    winCounts[filterMatchesByWins[i].player] = 1
+                }
+            }
+            
+            const sortedWinCounts = Object.entries(winCounts).sort((a,b) => b[1] - a[1])
+
+            const character = characters.find(character => {
+                return character.id == sortedWinCounts[0][0]
+            })
+
+            return character.img
+        }
+        else {
+            return "na.jpg"
         }
     }
 
@@ -131,7 +167,19 @@ const playerStats = () => {
                         <p>INSERT PLAY COUNT HERE</p>
                     </li>
                 </ul>
-                <p>Most Wins: </p>
+                <ul className="most-wins">
+                    <li>
+                        <p>Most Wins: </p>  
+                    </li>
+                    <li>
+                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostWins()}`)} 
+                            alt="character avatar"
+                        /> 
+                    </li>
+                    <li>
+                        <p>INSERT WIN COUNT HERE</p>
+                    </li>
+                </ul>
                 <p>Most Losses: </p>
             </PlayerStats>
         </ThemeProvider>
