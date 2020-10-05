@@ -162,20 +162,46 @@ const App = (props) => {
   // Method for adding wins
 
   const addWins = () => {
-    const match = {
-      id: uuid(),
+    const newMatch = {
       date: Date.now(),
       user_id: currentUser.id,
       player: playerCharacter.id,
       opponent: opponentCharacter.id,
       outcome: "win"
     }
+
+    const url = `${Config.API_ENDPOINT}/api/matches`;
+
+    const options ={
+      method: 'POST',
+      body: JSON.stringify(newMatch),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Something went wrong, please try again later');
+        }
+          return res.json();
+        })
+    
+    const stateMatch = {
+      id: uuid(),
+      date: newMatch.date,
+      user_id: newMatch.user_id,
+      player: newMatch.player,
+      opponent: newMatch.opponent,
+      outcome: newMatch.outcome
+    }
   
-    updateMatches([...matches, match])
-    updateCurrentMatchup([...currentMatchup, match])
+    updateMatches([...matches, stateMatch])
+    updateCurrentMatchup([...currentMatchup, stateMatch])
   
-    if(timeFrame.timeFrame !== "all") {
-      updateFilteredMatchup([...filteredMatchup, match])
+    if (timeFrame.timeFrame !== "all") {
+      updateFilteredMatchup([...filteredMatchup, stateMatch])
     }
       
     getMatchupRecord()
@@ -188,17 +214,28 @@ const App = (props) => {
       return match.outcome === "win"
     })
 
-    const lastMatchWon = matchesWon.pop()
-    
-    const filteredMatches = matches.filter(match => {
-      return match !== lastMatchWon
-    })
+    if (matchesWon.length > 0) {
+      const lastMatchWon = matchesWon.pop()
 
-    const filterCurrentMatchup = currentMatchup.filter(match => {
-      return match !== lastMatchWon
-    })
+      const url = `${Config.API_ENDPOINT}/api/matches/${lastMatchWon.date}`
 
-    if(timeFrame.timeFrame !== "all") {
+      fetch(url, {method:'DELETE'})
+        .then(res => {
+          if (!res.ok) {
+              throw new Error('Something went wrong, please try again later');
+          }
+          return res.json();
+        })
+      
+      const filteredMatches = matches.filter(match => {
+        return match !== lastMatchWon
+      })
+
+      const filterCurrentMatchup = currentMatchup.filter(match => {
+        return match !== lastMatchWon
+      })
+
+      if (timeFrame.timeFrame !== "all") {
       const findWonMatch = filteredMatchup.some(match => {
         return match.date === lastMatchWon.date
       })
@@ -211,18 +248,16 @@ const App = (props) => {
         updateFilteredMatchup(filter)
       }
     }
-
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
-    
     getMatchupRecord()
+    }
   }
 
   // Method for adding losses
 
   const addLosses = () => {
-    const match = {
-      id: uuid(),
+    const newMatch = {
       date: Date.now(),
       user_id: currentUser.id,
       player: playerCharacter.id,
@@ -230,34 +265,72 @@ const App = (props) => {
       outcome: "loss"
     }
 
-    updateMatches([...matches, match])
-    updateCurrentMatchup([...currentMatchup, match])
+    const url = `${Config.API_ENDPOINT}/api/matches`;
 
-    if(timeFrame.timeFrame !== "all") {
-      updateFilteredMatchup([...filteredMatchup, match])
+    const options ={
+      method: 'POST',
+      body: JSON.stringify(newMatch),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    fetch(url, options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Something went wrong, please try again later');
+        }
+          return res.json();
+        })
+    
+    const stateMatch = {
+      id: uuid(),
+      date: newMatch.date,
+      user_id: newMatch.user_id,
+      player: newMatch.player,
+      opponent: newMatch.opponent,
+      outcome: newMatch.outcome
     }
-
+  
+    updateMatches([...matches, stateMatch])
+    updateCurrentMatchup([...currentMatchup, stateMatch])
+  
+    if (timeFrame.timeFrame !== "all") {
+      updateFilteredMatchup([...filteredMatchup, stateMatch])
+    }
+      
     getMatchupRecord()
   }
 
    // Method for subtracting losses
 
    const subtractLosses = () => {
-    const matchesWon = currentMatchup.filter(match => {
+    const matchesLost = currentMatchup.filter(match => {
       return match.outcome === "loss"
     })
 
-    const lastMatchLost = matchesWon.pop()
+    if (matchesLost.length > 0) {
+      const lastMatchLost = matchesLost.pop()
 
-    const filteredMatches = matches.filter(match => {
-      return match !== lastMatchLost
-    })
+      const url = `${Config.API_ENDPOINT}/api/matches/${lastMatchLost.date}`
 
-    const filterCurrentMatchup = currentMatchup.filter(match => {
-      return match !== lastMatchLost
-    })
+      fetch(url, {method:'DELETE'})
+        .then(res => {
+          if (!res.ok) {
+              throw new Error('Something went wrong, please try again later');
+          }
+          return res.json();
+        })
+      
+      const filteredMatches = matches.filter(match => {
+        return match !== lastMatchLost
+      })
 
-    if(timeFrame.timeFrame !== "all") {
+      const filterCurrentMatchup = currentMatchup.filter(match => {
+        return match !== lastMatchLost
+      })
+
+      if (timeFrame.timeFrame !== "all") {
       const findLostMatch = filteredMatchup.some(match => {
         return match.date === lastMatchLost.date
       })
@@ -270,11 +343,10 @@ const App = (props) => {
         updateFilteredMatchup(filter)
       }
     }
-  
     updateMatches(filteredMatches)
     updateCurrentMatchup(filterCurrentMatchup)
-
     getMatchupRecord()
+    }
   }
 
   // Method for clearing out login and signup errors
