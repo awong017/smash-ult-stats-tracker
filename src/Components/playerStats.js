@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Context from '../context';
 import { format } from 'date-fns';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -35,12 +35,6 @@ const PlayerStats = Styled.div`
 
 const playerStats = () => {
     const { characters, currentUser, matches } = useContext(Context)
-
-    const { playerStats, updatePlayerStats } = useState({
-        mostPlayedCount: "",
-        mostWinCount: "",
-        mostLossCount: ""
-    })
 
      // Method for getting last match played
 
@@ -84,50 +78,59 @@ const playerStats = () => {
 
     // Method for getting most played character
 
-    const getMostPlayedCharacter = () => {
-        const filterMatchesByUser = matches.filter(match => {
+    const getMostPlayedCharacter = {
+        filterMatchesByUser: matches.filter(match => {
             return match.user_id === currentUser.id
-        })
-
-        if (filterMatchesByUser.length > 0) {
+        }),
+        getCharacter: function() {
             let characterMatches = {}
-
-            for (let i=0; i<filterMatchesByUser.length; i++) {
-                if (characterMatches[filterMatchesByUser[i].player]) {
-                    characterMatches[filterMatchesByUser[i].player] = characterMatches[filterMatchesByUser[i].player] + 1
+    
+            for (let i=0; i<this.filterMatchesByUser.length; i++) {
+                if (characterMatches[this.filterMatchesByUser[i].player]) {
+                    characterMatches[this.filterMatchesByUser[i].player] = characterMatches[this.filterMatchesByUser[i].player] + 1
                 }
                 else {
-                    characterMatches[filterMatchesByUser[i].player] = 1
+                    characterMatches[this.filterMatchesByUser[i].player] = 1
                 }
             }
-            let mostPlayedCharacter = Object.entries(characterMatches)
+            return Object.entries(characterMatches)
                 .sort((a,b) => b[1]-a[1])[0]
-            
+        },
+        getCharacterAvatar: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                let characterData = characters.find(character => {
+                    return character.id === parseInt(this.getCharacter()[0]);
+                })
     
-            let mostPlayedCharacterData = characters.find(character => {
-                return character.id === parseInt(mostPlayedCharacter[0]);
-            })
-            return mostPlayedCharacterData.img
-        }
-        else {
-            return "na.jpg"
+                return characterData.img
+            }
+            else {
+                return "na.jpg"
+            }
+        },
+        getPlayCount: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                return this.getCharacter()[1]
+            }
+            else {
+                return 0
+            }
         }
     }
 
     // Method for getting character with most wins
 
-    const getCharacterWithMostWins = () => {
-        const filterMatchesByUser = matches.filter(match => {
+    const getCharacterWithMostWins = {
+        filterMatchesByUser: matches.filter(match => {
             return match.user_id === currentUser.id
-        })
-
-        const filterMatchesByWins = filterMatchesByUser.filter(match => {
-            return match.outcome === "win"
-        })
-
-        if (filterMatchesByWins.length > 0) {
-            let winCounts = {}
+        }),
+        getCharacter: function() {
+            const filterMatchesByWins = this.filterMatchesByUser.filter(match => {
+                return match.outcome === "win"
+            })
     
+            let winCounts = {}
+        
             for (let i=0; i<filterMatchesByWins.length; i++) {
                 if (winCounts[filterMatchesByWins[i].player]) {
                     winCounts[filterMatchesByWins[i].player] = winCounts[filterMatchesByWins[i].player] + 1
@@ -136,17 +139,29 @@ const playerStats = () => {
                     winCounts[filterMatchesByWins[i].player] = 1
                 }
             }
-            
-            const sortedWinCounts = Object.entries(winCounts).sort((a,b) => b[1] - a[1])
+                
+            return Object.entries(winCounts)
+                .sort((a,b) => b[1] - a[1])[0]
+        },
+        getCharacterAvatar: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                const characterData = characters.find(character => {
+                    return character.id == this.getCharacter()[0]
+                })
 
-            const character = characters.find(character => {
-                return character.id == sortedWinCounts[0][0]
-            })
-
-            return character.img
-        }
-        else {
-            return "na.jpg"
+                return characterData.img
+            }
+            else {
+                return "na.jpg"
+            }
+        },
+        getWinCount: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                return this.getCharacter()[1]
+            }
+            else {
+                return 0
+            }
         }
     }
 
@@ -197,12 +212,12 @@ const playerStats = () => {
                         <p>Most Played: </p>  
                     </li>
                     <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getMostPlayedCharacter()}`)} 
+                        <img className="avatar" src={require(`../Images/Avatars/${getMostPlayedCharacter.getCharacterAvatar()}`)} 
                             alt="character avatar"
                         /> 
                     </li>
                     <li>
-                        <p>INSERT PLAY COUNT HERE</p>
+                        <p>{getMostPlayedCharacter.getPlayCount()} plays</p>
                     </li>
                 </ul>
                 <ul className="most-wins">
@@ -210,12 +225,12 @@ const playerStats = () => {
                         <p>Most Wins: </p>  
                     </li>
                     <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostWins()}`)} 
+                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostWins.getCharacterAvatar()}`)} 
                             alt="character avatar"
                         /> 
                     </li>
                     <li>
-                        <p>INSERT WIN COUNT HERE</p>
+                        <p>{getCharacterWithMostWins.getWinCount()} wins</p>
                     </li>
                 </ul>
                 <ul className="most-losses">
