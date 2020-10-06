@@ -76,7 +76,7 @@ const playerStats = () => {
         }
     }
 
-    // Method for getting most played character
+    // Object for getting most played character
 
     const getMostPlayedCharacter = {
         filterMatchesByUser: matches.filter(match => {
@@ -118,7 +118,7 @@ const playerStats = () => {
         }
     }
 
-    // Method for getting character with most wins
+    // Object for getting character with most wins
 
     const getCharacterWithMostWins = {
         filterMatchesByUser: matches.filter(match => {
@@ -165,20 +165,19 @@ const playerStats = () => {
         }
     }
 
-    // Method for getting character with most losses
+    // Object for getting character with most losses
 
-    const getCharacterWithMostLosses = () => {
-        const filterMatchesByUser = matches.filter(match => {
+    const getCharacterWithMostLosses = {
+        filterMatchesByUser: matches.filter(match => {
             return match.user_id === currentUser.id
-        })
-
-        const filterMatchesByLosses = filterMatchesByUser.filter(match => {
-            return match.outcome === "loss"
-        })
-
-        if (filterMatchesByLosses.length > 0) {
-            let lossCounts = {}
+        }),
+        getCharacter: function() {
+            const filterMatchesByLosses = this.filterMatchesByUser.filter(match => {
+                return match.outcome === "loss"
+            })
     
+            let lossCounts = {}
+        
             for (let i=0; i<filterMatchesByLosses.length; i++) {
                 if (lossCounts[filterMatchesByLosses[i].player]) {
                     lossCounts[filterMatchesByLosses[i].player] = lossCounts[filterMatchesByLosses[i].player] + 1
@@ -187,17 +186,29 @@ const playerStats = () => {
                     lossCounts[filterMatchesByLosses[i].player] = 1
                 }
             }
-            
-            const sortedLossCounts = Object.entries(lossCounts).sort((a,b) => b[1] - a[1])
+                
+            return Object.entries(lossCounts)
+                .sort((a,b) => b[1] - a[1])[0]
+        },
+        getCharacterAvatar: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                const characterData = characters.find(character => {
+                    return character.id == this.getCharacter()[0]
+                })
 
-            const character = characters.find(character => {
-                return character.id == sortedLossCounts[0][0]
-            })
-
-            return character.img
-        }
-        else {
-            return "na.jpg"
+                return characterData.img
+            }
+            else {
+                return "na.jpg"
+            }
+        },
+        getlossCount: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                return this.getCharacter()[1]
+            }
+            else {
+                return 0
+            }
         }
     }
 
@@ -238,12 +249,12 @@ const playerStats = () => {
                         <p>Most Losses: </p>  
                     </li>
                     <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostLosses()}`)} 
+                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostLosses.getCharacterAvatar()}`)} 
                             alt="character avatar"
                         /> 
                     </li>
                     <li>
-                        <p>INSERT LOSS COUNT HERE</p>
+                        <p>{getCharacterWithMostLosses.getlossCount()} losses</p>
                     </li>
                 </ul>
             </PlayerStats>
