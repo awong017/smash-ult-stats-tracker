@@ -67,6 +67,14 @@ const App = (props) => {
   // and opponent character
 
   const getCurrentMatchup = () => {
+
+    // const url = 
+    //   `${Config.API_ENDPOINT}/matches/${currentUser.id}/${playerCharacter.id}/${opponentCharacter.id}`
+
+    // fetch(url)
+    //   .then(res => res.json())
+    //   .then(resJson => updateCurrentMatchup(resJson))
+
     const filterByUser = matches.filter(match => {
       return match.user_id === currentUser.id
     })
@@ -80,10 +88,11 @@ const App = (props) => {
     })
 
     updateCurrentMatchup(filterByOpponents)
+    console.log("getCurrentMatchup:", currentMatchup)
   }
 
   // Method for getting the matchup record based on the player
-  // charcter and opponent character
+  // character and opponent character
 
   const getMatchupRecord = () => {
     const matches = () => {
@@ -113,6 +122,8 @@ const App = (props) => {
       wins: winCount,
       losses: lossCount
     })
+
+    console.log("getMatchupRecord:", matchupRecord)
   }
 
   // Method for filtering matchup by date
