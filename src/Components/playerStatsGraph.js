@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import Context from '../context';
+import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
@@ -8,11 +7,7 @@ const PlayerStatsGraph = Styled.div`
     color: ${(props) => props.theme.bodyColor};
 `
 
-const playerStatsGraph = () => {
-
-    const { matchupRecord } = useContext(Context)
-    const { wins, losses} = matchupRecord
-
+const playerStatsGraph = (props) => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <PlayerStatsGraph>
@@ -21,8 +16,8 @@ const playerStatsGraph = () => {
                         labels: ["Losses", "Wins"],
                         datasets: [
                             {
-                                label: "Matchup Record",
-                                data: [losses, wins],
+                                label: "Player Win Rate",
+                                data: [props.losses, props.wins],
                                 backgroundColor: [
                                     "#d10000",
                                     "white",

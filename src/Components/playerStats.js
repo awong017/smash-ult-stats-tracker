@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PlayerStatsGraph from './playerStatsGraph';
 import Context from '../context';
 import { format } from 'date-fns';
 import Styled, { ThemeProvider } from 'styled-components';
@@ -73,7 +74,7 @@ const playerStats = () => {
             return wins
         },
         getLossCount: function() {
-            return this.filterMatchesByUser - this.getWinCount()
+            return this.filterMatchesByUser.length - this.getWinCount()
         },
         getWinPercentage: function() {
             if (this.filterMatchesByUser.length > 0) {
@@ -228,6 +229,10 @@ const playerStats = () => {
                 <h2>Your Stats</h2>
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
                 <p>Win Rate: {getPlayerWins.getWinPercentage()}%</p>
+                <PlayerStatsGraph 
+                    wins={getPlayerWins.getWinCount()} 
+                    losses={getPlayerWins.getLossCount()}
+                />
                 <section>
                     <h3>Most Played</h3>
                     <ul className="most-played-character">
