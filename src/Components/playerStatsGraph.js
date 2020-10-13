@@ -4,7 +4,10 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const PlayerStatsGraph = Styled.div`
+    border: 2px solid white;
+    width: 500px;
     color: ${(props) => props.theme.bodyColor};
+    
 `
 
 const playerStatsGraph = (props) => {
