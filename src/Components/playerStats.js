@@ -15,6 +15,10 @@ const PlayerStats = Styled.div`
         margin-left: 24px;
     }
 
+    h3 {
+        margin-left: 24px;
+    }
+
     p {
         margin-left: 24px;
     }
@@ -52,27 +56,33 @@ const playerStats = () => {
         }
     }
 
-    // Method for getting player wins for all matches
+    // Object for getting player wins for all matches
 
-    const getPlayerWins = () => {
-        const filterMatchesByUser = matches.filter(match => {
+    const getPlayerWins = {
+        filterMatchesByUser: matches.filter(match => {
             return match.user_id === currentUser.id
-        })
-
-        if (filterMatchesByUser.length > 0) {
+        }),
+        getWinCount: function() {
             let wins = 0
 
-            for (let i=0; i<filterMatchesByUser.length; i++) {
-                if (filterMatchesByUser[i].outcome === "win") {
+            for (let i=0; i<this.filterMatchesByUser.length; i++) {
+                if (this.filterMatchesByUser[i].outcome === "win") {
                     wins++
                 }
             }
-    
-            const winPercentage = (wins/(filterMatchesByUser.length))*100
-            return winPercentage.toFixed(1)
-        }
-        else {
-            return "N/A"
+            return wins
+        },
+        getLossCount: function() {
+            return this.filterMatchesByUser - this.getWinCount()
+        },
+        getWinPercentage: function() {
+            if (this.filterMatchesByUser.length > 0) {
+                const winPercentage = (this.getWinCount()/(this.filterMatchesByUser.length))*100
+                return winPercentage.toFixed(1)
+            }
+            else {
+                return "N/A"
+            }
         }
     }
 
@@ -217,46 +227,42 @@ const playerStats = () => {
             <PlayerStats>
                 <h2>Your Stats</h2>
                 <p>Last Match Played: {getLastMatchPlayed()}</p>
-                <p>Win Rate: {getPlayerWins()}%</p>
-                <ul className="most-played-character">
-                    <li>
-                        <p>Most Played: </p>  
-                    </li>
-                    <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getMostPlayedCharacter.getCharacterAvatar()}`)} 
-                            alt="character avatar"
-                        /> 
-                    </li>
-                    <li>
-                        <p>{getMostPlayedCharacter.getPlayCount()} plays</p>
-                    </li>
-                </ul>
-                <ul className="most-wins">
-                    <li>
-                        <p>Most Wins: </p>  
-                    </li>
-                    <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostWins.getCharacterAvatar()}`)} 
-                            alt="character avatar"
-                        /> 
-                    </li>
-                    <li>
-                        <p>{getCharacterWithMostWins.getWinCount()} wins</p>
-                    </li>
-                </ul>
-                <ul className="most-losses">
-                    <li>
-                        <p>Most Losses: </p>  
-                    </li>
-                    <li>
-                        <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostLosses.getCharacterAvatar()}`)} 
-                            alt="character avatar"
-                        /> 
-                    </li>
-                    <li>
-                        <p>{getCharacterWithMostLosses.getlossCount()} losses</p>
-                    </li>
-                </ul>
+                <p>Win Rate: {getPlayerWins.getWinPercentage()}%</p>
+                <section>
+                    <h3>Most Played</h3>
+                    <ul className="most-played-character">
+                        <li>
+                            <img className="avatar" src={require(`../Images/Avatars/${getMostPlayedCharacter.getCharacterAvatar()}`)} 
+                                alt="character avatar"
+                            /> 
+                        </li>
+                        <li>
+                            <p>{getMostPlayedCharacter.getPlayCount()} plays</p>
+                        </li>
+                    </ul>
+                    <h3>Most Wins</h3>
+                    <ul className="most-wins">
+                        <li>
+                            <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostWins.getCharacterAvatar()}`)} 
+                                alt="character avatar"
+                            /> 
+                        </li>
+                        <li>
+                            <p>{getCharacterWithMostWins.getWinCount()} wins</p>
+                        </li>
+                    </ul>
+                    <h3>Most Losses</h3>
+                    <ul className="most-losses">
+                        <li>
+                            <img className="avatar" src={require(`../Images/Avatars/${getCharacterWithMostLosses.getCharacterAvatar()}`)} 
+                                alt="character avatar"
+                            /> 
+                        </li>
+                        <li>
+                            <p>{getCharacterWithMostLosses.getlossCount()} losses</p>
+                        </li>
+                    </ul>
+                </section>
             </PlayerStats>
         </ThemeProvider>
     )
