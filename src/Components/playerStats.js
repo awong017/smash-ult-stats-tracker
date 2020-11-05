@@ -6,11 +6,18 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const PlayerStats = Styled.div`
+    display: flex;
+    justify-content: space-between;
     margin-left: 24px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
+
+    .most-stats {
+        padding-top: 48px;
+        padding-right: 48px;
+    }
 
     h2 {
         margin-left: 24px;
@@ -226,14 +233,16 @@ const playerStats = () => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <PlayerStats>
-                <h2>Your Stats</h2>
-                <p>Last Match Played: {getLastMatchPlayed()}</p>
-                <p>Win Rate: {getPlayerWins.getWinPercentage()}%</p>
-                <PlayerStatsGraph 
-                    wins={getPlayerWins.getWinCount()} 
-                    losses={getPlayerWins.getLossCount()}
-                />
-                <section>
+                <section className="intro-stats">
+                    <h2>Your Stats</h2>
+                    <p>Last Match Played: {getLastMatchPlayed()}</p>
+                    <p>Win Rate: {getPlayerWins.getWinPercentage()}%</p>
+                    <PlayerStatsGraph 
+                        wins={getPlayerWins.getWinCount()} 
+                        losses={getPlayerWins.getLossCount()}
+                    />
+                </section>
+                <section className="most-stats">
                     <h3>Most Played</h3>
                     <ul className="most-played-character">
                         <li>

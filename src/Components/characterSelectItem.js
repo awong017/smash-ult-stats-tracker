@@ -4,12 +4,13 @@ import Styled from 'styled-components';
 
 const CharacterSelectItem = Styled.div`
     img {
-        width: 65px;
-        opacity: 0.5;
+        z-index: -1;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 4px;
         border-radius: 50%;
+        width: 65px;
+        opacity: 0.5;
     
         &:hover {
             cursor: pointer;
