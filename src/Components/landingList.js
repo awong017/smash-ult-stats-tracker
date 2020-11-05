@@ -26,6 +26,11 @@ const LandingList = Styled.div`
             grid-template-columns: repeat(2,50%);
         }
     }
+
+    @media screen and (max-width: 500px) {
+        margin: auto;
+        width: initial;
+    }
 `
 
 const landingList = () => {

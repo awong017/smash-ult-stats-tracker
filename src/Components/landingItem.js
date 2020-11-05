@@ -43,14 +43,14 @@ const LandingItem = Styled.div`
             }
         }
     }
-    @media screen and (max-width: 960px) {
+    
+    @media screen and (max-width: 500px) {
         ul {
-       
-            thumbnail {
-                width: initial;
+            .thumbnail {
+                width: 100px;
             }
 
-            reddit-logo {
+            .reddit-logo {
                 width: 100px;
             }
         }

@@ -21,10 +21,18 @@ const Landing = Styled.div`
     .error {
         color: red;
     }
+
+    @media screen and (max-width: 500px) {
+        margin-top: 200px; 
+
+        .landing-content {
+            flex-direction: column-reverse;
+        }
+    }
 `;
 
 const landing = () => {
-    const { updateUsers, matches, updateMatches, updateCharacters } = useContext(Context)
+    const { updateUsers, updateMatches, updateCharacters } = useContext(Context)
 
     const [error, updateError] = useState('')
 
@@ -71,7 +79,6 @@ const landing = () => {
                 <div className="landing-content">
                     <LandingList />
                     <div className="rankings">
-                        <h2>Current Rankings</h2>
                         <TopPlayers />
                         <TopCharacters />
                         <div className="error">{error}</div>

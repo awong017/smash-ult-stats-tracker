@@ -7,7 +7,7 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const Nav = Styled.div`
- position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -66,6 +66,18 @@ const Nav = Styled.div`
         &:hover {
             opacity: 1.0;
             transition: 0.3s;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        height: 150px;
+
+        .smash-ball-image {
+            width: 75px;
+        }
+
+        a {
+            font-size: 12px;
         }
     }
 `;
