@@ -7,8 +7,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const TopPlayers = Styled.div`
     margin-bottom: 24px;
-    margin-left: auto;
-    margin-right: 24px;
     border: 2px solid black;
     border-radius: 10px;
     width: 300px;
@@ -17,6 +15,7 @@ const TopPlayers = Styled.div`
     text-align: center;
 
     @media screen and (max-width: 500px) {
+        margin-left: auto;
         margin-right: auto;
     }
 `

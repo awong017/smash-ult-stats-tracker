@@ -59,6 +59,12 @@ const SignUp = Styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .sign-up-form {
+            margin-top: 200px;
+        }
+    }
 `
 
 const signUp = () => {

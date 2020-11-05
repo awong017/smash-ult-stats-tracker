@@ -6,8 +6,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 
 const TopCharacters = Styled.div`
-    margin-left: auto;
-    margin-right: 24px;
     border: 2px solid black;
     border-radius: 10px;
     width: 300px;
@@ -16,6 +14,7 @@ const TopCharacters = Styled.div`
     text-align: center;
 
     @media screen and (max-width: 500px) {
+        margin-left: auto;
         margin-right: auto;
     }
 `

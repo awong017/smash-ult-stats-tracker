@@ -8,16 +8,22 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const Home = Styled.div`
-    h1 {
-        margin-top: ${(props) => props.theme.marginTop};
-        margin-bottom: 48px;
-        margin-left: 24px;
-        color: ${(props => props.theme.bodyColor)};
-    }
+    margin-top: ${(props) => props.theme.marginTop};
+    border: 2px solid white;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: ${(props => props.theme.bodyColor)};
+   
 
     .home-content {
-        display: grid;
-        grid-template-columns: 60% 40%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: 500px) {
+        .home-content {
+            display: block;
+        }
     }
 `
 

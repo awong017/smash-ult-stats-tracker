@@ -10,6 +10,8 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const Landing = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
+    padding-left: 24px;
+    padding-right: 24px;
     color: white;
     text-align: center;
  
@@ -23,7 +25,9 @@ const Landing = Styled.div`
     }
 
     @media screen and (max-width: 500px) {
-        margin-top: 200px; 
+        margin-top: 200px;
+        padding-left: 12px;
+        padding-right: 12px; 
 
         .landing-content {
             flex-direction: column-reverse;

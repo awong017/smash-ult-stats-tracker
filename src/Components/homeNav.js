@@ -68,6 +68,14 @@ const Nav = Styled.div`
             transition: 0.3s;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        height: 150px;
+
+        .smash-ball-image {
+            width: 75px;
+        }
+    }
 `;
 
 const homeNav = () => {

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import LandingItem from './landingItem';
 import Styled from 'styled-components';
-import GlobalStyles from '../Styles/globalStyles';
 
 const LandingList = Styled.div`
-    margin-left: 24px;
     width: 50vw;
 
     h2 {

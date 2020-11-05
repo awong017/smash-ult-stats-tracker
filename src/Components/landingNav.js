@@ -75,10 +75,6 @@ const Nav = Styled.div`
         .smash-ball-image {
             width: 75px;
         }
-
-        a {
-            font-size: 12px;
-        }
     }
 `;
 

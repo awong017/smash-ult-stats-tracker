@@ -58,6 +58,12 @@ const ForgotPassword = Styled.div`
             }
         }
     }
+
+    @media screen and (max-width: 500px) {
+        .forgot-password-form {
+            margin-top: 200px;
+        }
+    }
 `
 
 const forgotPassword = () => {
