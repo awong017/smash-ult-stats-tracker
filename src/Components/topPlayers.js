@@ -9,14 +9,12 @@ const TopPlayers = Styled.div`
     margin-bottom: 24px;
     border: 2px solid black;
     border-radius: 10px;
-    width: 300px;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
 
     @media screen and (max-width: 500px) {
-        margin-left: auto;
-        margin-right: auto;
+        width: initial;
     }
 `
 

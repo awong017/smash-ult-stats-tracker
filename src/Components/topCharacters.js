@@ -8,19 +8,16 @@ import GlobalStyles from '../Styles/globalStyles';
 const TopCharacters = Styled.div`
     border: 2px solid black;
     border-radius: 10px;
-    width: 300px;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
     text-align: center;
 
     @media screen and (max-width: 500px) {
-        margin-left: auto;
-        margin-right: auto;
     }
 `
 
 const topCharacters = () => {
-    const { characters, updateCharacters, matches } = useContext(Context);
+    const { characters, matches } = useContext(Context);
     
     const bestCharacters = () => {
         const records = []
@@ -60,7 +57,6 @@ const topCharacters = () => {
                 {bestCharacters().map(character =>
                      <TopCharactersItem 
                         key={character.id}
-                        name={character.name}
                         img={character.img}
                         wins={character.wins}
                     />

@@ -8,9 +8,6 @@ const TopPlayersItem = Styled.div`
     ul {
         display: grid;
         grid-template-columns: repeat(2, 50%);
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
         padding-left: 0px;
         list-style: none;
     }
@@ -21,8 +18,8 @@ const topPlayersItem = ({ user, wins }) => {
         <ThemeProvider theme={GlobalStyles}>
             <TopPlayersItem>
                 <ul>
-                    <li>{user}</li>
-                    <li>{wins} wins</li>
+                    <li className="user">{user}</li>
+                    <li className="wins">{wins} wins</li>
                 </ul>
             </TopPlayersItem>
         </ThemeProvider>

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import Context from '../context';
+import React from 'react';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
@@ -10,16 +9,8 @@ const TopCharactersItem = Styled.div`
     ul {
         display: grid;
         grid-template-columns: repeat(2, 50%);
-        width: 300px;
-        margin-left: auto;
-        margin-right: auto;
         padding-left: 0px;
         list-style: none;
-
-        li {
-            margin-top: auto;
-            margin-bottom: auto;
-        }
 
         img {
             width: 65px;
@@ -28,7 +19,7 @@ const TopCharactersItem = Styled.div`
     }
 `
 
-const topCharactersItem = ({ name, img, wins }) => {
+const topCharactersItem = ({ img, wins }) => {
     return (
         <ThemeProvider theme={GlobalStyles}>
             <TopCharactersItem>

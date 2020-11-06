@@ -10,37 +10,39 @@ const PlayerStats = Styled.div`
     justify-content: space-between;
     border: 2px solid black;
     border-radius: 10px;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 50vw;
     background-color: ${(props) => props.theme.formColor};
     color: ${(props) => props.theme.bodyColor};
 
     .most-stats {
         padding-top: 48px;
-        padding-right: 48px;
-    }
-
-    h2 {
-        margin-left: 24px;
-    }
-
-    h3 {
-        margin-left: 24px;
-    }
-
-    p {
-        margin-left: 24px;
+        text-align: center;
     }
 
     ul {
         display: flex;
+        padding-left: 24px;
+        padding-right: 24px;
         list-style: none;
-        padding-left: 0;
-
+       
         .avatar {
             display: inline-block;
-            margin-left: 24px;
-            width: 65px;
             border-radius: 50%;
+            width: 65px;
         }
+
+        .count {
+            margin-left: 24px;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        display: block;
+        margin-bottom: 24px;
+        width: initial;
+        text-align: center;
     }
 `
 
@@ -233,7 +235,7 @@ const playerStats = () => {
         <ThemeProvider theme={GlobalStyles}>
             <PlayerStats>
                 <section className="intro-stats">
-                    <h2>Your Stats</h2>
+                <h2>Your Stats</h2>
                     <p>Last Match Played: {getLastMatchPlayed()}</p>
                     <p>Win Rate: {getPlayerWins.getWinPercentage()}%</p>
                     <PlayerStatsGraph 
@@ -249,7 +251,7 @@ const playerStats = () => {
                                 alt="character avatar"
                             /> 
                         </li>
-                        <li>
+                        <li className="count">
                             <p>{getMostPlayedCharacter.getPlayCount()} plays</p>
                         </li>
                     </ul>
@@ -260,7 +262,7 @@ const playerStats = () => {
                                 alt="character avatar"
                             /> 
                         </li>
-                        <li>
+                        <li className="count">
                             <p>{getCharacterWithMostWins.getWinCount()} wins</p>
                         </li>
                     </ul>
@@ -271,7 +273,7 @@ const playerStats = () => {
                                 alt="character avatar"
                             /> 
                         </li>
-                        <li>
+                        <li className="count">
                             <p>{getCharacterWithMostLosses.getlossCount()} losses</p>
                         </li>
                     </ul>

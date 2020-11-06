@@ -13,7 +13,6 @@ const Home = Styled.div`
     padding-left: 24px;
     padding-right: 24px;
     color: ${(props => props.theme.bodyColor)};
-   
 
     .home-content {
         display: flex;
@@ -21,6 +20,13 @@ const Home = Styled.div`
     }
 
     @media screen and (max-width: 500px) {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        h1 {
+            text-align: center;
+        }
+
         .home-content {
             display: block;
         }

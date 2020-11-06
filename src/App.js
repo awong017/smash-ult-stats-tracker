@@ -88,7 +88,6 @@ const App = (props) => {
     })
 
     updateCurrentMatchup(filterByOpponents)
-    console.log("getCurrentMatchup:", currentMatchup)
   }
 
   // Method for getting the matchup record based on the player
@@ -122,8 +121,6 @@ const App = (props) => {
       wins: winCount,
       losses: lossCount
     })
-
-    console.log("getMatchupRecord:", matchupRecord)
   }
 
   // Method for filtering matchup by date
