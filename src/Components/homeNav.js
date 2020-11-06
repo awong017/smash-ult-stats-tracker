@@ -90,8 +90,8 @@ const homeNav = () => {
                     </Link>
                     <ul className="nav-ul">
                         <li className="nav-li">
-                            <Link to={'/matchup'}>
-                                Stats
+                            <Link to={'/addStats'}>
+                                Add Stats
                             </Link>
                         </li>
                         <li className="nav-li">
