@@ -43,6 +43,17 @@ const PlayerStats = Styled.div`
         margin-bottom: 24px;
         width: initial;
         text-align: center;
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            padding-left: 0px;
+            padding-right: 0px;
+
+            .count {
+                margin-left: 0px;
+            }
+        }
     }
 `
 

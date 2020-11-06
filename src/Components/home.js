@@ -9,7 +9,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const Home = Styled.div`
     margin-top: ${(props) => props.theme.marginTop};
-    border: 2px solid white;
     padding-left: 24px;
     padding-right: 24px;
     color: ${(props => props.theme.bodyColor)};
@@ -17,11 +16,13 @@ const Home = Styled.div`
     .home-content {
         display: flex;
         justify-content: space-between;
+
+        .rankings {
+            width: 300px;
+        }
     }
 
     @media screen and (max-width: 500px) {
-        padding-left: 0px;
-        padding-right: 0px;
 
         h1 {
             text-align: center;
@@ -29,6 +30,10 @@ const Home = Styled.div`
 
         .home-content {
             display: block;
+
+            .rankings {
+                width: initial;
+            }
         }
     }
 `
@@ -43,7 +48,7 @@ const home = () => {
                 <h1>Hey {context.currentUser.username}</h1>
                 <section className="home-content">
                     <PlayerStats />
-                    <section className="global-standings">
+                    <section className="rankings">
                         <TopPlayers />
                         <TopCharacters />
                     </section>
