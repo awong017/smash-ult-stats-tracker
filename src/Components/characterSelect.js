@@ -5,8 +5,9 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const CharacterSelect = Styled.div`
+    margin-bottom: 50px;
+    border: 2px solid blue;  
     color: ${(props) => props.theme.bodyColor};
-    margin-bottom: 50px;  
 
     .character-select-list {
         display: grid;
@@ -14,6 +15,13 @@ const CharacterSelect = Styled.div`
         width: 850px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    @media screen and (max-width: 500px) {
+        .character-select-list {
+            grid-template-columns: repeat(6, 16.66%);
+            width: initial;
+        }
     }
 `
 

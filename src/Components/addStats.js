@@ -17,19 +17,26 @@ const AddStats = Styled.div`
         justify-content: space-between;
         border: 2px solid red;
         padding-left: 24px;
+        padding-right: 24px;
 
         .matchup {
             display: flex;
+            justify-content: between;
             list-style: none;
-            padding-left: 40px;
-            padding-right: 40px;
+            margin-top: 0px;
+            border: 2px solid white;
+            padding-left: 0px;
     
             .player {
+                border: 2px solid green;
                 padding-top: 100px;
+                padding-right: 24px;
             }
     
             .opponent {
+                border: 2px solid green;
                 padding-top: 100px;
+                padding-left: 24px;
             }
     
             img {
@@ -56,9 +63,32 @@ const AddStats = Styled.div`
         .add-stats-content {
             display: block;
             padding-left: 0px;
+            padding-right: 0px;
 
             .matchup {
                 justify-content: space-around;
+
+                .player {
+                    padding-top: 100px;
+                    padding-right: 0px;
+
+                    h2 {
+                        font-size: 16px;
+                    }
+                }
+        
+                .opponent {
+                    padding-top: 100px;
+                    padding-left: 0px;
+
+                    h2 {
+                        font-size: 18px;
+                    }
+                }
+
+                img {
+                    width: 75px;
+                }
             }
     }
 `

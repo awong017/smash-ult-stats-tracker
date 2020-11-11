@@ -5,8 +5,9 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupHistory = Styled.div`
-    color: ${(props) => props.theme.bodyColor};
     margin-top: 100px;
+    border: 2px solid red;
+    color: ${(props) => props.theme.bodyColor};
 
     .history-heading {
         display: grid;

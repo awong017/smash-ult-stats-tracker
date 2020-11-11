@@ -5,7 +5,15 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupRecordGraph = Styled.div`
+    height: 400px;
     color: ${(props) => props.theme.bodyColor};
+
+    @media screen and (max-width: 500px) {
+        margin-top: 48px;
+        border: 2px solid purple;
+        height: 150px;
+        width: 200px;
+    }
 `
 
 const matchupRecordGraph = () => {
@@ -31,7 +39,6 @@ const matchupRecordGraph = () => {
                             }
                         ]
                     }}
-                    height={400}
                     options={{
                         responsive: true,
                         aspectRatio: 1,

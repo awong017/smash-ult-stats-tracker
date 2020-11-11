@@ -17,6 +17,12 @@ const CharacterSelectItem = Styled.div`
             opacity: 1.0;
         }
     }
+
+    @media screen and (max-width: 500px) {
+        img {
+            width: 45px;
+        }
+    }
 `;
 
 const characterSelectItem = ({ name, image }) => {

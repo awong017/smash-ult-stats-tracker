@@ -102,9 +102,25 @@ const App = (props) => {
     ]
   )
 
-  const [currentUser, updateCurrentUser] = useState("")
+  const [currentUser, updateCurrentUser] = useState(
+    {
+      id: 1,
+      email: "awong017@ucr.edu",
+      username: "awong017",
+      password: "awong017"
+    }
+  )
 
-  const [currentMatchup, updateCurrentMatchup] = useState([])
+  const [currentMatchup, updateCurrentMatchup] = useState([
+    {
+      id: 1,
+      date: 158568353000,
+      user_id: 1,
+      player: 1,
+      opponent: 1,
+      outcome: "win"
+    }
+  ])
   
   const [filteredMatchup, updateFilteredMatchup] = useState([])
 

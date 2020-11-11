@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import MatchupRecordFilter from './matchupRecordFilter';
 import MatchupRecordGraph from './matchupRecordGraph';
 import Context from '../context';
-import uuid from 'uuid/v4';
 import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
@@ -24,16 +23,16 @@ const MatchupRecord = Styled.div`
             justify-content: space-between;
 
             button {
-                width: 20px;
-                border-radius: 50%;
-                color: white;
                 border: 1px solid white;
+                border-radius: 50%;
+                width: 20px;
+                color: white;
                 background: transparent;
 
                 &:hover {
                     cursor: pointer;
-                    color: black;
                     background: white;
+                    color: black;
                 }
             }
         }
@@ -56,7 +55,7 @@ const matchupRecord = () => {
     const lossPercent = (((losses)/(losses + wins)) * 100).toFixed(1)
 
     const hidePercent = () => {
-        if (wins === 0 && losses === 0) {
+        if (wins === undefined && losses === undefined) {
             return "percent-hidden"
         }
         else {
@@ -72,9 +71,9 @@ const matchupRecord = () => {
                 <MatchupRecordGraph />
                 <ul>
                     <li>
-                        <h3>Wins</h3>
+                        <h3 onClick={() => console.log("Wins:", wins)}>Wins</h3>
                         <p>{wins}</p>
-                        <p>({winPercent}%)</p>
+                        <p className={hidePercent()}>({winPercent}%)</p>
                         <div className="increment">
                             <button className="add" onClick={() => addWins()}>+</button>
                             <button className="subtract" onClick={() => subtractWins()}>-</button>
@@ -83,7 +82,7 @@ const matchupRecord = () => {
                     <li>
                         <h3>Losses</h3>
                         <p>{losses}</p>
-                        <p>({lossPercent}%)</p>
+                        <p className={hidePercent()}>({lossPercent}%)</p>
                         <div className="increment">
                             <button className="add" onClick={() => addLosses()}>+</button>
                             <button className="subtract" onClick={() => subtractLosses()}>-</button>
