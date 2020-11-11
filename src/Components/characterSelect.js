@@ -6,7 +6,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const CharacterSelect = Styled.div`
     margin-bottom: 50px;
-    border: 2px solid blue;  
     color: ${(props) => props.theme.bodyColor};
 
     .character-select-list {

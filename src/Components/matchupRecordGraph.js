@@ -10,7 +10,6 @@ const MatchupRecordGraph = Styled.div`
 
     @media screen and (max-width: 500px) {
         margin-top: 48px;
-        border: 2px solid purple;
         height: 150px;
         width: 200px;
     }

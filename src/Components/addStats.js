@@ -15,26 +15,22 @@ const AddStats = Styled.div`
     .add-stats-content {
         display: flex;
         justify-content: space-between;
-        border: 2px solid red;
         padding-left: 24px;
         padding-right: 24px;
 
         .matchup {
             display: flex;
             justify-content: between;
-            list-style: none;
             margin-top: 0px;
-            border: 2px solid white;
             padding-left: 0px;
-    
+            list-style: none;
+            
             .player {
-                border: 2px solid green;
                 padding-top: 100px;
                 padding-right: 24px;
             }
     
             .opponent {
-                border: 2px solid green;
                 padding-top: 100px;
                 padding-left: 24px;
             }
@@ -73,7 +69,7 @@ const AddStats = Styled.div`
                     padding-right: 0px;
 
                     h2 {
-                        font-size: 16px;
+                        font-size: 18px;
                     }
                 }
         
@@ -85,11 +81,24 @@ const AddStats = Styled.div`
                         font-size: 18px;
                     }
                 }
+            }
+        }
+    }
 
+    @media screen and (max-width: 500px) {
+        .add-stats-content {
+            
+            .matchup {
+
+                .player {
+                    
+                }
+                
                 img {
-                    width: 75px;
+                    width: 70px;
                 }
             }
+        }
     }
 `
 
@@ -130,7 +139,7 @@ const addStats = () => {
                             <h2>{playerCharacter.name}</h2>      
                         </li>
                         <li>
-                        <MatchupRecord />
+                            <MatchupRecord />
                         </li>
                         <li className="opponent">
                             <h2>Opponent</h2>

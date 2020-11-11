@@ -6,7 +6,6 @@ import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupHistory = Styled.div`
     margin-top: 100px;
-    border: 2px solid red;
     color: ${(props) => props.theme.bodyColor};
 
     .history-heading {
