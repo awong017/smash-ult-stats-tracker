@@ -5,7 +5,7 @@ import Styled, { ThemeProvider } from 'styled-components';
 import GlobalStyles from '../Styles/globalStyles';
 
 const MatchupRecordGraph = Styled.div`
-    height: 400px;
+    height: 500px;
     color: ${(props) => props.theme.bodyColor};
 
     @media screen and (max-width: 500px) {

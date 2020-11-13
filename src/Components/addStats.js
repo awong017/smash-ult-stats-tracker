@@ -65,21 +65,13 @@ const AddStats = Styled.div`
                 justify-content: space-around;
 
                 .player {
-                    padding-top: 100px;
+                    padding-top: 148px;
                     padding-right: 0px;
-
-                    h2 {
-                        font-size: 18px;
-                    }
                 }
         
                 .opponent {
-                    padding-top: 100px;
+                    padding-top: 148px;
                     padding-left: 0px;
-
-                    h2 {
-                        font-size: 18px;
-                    }
                 }
             }
         }
@@ -91,7 +83,17 @@ const AddStats = Styled.div`
             .matchup {
 
                 .player {
-                    
+
+                    h2 {
+                        font-size: 18px;
+                    }
+                }
+
+                .opponent {
+
+                    h2 {
+                        font-size: 18px;
+                    }
                 }
                 
                 img {
@@ -103,7 +105,7 @@ const AddStats = Styled.div`
 `
 
 const addStats = () => {
-    const { competitor, updateCompetitor, playerCharacter, opponentCharacter, getCurrentMatchup, getMatchupRecord } = useContext(Context)
+    const { currentMatchup, matchupRecord, competitor, updateCompetitor, playerCharacter, opponentCharacter, getCurrentMatchup, getMatchupRecord } = useContext(Context)
 
     const highlightPlayer = (fighter) => {
         if (fighter === "player") {
@@ -129,6 +131,10 @@ const addStats = () => {
                 <AddStatsNav />
                 <div className="add-stats-content">
                     <CharacterSelect />
+                    <button 
+                        onClick={() => console.log("Current Matchup:", currentMatchup, "Matchup Record:", matchupRecord)}>
+                        Console Log    
+                    </button>
                     <ul className="matchup">
                         <li className="player">
                             <h2>Player</h2>
