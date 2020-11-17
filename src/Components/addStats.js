@@ -132,7 +132,7 @@ const addStats = () => {
                 <div className="add-stats-content">
                     <CharacterSelect />
                     <button 
-                        onClick={() => console.log("Current Matchup:", currentMatchup, "Matchup Record:", matchupRecord)}>
+                        onClick={() => console.log("Competitor:", competitor, "Player:", playerCharacter, "Opponent:", opponentCharacter, "Current Matchup:", currentMatchup, "Matchup Record:", matchupRecord)}>
                         Console Log    
                     </button>
                     <ul className="matchup">

@@ -8,7 +8,7 @@ const MatchupRecordGraph = Styled.div`
     height: 500px;
     color: ${(props) => props.theme.bodyColor};
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         margin-top: 48px;
         height: 150px;
         width: 200px;
