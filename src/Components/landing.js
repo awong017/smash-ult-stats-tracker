@@ -26,7 +26,7 @@ const Landing = Styled.div`
         color: red;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         .landing-content {
             flex-direction: column-reverse;
             margin-top: 200px;

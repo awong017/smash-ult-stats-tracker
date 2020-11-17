@@ -7,7 +7,7 @@ const PlayerStatsGraph = Styled.div`
     width: 300px;
     color: ${(props) => props.theme.bodyColor};
     
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         margin-left: auto;
         margin-right: auto;
     }

@@ -70,7 +70,7 @@ const Nav = Styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         height: 150px;
 
         .smash-ball-image {

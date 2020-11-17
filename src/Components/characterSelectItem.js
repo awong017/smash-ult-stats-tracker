@@ -18,7 +18,7 @@ const CharacterSelectItem = Styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         img {
             width: 45px;
         }

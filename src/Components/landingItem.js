@@ -56,7 +56,7 @@ const LandingItem = Styled.div`
         }
     }
     
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         ul {
             .thumbnail {
                 width: 100px;

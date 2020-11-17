@@ -38,7 +38,7 @@ const PlayerStats = Styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         display: block;
         margin-bottom: 24px;
         width: initial;

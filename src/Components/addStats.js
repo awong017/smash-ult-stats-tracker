@@ -77,7 +77,7 @@ const AddStats = Styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         .add-stats-content {
             
             .matchup {

@@ -22,7 +22,7 @@ const Home = Styled.div`
         }
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
 
         h1 {
             text-align: center;

@@ -16,7 +16,7 @@ const CharacterSelect = Styled.div`
         margin-right: auto;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 800px) {
         .character-select-list {
             grid-template-columns: repeat(6, 16.66%);
             width: initial;
