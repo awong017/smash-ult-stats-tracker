@@ -71,7 +71,7 @@ const matchupRecord = () => {
                 <MatchupRecordGraph />
                 <ul>
                     <li>
-                        <h3 onClick={() => console.log("Wins:", wins)}>Wins</h3>
+                        <h3>Wins</h3>
                         <p>{wins}</p>
                         <p className={hidePercent()}>({winPercent}%)</p>
                         <div className="increment">
