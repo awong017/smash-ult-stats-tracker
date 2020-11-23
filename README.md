@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Smash Ultimate Stats Tracker repository. This is an application that allows the user to track their progress for the game Super Smash Bros Ultimate by allowing the user to view their win percentage, see specific matchups, and get a glimpse of which characters they use the most. 
 
-## Available Scripts
+To get started, you may use the following login below.
 
-In the project directory, you can run:
+username: guest <br />
+password: welcome!
 
-### `npm start`
+Here is a list of all the application pages and their functions:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1) Landing 
+    - User can see latest posts on /r/smashbros from Reddit. Data is fetched from the Reddit API
+    - User can see who the top registered players are as well as see the top three characters with the most wins
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+2) Home
+    - First page that is seen after logging in and can be accessed by clicking on the smash ball icon on the nav bar
+    - Your Stats
+        - Quick overview of users overall stats
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+3) Add Stats
+    - Page where user can add or subtract wins or losses for a specific character matchup.
+    - To add stats, complete the following: 
+        - To select which character you want to change, begin by clicking either the "Player" or "Opponent" avatar. The white border around the avatar will indicate that its been selected
+        - Next, select the character you desire from the "Character Select" section
+        - Lastly to add stats, simply click the "+" or "-" button to add or subtract stats respectively.
+    - Users can use the "View By" filter to filter character matches by a specific time frame
+    - "Matchup History" is a history of the filtered matches
