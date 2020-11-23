@@ -1,28 +1,28 @@
 Welcome to the Smash Ultimate Stats Tracker repository. This is an application that allows the user to track their progress for the game Super Smash Bros Ultimate by allowing the user to view their win percentage, see specific matchups, and get a glimpse of which characters they use the most. <br />
 <br />
-Language: JavaScript <br />
-Front-End: React Hooks, styled components, HTML <br />
-Back-End: PostgreSQL, Express <br />
-Other: NPM, Node <br />
-Deployment: Vercel, Heroku
+<b>Language:</b> JavaScript <br />
+<b>Front-End:</b> React Hooks, styled components, HTML <br />
+<b>Back-End:</b> PostgreSQL, Express <br />
+<b>Other:</b> NPM, Node <br />
+<b>Deployment:</b> Vercel, Heroku
 
 To get started, you may use the following login below.
 
-username: guest <br />
-password: welcome!
+<b>username:</b> guest <br />
+<b>password:</b> welcome!
 
 Here is a list of all the application pages and their functions:
 
-1) Landing 
+<b>1) Landing</b> 
     - User can see latest posts on /r/smashbros from Reddit. Data is fetched from the Reddit API
     - User can see who the top registered players are as well as see the top three characters with the most wins
 
-2) Home
+<b>2) Home</b>
     - First page that is seen after logging in and can be accessed by clicking on the smash ball icon on the nav bar
     - Your Stats
         - Quick overview of users overall stats
 
-3) Add Stats
+<b>3) Add Stats</b>
     - Page where user can add or subtract wins or losses for a specific character matchup.
     - To add stats, complete the following: 
         - To select which character you want to change, begin by clicking either the "Player" or "Opponent" avatar. The white border around the avatar will indicate that its been selected
