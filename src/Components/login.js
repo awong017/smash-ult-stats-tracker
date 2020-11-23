@@ -46,6 +46,10 @@ const Login = Styled.div`
             color: ${(props) => props.theme.errorColor};
         }
 
+        p {
+            color: white;
+        }
+
         .login-button {
             display: block;
             width: 50px;
@@ -117,9 +121,10 @@ const login = () => {
                         <input type="submit" className="login-button" value="Login" />
                     </fieldset>
                     <fieldset className="login-option">
-                        <Link to={'/forgotPassword'}>
+                        {/* <Link to={'/forgotPassword'}>
                             Forgot your password?
-                        </Link>
+                        </Link> */}
+                        <p>Not a user yet?</p>
                         <Link to={'/signup'}>
                             Sign Up
                         </Link>
