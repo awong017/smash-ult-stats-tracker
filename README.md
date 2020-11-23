@@ -1,4 +1,10 @@
-Welcome to the Smash Ultimate Stats Tracker repository. This is an application that allows the user to track their progress for the game Super Smash Bros Ultimate by allowing the user to view their win percentage, see specific matchups, and get a glimpse of which characters they use the most. 
+Welcome to the Smash Ultimate Stats Tracker repository. This is an application that allows the user to track their progress for the game Super Smash Bros Ultimate by allowing the user to view their win percentage, see specific matchups, and get a glimpse of which characters they use the most. <br />
+<br />
+Language: JavaScript <br />
+Front-End: React Hooks, styled components, HTML <br />
+Back-End: PostgreSQL, Express <br />
+Other: NPM, Node <br />
+Deployment: Vercel, Heroku
 
 To get started, you may use the following login below.
 
